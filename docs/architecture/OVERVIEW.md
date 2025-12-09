@@ -1,53 +1,53 @@
-# 🏗️ Architecture YGGDRASIL
+# Architecture YGGDRASIL
 
-> *"Yggdrasil, le frêne toujours vert, se dresse au centre de l'univers, ses branches s'étendant sur tous les mondes."*
+> *"Yggdrasil, le frene toujours vert, se dresse au centre de l'univers, ses branches s'etendant sur tous les mondes."*
 
 ## Vue d'Ensemble
 
-YGGDRASIL est une architecture d'orchestration d'IA conçue pour garantir la véracité, la traçabilité et la souveraineté. Elle ne crée pas de nouveau modèle — elle orchestre l'existant avec une couche de validation inviolable.
+YGGDRASIL est une architecture d'orchestration d'IA concue pour garantir la veracite, la tracabilite et la souverainete. Elle ne cree pas de nouveau modele — elle orchestre l'existant avec une couche de validation inviolable.
 
 ```mermaid
 flowchart TB
-    subgraph ENTRÉE
-        U[🌍 Utilisateur]
+    subgraph ENTREE
+        U[Utilisateur]
     end
-    
+
     subgraph GATEWAY
-        H[🛡️ HEIMDALL<br/>Gateway]
+        H[HEIMDALL<br/>Gateway]
     end
-    
+
     subgraph ROUTAGE
-        R[🐿️ RATATOSK<br/>Routage]
+        R[RATATOSK<br/>Routage]
     end
-    
+
     subgraph BRANCHES["LES TROIS BRANCHES"]
-        M[📚 MÍMIR<br/>Validé 100%]
-        V[🔮 VÖLVA<br/>Recherche]
-        HU[🦅 HUGIN<br/>Internet]
+        M[MIMIR<br/>Valide 100%]
+        V[VOLVA<br/>Recherche]
+        HU[HUGIN<br/>Internet]
     end
-    
+
     subgraph CONSEIL["LE CONSEIL (THING)"]
-        K[🧠 KVASIR<br/>Raisonnement]
-        B[🎭 BRAGI<br/>Créativité]
-        N[⚖️ NORNES<br/>Calcul]
-        S[📖 SAGA<br/>Connaissance]
-        L[🃏 LOKI<br/>Critique]
-        T[⚔️ TYR<br/>Arbitrage]
+        K[KVASIR<br/>Raisonnement]
+        B[BRAGI<br/>Creativite]
+        N[NORNES<br/>Calcul]
+        S[SAGA<br/>Connaissance]
+        L[LOKI<br/>Critique]
+        T[TYR<br/>Arbitrage]
     end
-    
+
     subgraph VALIDATION
-        O[👁️ ODIN<br/>Maestro]
+        O[ODIN<br/>Maestro]
     end
-    
-    subgraph MÉMOIRE
-        MU[🦅 MUNIN<br/>Mémoire]
+
+    subgraph MEMOIRE
+        MU[MUNIN<br/>Memoire]
     end
-    
+
     subgraph SORTIE
-        OUT[✅ Réponse Validée]
-        REJ[❌ Rejet Explicite]
+        OUT[Reponse Validee]
+        REJ[Rejet Explicite]
     end
-    
+
     U --> H
     H --> R
     R --> M & V & HU
@@ -62,18 +62,18 @@ flowchart TB
 
 ---
 
-## Composants Détaillés
+## Composants Detailles
 
-### 🛡️ HEIMDALL — Le Gardien
+### HEIMDALL — Le Gardien
 
-**Inspiration :** Le dieu qui garde le Bifröst, capable de voir à cent lieues et d'entendre l'herbe pousser.
+**Inspiration :** Le dieu qui garde le Bifrost, capable de voir a cent lieues et d'entendre l'herbe pousser.
 
-**Responsabilités :**
+**Responsabilites :**
 - Authentification et autorisation
-- Rate limiting et protection DDoS  
+- Rate limiting et protection DDoS
 - Chiffrement TLS/mTLS
-- Audit logging de toutes les requêtes
-- Validation des entrées
+- Audit logging de toutes les requetes
+- Validation des entrees
 
 **Stack technique :**
 - NestJS avec Passport
@@ -88,20 +88,20 @@ flowchart LR
         AUDIT[Audit Logger]
         TLS[TLS Termination]
     end
-    
+
     IN[Request] --> TLS --> AUTH --> RATE --> AUDIT --> OUT[To Ratatosk]
 ```
 
 ---
 
-### 🐿️ RATATOSK — Le Messager
+### RATATOSK — Le Messager
 
-**Inspiration :** L'écureuil qui court le long d'Yggdrasil, portant les messages entre les mondes.
+**Inspiration :** L'ecureuil qui court le long d'Yggdrasil, portant les messages entre les mondes.
 
-**Responsabilités :**
-- Classification de la requête (factuelle, créative, analytique, etc.)
+**Responsabilites :**
+- Classification de la requete (factuelle, creative, analytique, etc.)
 - Extraction du contexte et des intentions
-- Routage vers la/les branches appropriées
+- Routage vers la/les branches appropriees
 - Enrichissement avec le contexte de MUNIN
 
 **Algorithme de routage :**
@@ -110,38 +110,39 @@ flowchart LR
 flowchart TD
     Q[Query] --> CLASSIFY{Classification}
     CLASSIFY -->|Factuelle| F[Fact Check]
-    CLASSIFY -->|Créative| C[Creative]
+    CLASSIFY -->|Creative| C[Creative]
     CLASSIFY -->|Analytique| A[Analysis]
     CLASSIFY -->|Recherche| R[Research]
-    
-    F --> MIMIR[📚 MÍMIR]
-    C --> THING[🏛️ THING]
+
+    F --> MIMIR[MIMIR]
+    C --> THING[THING]
     A --> MIMIR & THING
-    R --> VOLVA[🔮 VÖLVA] & HUGIN[🦅 HUGIN]
+    R --> VOLVA[VOLVA] & HUGIN[HUGIN]
 ```
 
 ---
 
-### 📚 MÍMIR — Le Puits de Sagesse
+### MIMIR — Le Puits de Sagesse
 
-**Inspiration :** Le puits gardé par Mímir où Odin sacrifia un œil pour une gorgée de sagesse.
+**Inspiration :** Le puits garde par Mimir ou Odin sacrifia un oeil pour une gorgee de sagesse.
 
-**Responsabilités :**
-- Stocker les connaissances **100% vérifiées**
-- Indexation sémantique des sources
-- Vérification de la validité temporelle
-- Mise à jour continue avec validation
+**Responsabilites :**
+- Stocker les connaissances **100% verifiees**
+- Indexation semantique des sources
+- Verification de la validite temporelle
+- Mise a jour continue avec validation
 
-**Sources intégrées :**
+**Sources integrees :**
+
 | Source | Type | Domaine |
 |--------|------|---------|
 | arXiv | Preprints | Sciences |
-| PubMed | Peer-reviewed | Médical |
+| PubMed | Peer-reviewed | Medical |
 | ISO | Standards | Technique |
 | RFC | Standards | Internet |
-| Wikidata | Structured | Général |
+| Wikidata | Structured | General |
 
-**Architecture de données :**
+**Architecture de donnees :**
 
 ```mermaid
 erDiagram
@@ -153,7 +154,7 @@ erDiagram
         float trust_score
         timestamp last_validated
     }
-    
+
     FACT {
         uuid id PK
         text content
@@ -162,7 +163,7 @@ erDiagram
         timestamp created_at
         timestamp valid_until
     }
-    
+
     VALIDATION {
         uuid id PK
         uuid fact_id FK
@@ -170,32 +171,32 @@ erDiagram
         float confidence
         timestamp validated_at
     }
-    
+
     SOURCE ||--o{ FACT : provides
     FACT ||--o{ VALIDATION : has
 ```
 
 ---
 
-### 🔮 VÖLVA — La Voyante
+### VOLVA — La Voyante
 
-**Inspiration :** Les prophétesses nordiques qui exploraient l'inconnu et conseillaient les dieux.
+**Inspiration :** Les prophetesses nordiques qui exploraient l'inconnu et conseillaient les dieux.
 
-**Responsabilités :**
-- Stocker les hypothèses et théories
+**Responsabilites :**
+- Stocker les hypotheses et theories
 - Tracker le niveau de preuve
-- Gérer la promotion vers MÍMIR
-- Flaguer systématiquement comme `THEORETICAL`
+- Gerer la promotion vers MIMIR
+- Flaguer systematiquement comme `THEORETICAL`
 
-**États d'une hypothèse :**
+**Etats d'une hypothese :**
 
 ```mermaid
 stateDiagram-v2
-    [*] --> PROPOSED: Nouvelle hypothèse
+    [*] --> PROPOSED: Nouvelle hypothese
     PROPOSED --> EXPLORING: Investigation
     EXPLORING --> SUPPORTED: Preuves partielles
     EXPLORING --> REJECTED: Contre-preuves
-    SUPPORTED --> VALIDATED: Preuves complètes
+    SUPPORTED --> VALIDATED: Preuves completes
     SUPPORTED --> REJECTED: Contre-preuves
     VALIDATED --> MIMIR: Promotion
     REJECTED --> [*]
@@ -203,52 +204,52 @@ stateDiagram-v2
 
 ---
 
-### 🦅 HUGIN — La Pensée
+### HUGIN — La Pensee
 
 **Inspiration :** Un des deux corbeaux d'Odin qui parcourt le monde pour lui rapporter ce qu'il voit.
 
-**Responsabilités :**
-- Interface avec le web en temps réel
-- Filtrage anti-désinformation
-- Détection de sources douteuses
-- Tagging systématique `UNVERIFIED`
+**Responsabilites :**
+- Interface avec le web en temps reel
+- Filtrage anti-desinformation
+- Detection de sources douteuses
+- Tagging systematique `UNVERIFIED`
 
 **Pipeline de filtrage :**
 
 ```mermaid
 flowchart LR
-    WEB[🌐 Web] --> FETCH[Fetch]
+    WEB[Web] --> FETCH[Fetch]
     FETCH --> CLEAN[Clean HTML]
     CLEAN --> DETECT[Detect<br/>Misinfo]
-    DETECT -->|Suspect| QUARANTINE[🔒 Quarantine]
+    DETECT -->|Suspect| QUARANTINE[Quarantine]
     DETECT -->|Clean| TAG[Tag UNVERIFIED]
     TAG --> OUT[To THING]
 ```
 
 ---
 
-### 🏛️ THING — L'Assemblée
+### THING — L'Assemblee
 
-**Inspiration :** L'assemblée viking où les décisions collectives étaient prises.
+**Inspiration :** L'assemblee viking ou les decisions collectives etaient prises.
 
-**Responsabilités :**
-- Orchestrer les modèles spécialisés
-- Agréger les réponses
-- Gérer le consensus
-- Soumettre à la critique de LOKI
+**Responsabilites :**
+- Orchestrer les modeles specialises
+- Agreger les reponses
+- Gerer le consensus
+- Soumettre a la critique de LOKI
 
 **Membres du conseil :**
 
-| Membre | Modèle | Spécialité | Poids |
+| Membre | Modele | Specialite | Poids |
 |--------|--------|------------|-------|
 | KVASIR | Claude | Raisonnement | Variable |
-| BRAGI | Grok | Créativité | Variable |
+| BRAGI | Grok | Creativite | Variable |
 | NORNES | DeepSeek | Calcul | Variable |
 | SAGA | Llama | Connaissance | Variable |
 | LOKI | Adversarial | Critique | Veto power |
 | TYR | Voting | Arbitrage | Final |
 
-**Processus de délibération :**
+**Processus de deliberation :**
 
 ```mermaid
 sequenceDiagram
@@ -265,12 +266,12 @@ sequenceDiagram
     R->>B: Query + Context
     R->>N: Query + Context
     R->>S: Query + Context
-    
+
     K-->>T: Response + Confidence
     B-->>T: Response + Confidence
     N-->>T: Response + Confidence
     S-->>T: Response + Confidence
-    
+
     T->>L: Aggregated Response
     L-->>T: Challenges
     T->>T: Resolve Conflicts
@@ -279,47 +280,47 @@ sequenceDiagram
 
 ---
 
-### 👁️ ODIN — Le Maestro
+### ODIN — Le Maestro
 
-**Inspiration :** Le Père-de-Tout, qui a sacrifié un œil pour la sagesse et s'est pendu à Yggdrasil pour la connaissance.
+**Inspiration :** Le Pere-de-Tout, qui a sacrifie un oeil pour la sagesse et s'est pendu a Yggdrasil pour la connaissance.
 
-**Responsabilités :**
+**Responsabilites :**
 - Validation finale de chaque affirmation
-- Ancrage obligatoire à MÍMIR
-- Vérification de cohérence avec MUNIN
+- Ancrage obligatoire a MIMIR
+- Verification de coherence avec MUNIN
 - Rejet explicite avec raison si <100%
 
-**Critères de validation :**
+**Criteres de validation :**
 
 ```mermaid
 flowchart TD
-    INPUT[Proposition<br/>du THING] --> CHECK1{Ancrage<br/>MÍMIR ?}
-    CHECK1 -->|Non| REJ1[❌ Rejet:<br/>Non sourcé]
-    CHECK1 -->|Oui| CHECK2{Cohérent<br/>MUNIN ?}
-    CHECK2 -->|Non| REJ2[❌ Rejet:<br/>Contradiction]
+    INPUT[Proposition<br/>du THING] --> CHECK1{Ancrage<br/>MIMIR ?}
+    CHECK1 -->|Non| REJ1[Rejet:<br/>Non source]
+    CHECK1 -->|Oui| CHECK2{Coherent<br/>MUNIN ?}
+    CHECK2 -->|Non| REJ2[Rejet:<br/>Contradiction]
     CHECK2 -->|Oui| CHECK3{Survit<br/>LOKI ?}
-    CHECK3 -->|Non| REJ3[❌ Rejet:<br/>Critique valide]
+    CHECK3 -->|Non| REJ3[Rejet:<br/>Critique valide]
     CHECK3 -->|Oui| CHECK4{Consensus<br/>TYR ?}
-    CHECK4 -->|Non| REJ4[❌ Rejet:<br/>Pas de consensus]
-    CHECK4 -->|Oui| VALID[✅ VALIDÉ]
-    
-    VALID --> OUT[Réponse + Sources + Trace]
+    CHECK4 -->|Non| REJ4[Rejet:<br/>Pas de consensus]
+    CHECK4 -->|Oui| VALID[VALIDE]
+
+    VALID --> OUT[Reponse + Sources + Trace]
     REJ1 & REJ2 & REJ3 & REJ4 --> EXPLAIN[Rejet + Raison + Alternatives]
 ```
 
-**Règle d'or :** *"Je ne valide que ce que je peux prouver."*
+**Regle d'or :** *"Je ne valide que ce que je peux prouver."*
 
 ---
 
-### 🦅 MUNIN — La Mémoire
+### MUNIN — La Memoire
 
-**Inspiration :** Le corbeau de la mémoire, celui qu'Odin craignait de perdre plus que Hugin.
+**Inspiration :** Le corbeau de la memoire, celui qu'Odin craignait de perdre plus que Hugin.
 
-**Responsabilités :**
-- Mémoire chrono-sémantique persistante
-- Graphe de dépendances entre décisions
-- Système de checkpoints
-- Rollback sur erreur détectée
+**Responsabilites :**
+- Memoire chrono-semantique persistante
+- Graphe de dependances entre decisions
+- Systeme de checkpoints
+- Rollback sur erreur detectee
 
 **Architecture de stockage :**
 
@@ -333,7 +334,7 @@ erDiagram
         jsonb context
         timestamp created_at
     }
-    
+
     DECISION {
         uuid id PK
         uuid interaction_id FK
@@ -341,21 +342,21 @@ erDiagram
         jsonb reasoning
         uuid[] source_ids
     }
-    
+
     CHECKPOINT {
         uuid id PK
         uuid user_id FK
         jsonb state_snapshot
         timestamp created_at
     }
-    
+
     DEPENDENCY {
         uuid id PK
         uuid decision_id FK
         uuid depends_on_id FK
         string dependency_type
     }
-    
+
     INTERACTION ||--o{ DECISION : contains
     DECISION ||--o{ DEPENDENCY : has
     CHECKPOINT ||--o{ INTERACTION : captures
@@ -363,8 +364,8 @@ erDiagram
 
 **Triple indexation :**
 - **Temporelle** : Quand ?
-- **Sémantique** : À propos de quoi ? (PGVector)
-- **Causale** : À cause de quoi ?
+- **Semantique** : A propos de quoi ? (PGVector)
+- **Causale** : A cause de quoi ?
 
 ---
 
@@ -375,8 +376,8 @@ sequenceDiagram
     actor User
     participant H as HEIMDALL
     participant R as RATATOSK
-    participant M as MÍMIR
-    participant V as VÖLVA
+    participant M as MIMIR
+    participant V as VOLVA
     participant HU as HUGIN
     participant TH as THING
     participant O as ODIN
@@ -385,35 +386,35 @@ sequenceDiagram
     User->>H: Query
     H->>H: Auth + Audit
     H->>R: Validated Query
-    
+
     R->>MU: Get Context
     MU-->>R: User Context
-    
+
     R->>R: Classify + Route
-    
+
     par Parallel Fetch
         R->>M: Factual Data
         R->>V: Hypotheses
         R->>HU: Real-time Info
     end
-    
+
     M-->>TH: Verified Facts
     V-->>TH: Theories (flagged)
     HU-->>TH: Web Info (flagged)
-    
+
     TH->>TH: Multi-model Deliberation
     TH->>O: Proposal
-    
+
     O->>M: Verify Sources
     M-->>O: Source Confirmation
     O->>MU: Check Consistency
     MU-->>O: Memory State
-    
+
     alt Validation OK
         O->>MU: Store Decision
-        O->>User: ✅ Response + Sources + Trace
+        O->>User: Response + Sources + Trace
     else Validation Failed
-        O->>User: ❌ Rejection + Reason + Alternatives
+        O->>User: Rejection + Reason + Alternatives
     end
 ```
 
@@ -423,7 +424,7 @@ sequenceDiagram
 
 ### Backend
 - **Framework** : NestJS (TypeScript)
-- **Base de données** : PostgreSQL + PGVector
+- **Base de donnees** : PostgreSQL + PGVector
 - **Cache** : Redis
 - **Queue** : BullMQ
 - **ORM** : Prisma
@@ -434,13 +435,13 @@ sequenceDiagram
 - **IaC** : Terraform
 - **CI/CD** : GitHub Actions
 
-### Modèles IA
+### Modeles IA
 - **Claude** : Via API Anthropic
 - **Llama** : Via Ollama (local) ou API
 - **DeepSeek** : Via API
 - **Grok** : Via API xAI
 
-### Observabilité
+### Observabilite
 - **Logs** : Structured JSON (Pino)
 - **Metrics** : Prometheus
 - **Traces** : OpenTelemetry
@@ -448,12 +449,12 @@ sequenceDiagram
 
 ---
 
-## Sécurité
+## Securite
 
 ### Chiffrement
 - TLS 1.3 pour toutes les communications
 - mTLS entre services internes
-- Chiffrement at-rest pour les données sensibles
+- Chiffrement at-rest pour les donnees sensibles
 
 ### Authentification
 - JWT avec refresh tokens
@@ -461,26 +462,24 @@ sequenceDiagram
 - Rate limiting par utilisateur et IP
 
 ### Audit
-- Logging immutable de toutes les requêtes
-- Traçabilité complète des décisions
+- Logging immutable de toutes les requetes
+- Tracabilite complete des decisions
 - Retention configurable
 
 ---
 
-## Prochaines Étapes
+## Prochaines Etapes
 
-1. **Implémenter HEIMDALL** — Gateway de base
-2. **Implémenter RATATOSK** — Routage simple
-3. **Intégrer MÍMIR** — Avec arXiv comme première source
-4. **Construire THING** — Orchestration de 2 modèles
-5. **Développer ODIN** — Validation basique
+1. **Implementer HEIMDALL** — Gateway de base
+2. **Implementer RATATOSK** — Routage simple
+3. **Integrer MIMIR** — Avec arXiv comme premiere source
+4. **Construire THING** — Orchestration de 2 modeles
+5. **Developper ODIN** — Validation basique
 
 ---
 
 <div align="center">
 
-*"L'architecture est le squelette. Les principes sont l'âme."*
-
-🌲
+*"L'architecture est le squelette. Les principes sont l'ame."*
 
 </div>
