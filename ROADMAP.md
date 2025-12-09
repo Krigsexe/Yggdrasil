@@ -1,221 +1,222 @@
-# 🗺️ Feuille de Route YGGDRASIL
+# Feuille de Route YGGDRASIL
 
 > *"Un voyage de mille lieues commence par un premier pas."* — Lao Tseu
 
-Cette roadmap est **vivante**. Elle évolue avec la communauté et les apprentissages du projet.
+Cette roadmap est **vivante**. Elle evolue avec la communaute et les apprentissages du projet.
 
 ---
 
-## 📍 Où Nous Sommes
+## Ou Nous Sommes
 
 ```
-Phase 1: FONDATIONS ←── VOUS ÊTES ICI
+Phase 1: FONDATIONS <-- VOUS ETES ICI
 Phase 2: CONSTRUCTION
-Phase 3: OUVERTURE  
+Phase 3: OUVERTURE
 Phase 4: EXPANSION
 ```
 
 ---
 
-## 🌱 Phase 1 : Fondations (2024-2025)
+## Phase 1 : Fondations (2024-2025)
 
 *"Poser les pierres"*
 
 ### Objectifs
-Établir les bases du projet : vision, communauté, et premier prototype fonctionnel.
+Etablir les bases du projet : vision, communaute, et premier prototype fonctionnel.
 
 ### Milestones
 
-#### ✅ M1.1 : Vision & Documentation (Q4 2024)
+#### M1.1 : Vision et Documentation (Q4 2024) - COMPLETE
 - [x] Publication du Manifeste
 - [x] Repository GitHub public
 - [x] README complet
 - [x] Guide de contribution
 - [x] Code de conduite
-- [x] Politique de sécurité
-- [ ] Documentation d'architecture détaillée
+- [x] Politique de securite
+- [x] Architecture complete implementee
+- [ ] Documentation d'architecture detaillee
 - [ ] Les Sept Piliers (documentation approfondie)
 - [ ] Les Sept Lois (documentation approfondie)
 
-#### 🔄 M1.2 : Communauté (Q4 2024 - Q1 2025)
+#### M1.2 : Communaute (Q4 2024 - Q1 2025) - EN COURS
 - [ ] 10 premiers contributeurs
 - [ ] Canal Discord / Matrix
-- [ ] Premières discussions GitHub
-- [ ] Template d'issues et PRs
-- [ ] CI/CD de base
+- [ ] Premieres discussions GitHub
+- [x] Template d'issues et PRs
+- [x] CI/CD de base
 
-#### 📦 M1.3 : Prototype Alpha (Q1-Q2 2025)
-- [ ] Structure monorepo fonctionnelle
-- [ ] HEIMDALL : Gateway basique (auth, rate limiting)
-- [ ] RATATOSK : Routage simple
-- [ ] THING : Orchestration de 2+ modèles
-- [ ] ODIN : Validation basique (ancrage sources)
+#### M1.3 : Prototype Alpha (Q1-Q2 2025)
+- [x] Structure monorepo fonctionnelle
+- [x] HEIMDALL : Gateway basique (auth, rate limiting)
+- [x] RATATOSK : Routage simple
+- [x] THING : Orchestration de 2+ modeles
+- [x] ODIN : Validation basique (ancrage sources)
 - [ ] Tests unitaires pour chaque composant
 - [ ] Documentation API initiale
 
 ### Livrables Phase 1
-- ✅ Manifeste public
-- ✅ Repository avec documentation
-- 🔄 Communauté active
-- ⏳ Prototype démontrant l'orchestration + validation
+- [x] Manifeste public
+- [x] Repository avec documentation
+- [ ] Communaute active
+- [ ] Prototype demonstrant l'orchestration + validation
 
 ---
 
-## 🌿 Phase 2 : Construction (2025-2026)
+## Phase 2 : Construction (2025-2026)
 
-*"Élever les murs"*
+*"Elever les murs"*
 
 ### Objectifs
-Construire les composants principaux et atteindre un système fonctionnel.
+Construire les composants principaux et atteindre un systeme fonctionnel.
 
 ### Milestones
 
 #### M2.1 : Les Trois Branches (Q2-Q3 2025)
-- [ ] **MÍMIR** : Intégration arXiv
-- [ ] **MÍMIR** : Intégration PubMed
-- [ ] **MÍMIR** : Pipeline de validation de sources
-- [ ] **VÖLVA** : Espace hypothèses avec flagging
+- [ ] **MIMIR** : Integration arXiv
+- [ ] **MIMIR** : Integration PubMed
+- [ ] **MIMIR** : Pipeline de validation de sources
+- [ ] **VOLVA** : Espace hypotheses avec flagging
 - [ ] **HUGIN** : Recherche web avec filtrage
-- [ ] **HUGIN** : Détection de désinformation basique
-- [ ] Séparation stricte des bases de données
+- [ ] **HUGIN** : Detection de desinformation basique
+- [ ] Separation stricte des bases de donnees
 
 #### M2.2 : Le Conseil (Q3-Q4 2025)
-- [ ] **THING** : Intégration Claude (KVASIR)
-- [ ] **THING** : Intégration Llama (SAGA)
-- [ ] **THING** : Intégration DeepSeek (NORNES)
-- [ ] **THING** : Système de vote/consensus (TYR)
+- [ ] **THING** : Integration Claude (KVASIR)
+- [ ] **THING** : Integration Llama (SAGA)
+- [ ] **THING** : Integration DeepSeek (NORNES)
+- [ ] **THING** : Systeme de vote/consensus (TYR)
 - [ ] **LOKI** : Module critique/adversarial
 - [ ] Benchmarks de performance
 
 #### M2.3 : Le Maestro (Q4 2025 - Q1 2026)
-- [ ] **ODIN** : Validation multi-critères
-- [ ] **ODIN** : Ancrage systématique à MÍMIR
+- [ ] **ODIN** : Validation multi-criteres
+- [ ] **ODIN** : Ancrage systematique a MIMIR
 - [ ] **ODIN** : Rejet explicite avec raisons
-- [ ] Taux de validation >99% sur faits vérifiables
+- [ ] Taux de validation >99% sur faits verifiables
 - [ ] Taux de hallucination <1%
 
-#### M2.4 : La Mémoire (Q1-Q2 2026)
-- [ ] **MUNIN** : Mémoire chrono-sémantique (PGVector)
-- [ ] **MUNIN** : Graphe de dépendances
-- [ ] **MUNIN** : Système de checkpoints
+#### M2.4 : La Memoire (Q1-Q2 2026)
+- [ ] **MUNIN** : Memoire chrono-semantique (PGVector)
+- [ ] **MUNIN** : Graphe de dependances
+- [ ] **MUNIN** : Systeme de checkpoints
 - [ ] **MUNIN** : Rollback fonctionnel
-- [ ] Tests de persistance et cohérence
+- [ ] Tests de persistance et coherence
 
-#### M2.5 : Qualité & Sécurité (Q2 2026)
+#### M2.5 : Qualite et Securite (Q2 2026)
 - [ ] Couverture de tests >80%
-- [ ] Tests d'intégration complets
+- [ ] Tests d'integration complets
 - [ ] Tests E2E
-- [ ] Audit de sécurité interne
+- [ ] Audit de securite interne
 - [ ] Bug bounty (soft launch)
 
 ### Livrables Phase 2
-- 📚 MÍMIR avec sources scientifiques
-- 🏛️ THING consortium multi-modèles
-- ⚡ ODIN validation 100%
-- 🧠 MUNIN mémoire fonctionnelle
-- 🧪 Suite de tests complète
+- MIMIR avec sources scientifiques
+- THING consortium multi-modeles
+- ODIN validation 100%
+- MUNIN memoire fonctionnelle
+- Suite de tests complete
 
 ---
 
-## 🌳 Phase 3 : Ouverture (2026-2027)
+## Phase 3 : Ouverture (2026-2027)
 
 *"Ouvrir les portes"*
 
 ### Objectifs
-Rendre YGGDRASIL utilisable par le public et établir une gouvernance.
+Rendre YGGDRASIL utilisable par le public et etablir une gouvernance.
 
 ### Milestones
 
 #### M3.1 : API Publique (Q3 2026)
-- [ ] API REST documentée (OpenAPI)
+- [ ] API REST documentee (OpenAPI)
 - [ ] SDK JavaScript/TypeScript
 - [ ] SDK Python
 - [ ] Exemples et tutoriels
 - [ ] Playground interactif
 
-#### M3.2 : Fédération (Q4 2026)
-- [ ] Protocole de fédération défini
-- [ ] Premières instances fédérées (test)
-- [ ] Synchronisation MÍMIR entre instances
-- [ ] Mécanismes de confiance inter-instances
+#### M3.2 : Federation (Q4 2026)
+- [ ] Protocole de federation defini
+- [ ] Premieres instances federees (test)
+- [ ] Synchronisation MIMIR entre instances
+- [ ] Mecanismes de confiance inter-instances
 
 #### M3.3 : Gouvernance (Q4 2026 - Q1 2027)
 - [ ] Constitution de gouvernance
-- [ ] Comité de pilotage élu
-- [ ] Processus de décision documenté
-- [ ] Trésorerie transparente
+- [ ] Comite de pilotage elu
+- [ ] Processus de decision documente
+- [ ] Tresorerie transparente
 
 #### M3.4 : Validation Externe (Q1-Q2 2027)
-- [ ] Audit de sécurité externe
-- [ ] Audit du système de validation
-- [ ] Partenariats académiques (2+)
+- [ ] Audit de securite externe
+- [ ] Audit du systeme de validation
+- [ ] Partenariats academiques (2+)
 - [ ] Publications de recherche
 
 ### Livrables Phase 3
-- 🌐 API publique et SDKs
-- 🔗 Fédération fonctionnelle
-- ⚖️ Gouvernance établie
-- ✅ Audits externes
+- API publique et SDKs
+- Federation fonctionnelle
+- Gouvernance etablie
+- Audits externes
 
 ---
 
-## 🌲 Phase 4 : Expansion (2027+)
+## Phase 4 : Expansion (2027+)
 
-*"Étendre les branches"*
+*"Etendre les branches"*
 
 ### Objectifs
-Faire de YGGDRASIL une infrastructure mondiale pour l'IA éthique.
+Faire de YGGDRASIL une infrastructure mondiale pour l'IA ethique.
 
 ### Milestones
 
 #### M4.1 : Internationalisation
 - [ ] Interface multilingue (10+ langues)
-- [ ] MÍMIR multilingue (sources non-anglophones)
+- [ ] MIMIR multilingue (sources non-anglophones)
 - [ ] Documentation traduite
-- [ ] Communautés locales
+- [ ] Communautes locales
 
-#### M4.2 : Domaines Spécialisés
-- [ ] YGGDRASIL Medical (avec MÍMIR médical)
-- [ ] YGGDRASIL Legal (avec MÍMIR juridique)
+#### M4.2 : Domaines Specialises
+- [ ] YGGDRASIL Medical (avec MIMIR medical)
+- [ ] YGGDRASIL Legal (avec MIMIR juridique)
 - [ ] YGGDRASIL Scientific (research-focused)
 - [ ] Partenariats sectoriels
 
-#### M4.3 : Intégrations Avancées
+#### M4.3 : Integrations Avancees
 - [ ] Support World Models (JEPA, etc.)
 - [ ] Agents autonomes avec validation
-- [ ] Intégration robotique (vision long terme)
+- [ ] Integration robotique (vision long terme)
 
 #### M4.4 : Standardisation
 - [ ] Proposition de standard ISO/IEEE
 - [ ] Certification "YGGDRASIL-compatible"
-- [ ] Framework d'évaluation de véracité IA
+- [ ] Framework d'evaluation de veracite IA
 
 ### Livrables Phase 4
-- 🌍 Présence internationale
-- 🏥 Domaines spécialisés
-- 🤖 Intégrations avancées
-- 📜 Standards reconnus
+- Presence internationale
+- Domaines specialises
+- Integrations avancees
+- Standards reconnus
 
 ---
 
-## 📊 Métriques de Succès
+## Metriques de Succes
 
-### Véracité
-| Métrique | Cible Phase 2 | Cible Phase 3 |
+### Veracite
+| Metrique | Cible Phase 2 | Cible Phase 3 |
 |----------|---------------|---------------|
 | Taux de hallucination | <5% | <1% |
-| Précision des sources | >95% | >99% |
-| Couverture MÍMIR | 1M+ sources | 10M+ sources |
+| Precision des sources | >95% | >99% |
+| Couverture MIMIR | 1M+ sources | 10M+ sources |
 
-### Communauté
-| Métrique | Cible Phase 2 | Cible Phase 3 |
+### Communaute
+| Metrique | Cible Phase 2 | Cible Phase 3 |
 |----------|---------------|---------------|
 | Contributeurs | 50+ | 200+ |
 | Stars GitHub | 1,000+ | 10,000+ |
-| Instances déployées | 10+ | 100+ |
+| Instances deployees | 10+ | 100+ |
 
 ### Technique
-| Métrique | Cible Phase 2 | Cible Phase 3 |
+| Metrique | Cible Phase 2 | Cible Phase 3 |
 |----------|---------------|---------------|
 | Latence P95 | <5s | <2s |
 | Uptime | 99% | 99.9% |
@@ -223,28 +224,28 @@ Faire de YGGDRASIL une infrastructure mondiale pour l'IA éthique.
 
 ---
 
-## 🔄 Comment Cette Roadmap Évolue
+## Comment Cette Roadmap Evolue
 
 1. **Revue trimestrielle** — Discussion communautaire
 2. **PRs bienvenues** — Proposez des modifications
-3. **Issues "roadmap"** — Discutez des priorités
-4. **Votes communautaires** — Sur les décisions majeures
+3. **Issues "roadmap"** — Discutez des priorites
+4. **Votes communautaires** — Sur les decisions majeures
 
 ---
 
-## 🤝 Comment Contribuer à la Roadmap
+## Comment Contribuer a la Roadmap
 
 ### Proposer un changement
 
 1. Ouvrez une issue avec le label `roadmap`
-2. Expliquez le changement proposé
-3. Justifiez l'impact et la faisabilité
-4. Participez à la discussion
+2. Expliquez le changement propose
+3. Justifiez l'impact et la faisabilite
+4. Participez a la discussion
 
 ### Prendre en charge un item
 
 1. Commentez sur l'issue correspondante
-2. Créez un plan d'implémentation
+2. Creez un plan d'implementation
 3. Soumettez des PRs progressives
 4. Documentez votre avancement
 
@@ -254,8 +255,6 @@ Faire de YGGDRASIL une infrastructure mondiale pour l'IA éthique.
 
 **La route est longue, mais nous la parcourons ensemble.**
 
-🌲
-
-*Dernière mise à jour : Décembre 2024*
+*Derniere mise a jour : Decembre 2024*
 
 </div>

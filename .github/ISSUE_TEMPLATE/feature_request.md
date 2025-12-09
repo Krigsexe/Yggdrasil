@@ -1,78 +1,78 @@
 ---
-name: 💡 Feature Request
-about: Proposer une nouvelle fonctionnalité pour YGGDRASIL
+name: Feature Request
+about: Proposer une nouvelle fonctionnalite pour YGGDRASIL
 title: '[FEATURE] '
 labels: enhancement, triage
 assignees: ''
 ---
 
-## 💡 Résumé
+## Resume
 
-Une description claire et concise de la fonctionnalité proposée.
+Une description claire et concise de la fonctionnalite proposee.
 
-## 🎯 Problème / Motivation
+## Probleme / Motivation
 
-Quel problème cette fonctionnalité résout-elle ?
+Quel probleme cette fonctionnalite resout-elle ?
 
-Ex: *"Je suis souvent frustré quand..."*
+Ex: *"Je suis souvent frustre quand..."*
 
-## 🛠️ Solution Proposée
+## Solution Proposee
 
-Décrivez la solution que vous aimeriez voir.
+Decrivez la solution que vous aimeriez voir.
 
-## 🔄 Alternatives Considérées
+## Alternatives Considerees
 
-Décrivez les alternatives que vous avez envisagées.
+Decrivez les alternatives que vous avez envisagees.
 
-## 🎨 Design / Maquettes (optionnel)
+## Design / Maquettes (optionnel)
 
-Si vous avez des idées visuelles, partagez-les ici.
+Si vous avez des idees visuelles, partagez-les ici.
 
-## 🏛️ Composant(s) Concerné(s)
+## Composant(s) Concerne(s)
 
 - [ ] HEIMDALL (Gateway)
 - [ ] RATATOSK (Routage)
-- [ ] MÍMIR (Branche Validée)
-- [ ] VÖLVA (Branche Recherche)
+- [ ] MIMIR (Branche Validee)
+- [ ] VOLVA (Branche Recherche)
 - [ ] HUGIN (Branche Internet)
 - [ ] THING (Consortium)
 - [ ] ODIN (Maestro)
-- [ ] MUNIN (Mémoire)
+- [ ] MUNIN (Memoire)
 - [ ] Nouveau composant
 - [ ] Documentation
 - [ ] Infrastructure
 - [ ] Autre : ___
 
-## 🔒 Alignement avec les Sept Piliers
+## Alignement avec les Sept Piliers
 
 Expliquez comment cette feature s'aligne avec nos principes :
 
 ### Impact positif attendu
-- [ ] Véracité Absolue — Comment ?
-- [ ] Traçabilité Totale — Comment ?
-- [ ] Séparation Épistémique — Comment ?
-- [ ] Mémoire Vivante — Comment ?
-- [ ] Réversibilité — Comment ?
-- [ ] Souveraineté — Comment ?
-- [ ] Soutenabilité — Comment ?
+- [ ] Veracite Absolue — Comment ?
+- [ ] Tracabilite Totale — Comment ?
+- [ ] Separation Epistemique — Comment ?
+- [ ] Memoire Vivante — Comment ?
+- [ ] Reversibilite — Comment ?
+- [ ] Souverainete — Comment ?
+- [ ] Soutenabilite — Comment ?
 
 ### Risques potentiels
 Y a-t-il des risques pour un des piliers ?
 
-## 📊 Priorité Suggérée
+## Priorite Suggeree
 
-- [ ] 🔴 Critique — Bloque l'utilisation
-- [ ] 🟠 Haute — Important pour la prochaine release
-- [ ] 🟡 Moyenne — Nice to have bientôt
-- [ ] 🟢 Basse — Pour le futur
+- [ ] Critique — Bloque l'utilisation
+- [ ] Haute — Important pour la prochaine release
+- [ ] Moyenne — Nice to have bientot
+- [ ] Basse — Pour le futur
 
-## 🤝 Volonté de Contribuer
+## Volonte de Contribuer
 
-- [ ] Je souhaite implémenter cette feature moi-même
-- [ ] Je peux aider à la spécification / design
+- [ ] Je souhaite implementer cette feature moi-meme
+- [ ] Je peux aider a la specification / design
 - [ ] Je peux aider aux tests
-- [ ] Je suggère l'idée mais ne peux pas contribuer directement
+- [ ] Je suggere l'idee mais ne peux pas contribuer directement
 
-## 📎 Contexte Additionnel
+## Contexte Additionnel
 
-Tout autre contexte, liens, ou références utiles.
+Tout autre contexte, liens, ou references utiles.

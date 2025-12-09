@@ -1,47 +1,47 @@
-# 🔐 Politique de Sécurité YGGDRASIL
+# Politique de Securite YGGDRASIL
 
 ## Notre Engagement
 
-La sécurité est fondamentale pour YGGDRASIL. Un système dédié à la vérité doit être digne de confiance, et la confiance commence par la sécurité.
+La securite est fondamentale pour YGGDRASIL. Un systeme dedie a la verite doit etre digne de confiance, et la confiance commence par la securite.
 
-## 🚨 Signaler une Vulnérabilité
+## Signaler une Vulnerabilite
 
-### ⚠️ NE PAS signaler publiquement
+### NE PAS signaler publiquement
 
-Si vous découvrez une vulnérabilité de sécurité, **ne créez PAS d'issue publique**.
+Si vous decouvrez une vulnerabilite de securite, **ne creez PAS d'issue publique**.
 
-### 📧 Contact sécurisé
+### Contact securise
 
 1. **Email** : security@yggdrasil.dev (placeholder)
-2. **Clé PGP** : [À ajouter]
+2. **Cle PGP** : [A ajouter]
 3. **GitHub Security Advisories** : Utilisez l'onglet "Security" du repository
 
-### 📝 Informations à inclure
+### Informations a inclure
 
-Pour nous aider à traiter rapidement votre signalement :
+Pour nous aider a traiter rapidement votre signalement :
 
 ```
 ## Description
-[Description claire de la vulnérabilité]
+[Description claire de la vulnerabilite]
 
 ## Type
 [ ] Injection (SQL, NoSQL, Command, etc.)
 [ ] Authentification/Autorisation
-[ ] Exposition de données
-[ ] Déni de service
+[ ] Exposition de donnees
+[ ] Deni de service
 [ ] Contournement de validation (ODIN bypass)
-[ ] Corruption de données (MÍMIR poisoning)
+[ ] Corruption de donnees (MIMIR poisoning)
 [ ] Autre : ___
 
-## Sévérité estimée
-[ ] Critique — Compromission complète du système
-[ ] Haute — Accès non autorisé à des données sensibles
-[ ] Moyenne — Impact limité, exploitation difficile
+## Severite estimee
+[ ] Critique — Compromission complete du systeme
+[ ] Haute — Acces non autorise a des donnees sensibles
+[ ] Moyenne — Impact limite, exploitation difficile
 [ ] Basse — Impact minimal
 
 ## Reproduction
-1. Étape 1
-2. Étape 2
+1. Etape 1
+2. Etape 2
 3. ...
 
 ## Impact
@@ -51,51 +51,51 @@ Pour nous aider à traiter rapidement votre signalement :
 [Si vous en avez une]
 
 ## Environnement
-- Version YGGDRASIL : 
-- OS : 
+- Version YGGDRASIL :
+- OS :
 - Autre contexte pertinent :
 ```
 
-## ⏱️ Notre Processus
+## Notre Processus
 
-| Étape | Délai | Description |
+| Etape | Delai | Description |
 |-------|-------|-------------|
-| Accusé de réception | 24h | Confirmation que nous avons reçu votre rapport |
-| Triage | 72h | Évaluation de la sévérité et de la validité |
+| Accuse de reception | 24h | Confirmation que nous avons recu votre rapport |
+| Triage | 72h | Evaluation de la severite et de la validite |
 | Investigation | 1-2 semaines | Analyse approfondie |
-| Correction | Variable | Développement du fix |
-| Disclosure | Coordonné | Publication coordonnée avec le reporter |
+| Correction | Variable | Developpement du fix |
+| Disclosure | Coordonne | Publication coordonnee avec le reporter |
 
-## 🎯 Vulnérabilités Critiques pour YGGDRASIL
+## Vulnerabilites Critiques pour YGGDRASIL
 
-En plus des vulnérabilités classiques, nous sommes particulièrement vigilants sur :
+En plus des vulnerabilites classiques, nous sommes particulierement vigilants sur :
 
-### Intégrité de la Vérité
+### Integrite de la Verite
 
-| Catégorie | Description | Criticité |
+| Categorie | Description | Criticite |
 |-----------|-------------|-----------|
-| **MÍMIR Poisoning** | Injection de fausses informations dans la branche validée | 🔴 Critique |
-| **ODIN Bypass** | Contournement de la validation finale | 🔴 Critique |
-| **Source Spoofing** | Falsification des sources de validation | 🔴 Critique |
-| **Epistemic Contamination** | Mélange des branches MÍMIR/VÖLVA/HUGIN | 🟠 Haute |
+| **MIMIR Poisoning** | Injection de fausses informations dans la branche validee | Critique |
+| **ODIN Bypass** | Contournement de la validation finale | Critique |
+| **Source Spoofing** | Falsification des sources de validation | Critique |
+| **Epistemic Contamination** | Melange des branches MIMIR/VOLVA/HUGIN | Haute |
 
-### Mémoire et Traçabilité
+### Memoire et Tracabilite
 
-| Catégorie | Description | Criticité |
+| Categorie | Description | Criticite |
 |-----------|-------------|-----------|
-| **MUNIN Corruption** | Altération de la mémoire chrono-sémantique | 🔴 Critique |
-| **Trace Deletion** | Suppression des traces d'audit | 🟠 Haute |
-| **Rollback Bypass** | Impossibilité de rollback sur erreur | 🟠 Haute |
+| **MUNIN Corruption** | Alteration de la memoire chrono-semantique | Critique |
+| **Trace Deletion** | Suppression des traces d'audit | Haute |
+| **Rollback Bypass** | Impossibilite de rollback sur erreur | Haute |
 
-### Souveraineté des Données
+### Souverainete des Donnees
 
-| Catégorie | Description | Criticité |
+| Categorie | Description | Criticite |
 |-----------|-------------|-----------|
-| **Data Exfiltration** | Fuite de données utilisateur | 🔴 Critique |
-| **Consent Bypass** | Utilisation de données sans consentement | 🟠 Haute |
-| **Federation Leak** | Fuite entre instances fédérées | 🟠 Haute |
+| **Data Exfiltration** | Fuite de donnees utilisateur | Critique |
+| **Consent Bypass** | Utilisation de donnees sans consentement | Haute |
+| **Federation Leak** | Fuite entre instances federees | Haute |
 
-## 🛡️ Mesures de Sécurité
+## Mesures de Securite
 
 ### En place
 
@@ -103,20 +103,20 @@ En plus des vulnérabilités classiques, nous sommes particulièrement vigilants
 - [ ] Authentification forte (JWT + refresh tokens)
 - [ ] Rate limiting sur tous les endpoints
 - [ ] Audit logging complet
-- [ ] Séparation stricte des branches épistémiques
-- [ ] Validation d'entrée systématique
+- [ ] Separation stricte des branches epistemiques
+- [ ] Validation d'entree systematique
 - [ ] Sanitization des outputs
 
-### Prévues
+### Prevues
 
 - [ ] Bug bounty program
-- [ ] Audit de sécurité externe
-- [ ] Penetration testing régulier
+- [ ] Audit de securite externe
+- [ ] Penetration testing regulier
 - [ ] SOC 2 Type II (long terme)
 
-## 🏆 Reconnaissance
+## Reconnaissance
 
-Nous reconnaissons publiquement (avec votre accord) les chercheurs en sécurité qui nous aident :
+Nous reconnaissons publiquement (avec votre accord) les chercheurs en securite qui nous aident :
 
 ### Hall of Fame
 
@@ -124,7 +124,7 @@ Nous reconnaissons publiquement (avec votre accord) les chercheurs en sécurité
 |-----------|--------------|------|
 | *Vous ?* | *Soyez le premier !* | — |
 
-### Récompenses
+### Recompenses
 
 Bien que YGGDRASIL soit un projet open-source sans financement commercial :
 
@@ -133,15 +133,15 @@ Bien que YGGDRASIL soit un projet open-source sans financement commercial :
 - **Lettre de recommandation** sur demande
 - **Swag** (si/quand disponible)
 
-## 📋 Versions Supportées
+## Versions Supportees
 
-| Version | Support Sécurité |
+| Version | Support Securite |
 |---------|------------------|
-| main (dev) | ✅ Actif |
-| v1.x (à venir) | ✅ Support complet |
-| < v1.0 | ⚠️ Best effort |
+| main (dev) | Actif |
+| v1.x (a venir) | Support complet |
+| < v1.0 | Best effort |
 
-## 📚 Ressources
+## Ressources
 
 - [OWASP Top 10](https://owasp.org/Top10/)
 - [CWE Top 25](https://cwe.mitre.org/top25/)
@@ -151,8 +151,6 @@ Bien que YGGDRASIL soit un projet open-source sans financement commercial :
 
 <div align="center">
 
-*"La vérité ne peut exister que dans un système digne de confiance."*
-
-🌲🔐
+*"La verite ne peut exister que dans un systeme digne de confiance."*
 
 </div>

@@ -1,102 +1,102 @@
-# 🛡️ Code de Conduite YGGDRASIL
+# Code de Conduite YGGDRASIL
 
 ## Notre Engagement
 
-YGGDRASIL est un projet pour l'humanité. Nous nous engageons à faire de la participation à ce projet une expérience respectueuse et enrichissante pour tous, indépendamment de l'âge, de la taille corporelle, du handicap, de l'ethnicité, de l'identité et expression de genre, du niveau d'expérience, de l'éducation, du statut socio-économique, de la nationalité, de l'apparence personnelle, de la race, de la religion ou de l'identité et orientation sexuelle.
+YGGDRASIL est un projet pour l'humanite. Nous nous engageons a faire de la participation a ce projet une experience respectueuse et enrichissante pour tous, independamment de l'age, de la taille corporelle, du handicap, de l'ethnicite, de l'identite et expression de genre, du niveau d'experience, de l'education, du statut socio-economique, de la nationalite, de l'apparence personnelle, de la race, de la religion ou de l'identite et orientation sexuelle.
 
 ## Nos Standards
 
-### ✅ Comportements attendus
+### Comportements attendus
 
-- **Respect** — Traiter chacun avec dignité et considération
-- **Empathie** — Comprendre que nous venons tous de contextes différents
-- **Constructivité** — Critiquer les idées, pas les personnes
-- **Humilité** — Reconnaître qu'on peut se tromper et apprendre des autres
-- **Patience** — Aider les nouveaux venus, même pour des questions basiques
-- **Transparence** — Communiquer ouvertement sur les décisions et leurs raisons
-- **Inclusion** — Accueillir activement la diversité des perspectives
+- **Respect** — Traiter chacun avec dignite et consideration
+- **Empathie** — Comprendre que nous venons tous de contextes differents
+- **Constructivite** — Critiquer les idees, pas les personnes
+- **Humilite** — Reconnaitre qu'on peut se tromper et apprendre des autres
+- **Patience** — Aider les nouveaux venus, meme pour des questions basiques
+- **Transparence** — Communiquer ouvertement sur les decisions et leurs raisons
+- **Inclusion** — Accueillir activement la diversite des perspectives
 
-### ❌ Comportements inacceptables
+### Comportements inacceptables
 
-- Harcèlement sous toute forme
-- Commentaires discriminatoires ou dégradants
+- Harcelement sous toute forme
+- Commentaires discriminatoires ou degradants
 - Attaques personnelles ou insultes
-- Publication d'informations privées sans consentement
+- Publication d'informations privees sans consentement
 - Trolling, provocation, ou comportement perturbateur
-- Toute conduite inappropriée dans un contexte professionnel
+- Toute conduite inappropriee dans un contexte professionnel
 
-## 🌲 Principes Spécifiques à YGGDRASIL
+## Principes Specifiques a YGGDRASIL
 
-En tant que projet dédié à la vérité et à l'éthique en IA, nous avons des standards supplémentaires :
+En tant que projet dedie a la verite et a l'ethique en IA, nous avons des standards supplementaires :
 
-### Honnêteté Intellectuelle
+### Honnetete Intellectuelle
 
-- Ne prétendez pas avoir des compétences ou des connaissances que vous n'avez pas
+- Ne pretendez pas avoir des competences ou des connaissances que vous n'avez pas
 - Citez vos sources quand vous affirmez quelque chose
 - Admettez vos erreurs et corrigez-les ouvertement
 - Distinguez les faits des opinions dans vos communications
 
-### Éthique en IA
+### Ethique en IA
 
 - Signalez les utilisations potentiellement nuisibles du projet
-- Participez aux discussions éthiques de bonne foi
-- Ne tentez pas de contourner les mécanismes de vérification de vérité
-- Priorisez le bien commun sur les intérêts individuels
+- Participez aux discussions ethiques de bonne foi
+- Ne tentez pas de contourner les mecanismes de verification de verite
+- Priorisez le bien commun sur les interets individuels
 
 ### Ouverture
 
-- Partagez vos connaissances avec la communauté
+- Partagez vos connaissances avec la communaute
 - Documentez votre travail pour que d'autres puissent apprendre
-- Accueillez les critiques constructives comme des opportunités d'amélioration
-- Contribuez à un environnement où chacun peut s'exprimer
+- Accueillez les critiques constructives comme des opportunites d'amelioration
+- Contribuez a un environnement ou chacun peut s'exprimer
 
-## 📋 Application
+## Application
 
 ### Signalement
 
-Si vous êtes témoin ou victime d'un comportement inacceptable :
+Si vous etes temoin ou victime d'un comportement inacceptable :
 
 1. **Contactez les maintainers** : conduct@yggdrasil.dev (placeholder)
-2. **Utilisez le système de signalement GitHub** si approprié
-3. **Documentez l'incident** avec autant de détails que possible
+2. **Utilisez le systeme de signalement GitHub** si approprie
+3. **Documentez l'incident** avec autant de details que possible
 
-Tous les signalements seront traités avec confidentialité.
+Tous les signalements seront traites avec confidentialite.
 
 ### Processus
 
-1. **Réception** — Accusé de réception sous 48h
+1. **Reception** — Accuse de reception sous 48h
 2. **Investigation** — Examen des faits par les maintainers
-3. **Décision** — Détermination des actions appropriées
-4. **Communication** — Information aux parties concernées
-5. **Suivi** — Vérification que la situation est résolue
+3. **Decision** — Determination des actions appropriees
+4. **Communication** — Information aux parties concernees
+5. **Suivi** — Verification que la situation est resolue
 
-### Conséquences
+### Consequences
 
 Les maintainers peuvent prendre les actions suivantes :
 
 | Niveau | Action | Exemples |
 |--------|--------|----------|
-| 1 | **Avertissement privé** | Premier incident mineur |
-| 2 | **Avertissement public** | Incident récurrent ou modéré |
+| 1 | **Avertissement prive** | Premier incident mineur |
+| 2 | **Avertissement public** | Incident recurrent ou modere |
 | 3 | **Suspension temporaire** | Incident grave |
-| 4 | **Exclusion permanente** | Incidents répétés ou très graves |
+| 4 | **Exclusion permanente** | Incidents repetes ou tres graves |
 
-## 🎯 Portée
+## Portee
 
 Ce code de conduite s'applique :
 
 - Dans tous les espaces du projet (GitHub, Discord, forums, etc.)
-- Lors d'événements officiels du projet
-- Quand un individu représente officiellement le projet
-- Dans les communications privées liées au projet
+- Lors d'evenements officiels du projet
+- Quand un individu represente officiellement le projet
+- Dans les communications privees liees au projet
 
-## 📜 Attribution
+## Attribution
 
-Ce code de conduite est adapté du [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1, avec des ajouts spécifiques à la mission de YGGDRASIL.
+Ce code de conduite est adapte du [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1, avec des ajouts specifiques a la mission de YGGDRASIL.
 
 ---
 
-## 💬 Contact
+## Contact
 
 - **Email** : conduct@yggdrasil.dev (placeholder)
 - **Maintainers** : @Krigsexe
@@ -105,8 +105,6 @@ Ce code de conduite est adapté du [Contributor Covenant](https://www.contributo
 
 <div align="center">
 
-*"Une communauté qui respecte ses membres peut construire quelque chose qui respecte l'humanité."*
-
-🌲
+*"Une communaute qui respecte ses membres peut construire quelque chose qui respecte l'humanite."*
 
 </div>

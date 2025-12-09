@@ -1,13 +1,13 @@
-# 🤝 Guide de Contribution à YGGDRASIL
+# Guide de Contribution a YGGDRASIL
 
-Merci de votre intérêt pour YGGDRASIL ! Ce guide vous aidera à contribuer efficacement au projet.
+Merci de votre interet pour YGGDRASIL ! Ce guide vous aidera a contribuer efficacement au projet.
 
-## 📋 Table des Matières
+## Table des Matieres
 
 - [Code de Conduite](#code-de-conduite)
 - [Comment Contribuer](#comment-contribuer)
 - [Types de Contributions](#types-de-contributions)
-- [Processus de Développement](#processus-de-développement)
+- [Processus de Developpement](#processus-de-developpement)
 - [Standards de Code](#standards-de-code)
 - [Commits et Pull Requests](#commits-et-pull-requests)
 - [Revue de Code](#revue-de-code)
@@ -15,28 +15,28 @@ Merci de votre intérêt pour YGGDRASIL ! Ce guide vous aidera à contribuer eff
 
 ---
 
-## 📜 Code de Conduite
+## Code de Conduite
 
-En participant à ce projet, vous acceptez de respecter notre [Code de Conduite](CODE_OF_CONDUCT.md). 
+En participant a ce projet, vous acceptez de respecter notre [Code de Conduite](CODE_OF_CONDUCT.md).
 
-**En résumé :** Soyez respectueux, inclusif, et constructif. YGGDRASIL est un projet pour l'humanité — agissons en conséquence.
+**En resume :** Soyez respectueux, inclusif, et constructif. YGGDRASIL est un projet pour l'humanite — agissons en consequence.
 
 ---
 
-## 🚀 Comment Contribuer
+## Comment Contribuer
 
 ### 1. Trouvez votre voie
 
-| Vous êtes... | Vous pouvez... |
+| Vous etes... | Vous pouvez... |
 |--------------|----------------|
-| 🏗️ **Développeur** | Coder, reviewer, architecturer |
-| 🔬 **Chercheur IA** | Proposer des algorithmes, valider des approches |
-| 📚 **Scientifique** | Alimenter MÍMIR, vérifier des sources |
-| ⚖️ **Éthicien/Juriste** | Guider la gouvernance, les limites |
-| 🎨 **Designer** | Améliorer l'UX, la documentation |
-| 🌍 **Traducteur** | Internationaliser le projet |
-| 🧪 **Testeur** | QA, red team, tests adversariaux |
-| 📣 **Communicant** | Documenter, expliquer, évangéliser |
+| **Developpeur** | Coder, reviewer, architecturer |
+| **Chercheur IA** | Proposer des algorithmes, valider des approches |
+| **Scientifique** | Alimenter MIMIR, verifier des sources |
+| **Ethicien/Juriste** | Guider la gouvernance, les limites |
+| **Designer** | Ameliorer l'UX, la documentation |
+| **Traducteur** | Internationaliser le projet |
+| **Testeur** | QA, red team, tests adversariaux |
+| **Communicant** | Documenter, expliquer, evangeliser |
 
 ### 2. Premiers pas
 
@@ -51,57 +51,57 @@ cd yggdrasil
 # 3. Ajoutez l'upstream
 git remote add upstream https://github.com/Krigsexe/yggdrasil.git
 
-# 4. Installez les dépendances
+# 4. Installez les dependances
 pnpm install
 
-# 5. Créez une branche pour votre contribution
+# 5. Creez une branche pour votre contribution
 git checkout -b feature/ma-contribution
 ```
 
 ### 3. Avant de coder
 
-- **Vérifiez les issues existantes** — Votre idée est peut-être déjà en discussion
+- **Verifiez les issues existantes** — Votre idee est peut-etre deja en discussion
 - **Ouvrez une issue** si vous proposez quelque chose de nouveau
 - **Discutez** dans les issues avant de commencer un gros travail
 
 ---
 
-## 🎯 Types de Contributions
+## Types de Contributions
 
-### 🐛 Rapporter un Bug
+### Rapporter un Bug
 
-1. Vérifiez qu'il n'existe pas déjà une issue similaire
+1. Verifiez qu'il n'existe pas deja une issue similaire
 2. Utilisez le template de bug report
 3. Incluez :
    - Version de YGGDRASIL
-   - Étapes pour reproduire
-   - Comportement attendu vs observé
+   - Etapes pour reproduire
+   - Comportement attendu vs observe
    - Logs pertinents
 
-### 💡 Proposer une Feature
+### Proposer une Feature
 
 1. Ouvrez une issue avec le template "Feature Request"
 2. Expliquez :
-   - Le problème que ça résout
-   - La solution proposée
-   - Les alternatives considérées
+   - Le probleme que ca resout
+   - La solution proposee
+   - Les alternatives considerees
    - L'impact sur les Sept Piliers
 
-### 📝 Améliorer la Documentation
+### Ameliorer la Documentation
 
 La documentation est aussi importante que le code !
 
-- Corrections de typos → PR directe
-- Nouvelles sections → Issue d'abord
-- Traductions → Voir `docs/translations/`
+- Corrections de typos : PR directe
+- Nouvelles sections : Issue d'abord
+- Traductions : Voir `docs/translations/`
 
-### 🧪 Contribuer au Code
+### Contribuer au Code
 
-Voir [Processus de Développement](#processus-de-développement)
+Voir [Processus de Developpement](#processus-de-developpement)
 
 ---
 
-## 🔄 Processus de Développement
+## Processus de Developpement
 
 ### Structure du Monorepo
 
@@ -109,16 +109,16 @@ Voir [Processus de Développement](#processus-de-développement)
 packages/
 ├── heimdall/      # Gateway
 ├── ratatosk/      # Routage
-├── mimir/         # Branche Validée
+├── mimir/         # Branche Validee
 ├── volva/         # Branche Recherche
 ├── hugin/         # Branche Internet
 ├── thing/         # Consortium
 ├── odin/          # Maestro
-├── mnemosyne/     # Mémoire
+├── munin/         # Memoire
 └── shared/        # Utilitaires communs
 ```
 
-### Workflow de développement
+### Workflow de developpement
 
 ```bash
 # 1. Synchronisez avec upstream
@@ -126,11 +126,11 @@ git fetch upstream
 git checkout main
 git merge upstream/main
 
-# 2. Créez une branche
+# 2. Creez une branche
 git checkout -b type/description
 # Types: feature/, fix/, docs/, refactor/, test/
 
-# 3. Développez avec des commits atomiques
+# 3. Developpez avec des commits atomiques
 git add .
 git commit -m "type(scope): description"
 
@@ -138,38 +138,38 @@ git commit -m "type(scope): description"
 pnpm test
 pnpm lint
 
-# 5. Push et créez une PR
+# 5. Push et creez une PR
 git push origin type/description
 ```
 
-### Environnement de développement
+### Environnement de developpement
 
 ```bash
 # Lancer tous les services en dev
 pnpm dev
 
-# Lancer un package spécifique
+# Lancer un package specifique
 pnpm --filter @yggdrasil/heimdall dev
 
 # Tests
 pnpm test              # Tous les tests
 pnpm test:unit         # Tests unitaires
-pnpm test:integration  # Tests d'intégration
+pnpm test:integration  # Tests d'integration
 pnpm test:e2e          # Tests end-to-end
 
 # Linting
-pnpm lint              # Vérifier
+pnpm lint              # Verifier
 pnpm lint:fix          # Corriger automatiquement
 ```
 
 ---
 
-## 📏 Standards de Code
+## Standards de Code
 
 ### TypeScript
 
 ```typescript
-// ✅ Bon
+// BON
 interface ValidationResult {
   isValid: boolean;
   confidence: number;
@@ -181,10 +181,10 @@ async function validateClaim(
   claim: string,
   context: QueryContext
 ): Promise<ValidationResult> {
-  // Implémentation
+  // Implementation
 }
 
-// ❌ Mauvais
+// MAUVAIS
 function validate(c: any): any {
   // ...
 }
@@ -192,10 +192,10 @@ function validate(c: any): any {
 
 ### Principes
 
-1. **Typage strict** — Pas de `any`, utilisez des types précis
-2. **Immutabilité** — Préférez `const` et les structures immutables
+1. **Typage strict** — Pas de `any`, utilisez des types precis
+2. **Immutabilite** — Preferez `const` et les structures immutables
 3. **Fonctions pures** — Minimisez les effets de bord
-4. **Nommage explicite** — Le code doit être auto-documenté
+4. **Nommage explicite** — Le code doit etre auto-documente
 5. **Tests** — Chaque feature doit avoir des tests
 
 ### Structure des fichiers
@@ -205,10 +205,10 @@ package/
 ├── src/
 │   ├── index.ts           # Export public
 │   ├── module.ts          # Module NestJS
-│   ├── controller.ts      # Contrôleurs
+│   ├── controller.ts      # Controleurs
 │   ├── service.ts         # Services
 │   ├── dto/               # Data Transfer Objects
-│   ├── entities/          # Entités
+│   ├── entities/          # Entites
 │   └── utils/             # Utilitaires
 ├── test/
 │   ├── unit/
@@ -218,7 +218,7 @@ package/
 
 ---
 
-## 📝 Commits et Pull Requests
+## Commits et Pull Requests
 
 ### Format des commits
 
@@ -227,13 +227,13 @@ Nous utilisons [Conventional Commits](https://www.conventionalcommits.org/) :
 ```
 type(scope): description courte
 
-Corps optionnel avec plus de détails.
+Corps optionnel avec plus de details.
 
 Refs: #123
 ```
 
 **Types :**
-- `feat` — Nouvelle fonctionnalité
+- `feat` — Nouvelle fonctionnalite
 - `fix` — Correction de bug
 - `docs` — Documentation
 - `style` — Formatage (pas de changement de code)
@@ -256,12 +256,12 @@ test(thing): add consensus algorithm tests
 
 Votre PR doit :
 
-1. ✅ Avoir un titre clair suivant le format des commits
-2. ✅ Référencer l'issue associée
-3. ✅ Inclure une description de ce qui change et pourquoi
-4. ✅ Passer tous les tests CI
-5. ✅ Avoir au moins une review approuvée
-6. ✅ Ne pas avoir de conflits avec `main`
+1. Avoir un titre clair suivant le format des commits
+2. Referencer l'issue associee
+3. Inclure une description de ce qui change et pourquoi
+4. Passer tous les tests CI
+5. Avoir au moins une review approuvee
+6. Ne pas avoir de conflits avec `main`
 
 **Template de PR :**
 
@@ -281,23 +281,23 @@ Pourquoi ce changement ?
 ## Checklist
 - [ ] J'ai lu le CONTRIBUTING.md
 - [ ] Mon code suit les standards du projet
-- [ ] J'ai ajouté des tests
-- [ ] J'ai mis à jour la documentation
+- [ ] J'ai ajoute des tests
+- [ ] J'ai mis a jour la documentation
 - [ ] Mes commits suivent le format conventionnel
 
-## Issue liée
-Fixes #(numéro)
+## Issue liee
+Fixes #(numero)
 ```
 
 ---
 
-## 👀 Revue de Code
+## Revue de Code
 
 ### En tant qu'auteur
 
-- Répondez aux commentaires de manière constructive
-- Expliquez vos choix si nécessaire
-- Mettez à jour votre PR suite aux retours
+- Repondez aux commentaires de maniere constructive
+- Expliquez vos choix si necessaire
+- Mettez a jour votre PR suite aux retours
 - Demandez des clarifications si un commentaire n'est pas clair
 
 ### En tant que reviewer
@@ -305,39 +305,39 @@ Fixes #(numéro)
 - Soyez respectueux et constructif
 - Expliquez le "pourquoi" de vos suggestions
 - Distinguez les blockers des suggestions
-- Approuvez quand c'est prêt, même si ce n'est pas "parfait"
+- Approuvez quand c'est pret, meme si ce n'est pas "parfait"
 
-**Légende des commentaires :**
-- `[BLOCKER]` — Doit être corrigé avant merge
-- `[SUGGESTION]` — Amélioration optionnelle
+**Legende des commentaires :**
+- `[BLOCKER]` — Doit etre corrige avant merge
+- `[SUGGESTION]` — Amelioration optionnelle
 - `[QUESTION]` — Demande de clarification
-- `[NIT]` — Détail mineur (typo, style)
+- `[NIT]` — Detail mineur (typo, style)
 
 ---
 
-## 🏆 Reconnaissance
+## Reconnaissance
 
 Tous les contributeurs sont reconnus :
 
 1. **Dans le code** — Auteurs des commits
 2. **Dans README** — Section Contributors
-3. **Dans CHANGELOG** — Crédit par version
-4. **Sur le site** — Hall of Fame (à venir)
+3. **Dans CHANGELOG** — Credit par version
+4. **Sur le site** — Hall of Fame (a venir)
 
 ### Niveaux de contribution
 
-| Niveau | Critères |
+| Niveau | Criteres |
 |--------|----------|
-| 🌱 **Pousse** | Première contribution acceptée |
-| 🌿 **Branche** | 5+ contributions significatives |
-| 🌳 **Tronc** | Contributeur régulier, reviewer |
-| 🌲 **Gardien** | Maintainer, décisions architecturales |
+| **Pousse** | Premiere contribution acceptee |
+| **Branche** | 5+ contributions significatives |
+| **Tronc** | Contributeur regulier, reviewer |
+| **Gardien** | Maintainer, decisions architecturales |
 
 ---
 
-## ❓ Questions ?
+## Questions ?
 
-- **Discord** : [À venir]
+- **Discord** : [A venir]
 - **Discussions GitHub** : [github.com/Krigsexe/yggdrasil/discussions](https://github.com/Krigsexe/yggdrasil/discussions)
 - **Email** : contact@yggdrasil.dev (placeholder)
 
@@ -345,7 +345,7 @@ Tous les contributeurs sont reconnus :
 
 <div align="center">
 
-**Merci de contribuer à YGGDRASIL !** 🌲
+**Merci de contribuer a YGGDRASIL !**
 
 *L'Arbre grandit avec ceux qui le nourrissent.*
 
