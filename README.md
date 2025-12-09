@@ -1,130 +1,130 @@
 <div align="center">
 
-# 🌲 YGGDRASIL
+# YGGDRASIL
 
 ### L'Arbre-Monde de l'Intelligence Artificielle
 
-**Une AGI éthique, souveraine et vérifiable — construite par l'humanité, pour l'humanité.**
+**Une AGI ethique, souveraine et verifiable — construite par l'humanite, pour l'humanite.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/Krigsexe/yggdrasil)
 
-[Manifeste](MANIFESTO.md) · [Architecture](docs/architecture/OVERVIEW.md) · [Contribuer](CONTRIBUTING.md) · [Roadmap](ROADMAP.md)
+[Manifeste](MANIFESTO.md) | [Architecture](docs/architecture/OVERVIEW.md) | [Contribuer](CONTRIBUTING.md) | [Roadmap](ROADMAP.md)
 
 </div>
 
 ---
 
-## 🌑 Le Problème
+## Le Probleme
 
 L'IA actuelle est construite sur des fondations fragiles :
 
-- **Hallucinations** — Les LLMs mentent avec confiance. 20-30% de fausses informations présentées comme vérités.
-- **Opacité** — Personne ne comprend pourquoi un modèle répond ce qu'il répond.
-- **Amnésie** — Chaque conversation repart de zéro. Aucune mémoire persistante.
-- **Concentration** — Quelques corporations contrôlent les fondations de l'IA mondiale.
-- **Gaspillage** — Des milliards dépensés pour entraîner des modèles redondants.
+- **Hallucinations** — Les LLMs mentent avec confiance. 20-30% de fausses informations presentees comme verites.
+- **Opacite** — Personne ne comprend pourquoi un modele repond ce qu'il repond.
+- **Amnesie** — Chaque conversation repart de zero. Aucune memoire persistante.
+- **Concentration** — Quelques corporations controlent les fondations de l'IA mondiale.
+- **Gaspillage** — Des milliards depenses pour entrainer des modeles redondants.
 
-**La question fondamentale :** L'AGI — la technologie la plus transformatrice de l'histoire — doit-elle être développée par et pour des actionnaires, ou par et pour l'humanité ?
+**La question fondamentale :** L'AGI — la technologie la plus transformatrice de l'histoire — doit-elle etre developpee par et pour des actionnaires, ou par et pour l'humanite ?
 
 ---
 
-## 🌲 La Vision : YGGDRASIL
+## La Vision : YGGDRASIL
 
-Dans la mythologie nordique, **Yggdrasil** est l'Arbre-Monde — le frêne cosmique qui connecte les neuf royaumes, dont les racines puisent dans le **puits de Mímir** (la sagesse absolue), et dont les branches abritent tous les êtres.
+Dans la mythologie nordique, **Yggdrasil** est l'Arbre-Monde — le frene cosmique qui connecte les neuf royaumes, dont les racines puisent dans le **puits de Mimir** (la sagesse absolue), et dont les branches abritent tous les etres.
 
 YGGDRASIL est une architecture d'AGI qui :
 
 | Principe | Approche Actuelle | Approche YGGDRASIL |
 |----------|-------------------|---------------------|
-| **Vérité** | "Probablement vrai" | "Vérifié + sources" ou "Je ne sais pas" |
-| **Mémoire** | Reset à chaque session | Mémoire chrono-sémantique persistante |
-| **Sources** | Mélange opaque | Séparation stricte : Validé / Recherche / Internet |
-| **Modèles** | Un géant monolithique | Consortium de spécialistes orchestrés |
-| **Contrôle** | Corporations privées | Open-source, auto-hébergeable, fédérable |
-| **Énergie** | Entraîner toujours plus | Mutualiser l'existant |
+| **Verite** | "Probablement vrai" | "Verifie + sources" ou "Je ne sais pas" |
+| **Memoire** | Reset a chaque session | Memoire chrono-semantique persistante |
+| **Sources** | Melange opaque | Separation stricte : Valide / Recherche / Internet |
+| **Modeles** | Un geant monolithique | Consortium de specialistes orchestres |
+| **Controle** | Corporations privees | Open-source, auto-hebergeable, federable |
+| **Energie** | Entrainer toujours plus | Mutualiser l'existant |
 
 ---
 
-## ⚡ Les Sept Piliers
+## Les Sept Piliers
 
 YGGDRASIL repose sur sept principes intransgressibles :
 
-### 1. 🎯 Véracité Absolue
-> *"Jamais de probabilité. La certitude ou le silence."*
+### 1. Veracite Absolue
+> *"Jamais de probabilite. La certitude ou le silence."*
 
-YGGDRASIL dit "vérifié, voici les sources" ou "je ne sais pas". Jamais "c'est probablement vrai".
+YGGDRASIL dit "verifie, voici les sources" ou "je ne sais pas". Jamais "c'est probablement vrai".
 
-### 2. 🔍 Traçabilité Totale
-> *"Chaque pensée a une origine. Chaque décision a une trace."*
+### 2. Tracabilite Totale
+> *"Chaque pensee a une origine. Chaque decision a une trace."*
 
-Chaque réponse peut être auditée : d'où vient l'information, pourquoi cette décision, quel chemin de raisonnement.
+Chaque reponse peut etre auditee : d'ou vient l'information, pourquoi cette decision, quel chemin de raisonnement.
 
-### 3. 📚 Séparation Épistémique
-> *"Le savoir, l'hypothèse et le bruit ne se mélangent jamais."*
+### 3. Separation Epistemique
+> *"Le savoir, l'hypothese et le bruit ne se melangent jamais."*
 
-Trois branches strictement séparées :
-- **MÍMIR** — Connaissances scientifiquement prouvées
-- **VÖLVA** — Hypothèses et théories en exploration
-- **HUGIN** — Informations internet non vérifiées
+Trois branches strictement separees :
+- **MIMIR** — Connaissances scientifiquement prouvees
+- **VOLVA** — Hypotheses et theories en exploration
+- **HUGIN** — Informations internet non verifiees
 
-### 4. 🧠 Mémoire Vivante
-> *"Une intelligence sans mémoire n'est qu'un réflexe."*
+### 4. Memoire Vivante
+> *"Une intelligence sans memoire n'est qu'un reflexe."*
 
-YGGDRASIL se souvient : interactions passées, décisions prises, erreurs corrigées, contextes évolutifs.
+YGGDRASIL se souvient : interactions passees, decisions prises, erreurs corrigees, contextes evolutifs.
 
-### 5. ⏪ Réversibilité
-> *"Aucune erreur n'est définitive."*
+### 5. Reversibilite
+> *"Aucune erreur n'est definitive."*
 
-Rollback possible vers n'importe quel état passé. Correction des décisions basées sur des informations ultérieurement invalidées.
+Rollback possible vers n'importe quel etat passe. Correction des decisions basees sur des informations ulterieurement invalidees.
 
-### 6. 🏛️ Souveraineté
-> *"Les données de l'humanité appartiennent à l'humanité."*
+### 6. Souverainete
+> *"Les donnees de l'humanite appartiennent a l'humanite."*
 
-Open-source, auto-hébergeable, fédérable, auditable. Aucune dépendance à un fournisseur unique.
+Open-source, auto-hebergeable, federable, auditable. Aucune dependance a un fournisseur unique.
 
-### 7. 🌱 Soutenabilité
-> *"Une intelligence qui détruit sa planète n'est pas intelligente."*
+### 7. Soutenabilite
+> *"Une intelligence qui detruit sa planete n'est pas intelligente."*
 
-Mutualisation des modèles existants. Zéro entraînement de nouveaux modèles. Métriques de consommation transparentes.
+Mutualisation des modeles existants. Zero entrainement de nouveaux modeles. Metriques de consommation transparentes.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
-MONDE → HEIMDALL → RATATOSK → [MÍMIR|VÖLVA|HUGIN] → THING → ODIN → MUNIN → RÉPONSE
-        Gateway    Routage     Les Trois Branches    Conseil  Maestro Mémoire  Validée
+MONDE --> HEIMDALL --> RATATOSK --> [MIMIR|VOLVA|HUGIN] --> THING --> ODIN --> MUNIN --> REPONSE
+          Gateway      Routage      Les Trois Branches      Conseil   Maestro  Memoire   Validee
 ```
 
 ### Les Composants
 
-| Composant | Rôle | Inspiration |
+| Composant | Role | Inspiration |
 |-----------|------|-------------|
-| **HEIMDALL** | Gateway — Auth, rate limiting, audit | Le gardien du Bifröst qui voit et entend tout |
-| **RATATOSK** | Routage — Classification, extraction de contexte | L'écureuil messager qui parcourt l'arbre |
-| **MÍMIR** | Branche Validée — Connaissances prouvées (100%) | Le puits de sagesse où Odin sacrifia son œil |
-| **VÖLVA** | Branche Recherche — Hypothèses, théories | La voyante qui explore l'inconnu |
-| **HUGIN** | Branche Internet — Informations filtrées | "Pensée" — corbeau explorateur d'Odin |
-| **THING** | Consortium — Délibération multi-modèles | L'assemblée où les dieux prennent les décisions |
-| **ODIN** | Maestro — Validation finale, synthèse | Le Père-de-Tout, celui qui sait |
-| **MUNIN** | Mémoire — Stockage chrono-sémantique | "Mémoire" — l'autre corbeau d'Odin |
+| **HEIMDALL** | Gateway — Auth, rate limiting, audit | Le gardien du Bifrost qui voit et entend tout |
+| **RATATOSK** | Routage — Classification, extraction de contexte | L'ecureuil messager qui parcourt l'arbre |
+| **MIMIR** | Branche Validee — Connaissances prouvees (100%) | Le puits de sagesse ou Odin sacrifia son oeil |
+| **VOLVA** | Branche Recherche — Hypotheses, theories | La voyante qui explore l'inconnu |
+| **HUGIN** | Branche Internet — Informations filtrees | "Pensee" — corbeau explorateur d'Odin |
+| **THING** | Consortium — Deliberation multi-modeles | L'assemblee ou les dieux prennent les decisions |
+| **ODIN** | Maestro — Validation finale, synthese | Le Pere-de-Tout, celui qui sait |
+| **MUNIN** | Memoire — Stockage chrono-semantique | "Memoire" — l'autre corbeau d'Odin |
 
 ### Le Conseil (THING)
 
-| Membre | Spécialité | Modèle |
+| Membre | Specialite | Modele |
 |--------|------------|--------|
 | **KVASIR** | Raisonnement profond | Claude |
-| **BRAGI** | Créativité, éloquence | Grok |
+| **BRAGI** | Creativite, eloquence | Grok |
 | **NORNES** | Calcul, logique formelle | DeepSeek |
-| **SAGA** | Connaissance générale | Llama |
+| **SAGA** | Connaissance generale | Llama |
 | **LOKI** | Critique, adversarial | Red team |
 | **TYR** | Arbitrage, consensus | Voting system |
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Cloner le repository
@@ -136,9 +136,9 @@ pnpm install
 
 # Configuration
 cp .env.example .env
-# Éditer .env avec vos clés API
+# Editer .env avec vos cles API
 
-# Lancement en développement
+# Lancement en developpement
 pnpm dev
 ```
 
@@ -148,87 +148,88 @@ pnpm dev
 docker-compose up -d
 ```
 
-### Auto-hébergement complet (avec Ollama pour modèles locaux)
+### Auto-hebergement complet (avec Ollama pour modeles locaux)
 
 ```bash
-# Mode souverain — aucune donnée ne quitte votre infrastructure
+# Mode souverain — aucune donnee ne quitte votre infrastructure
 pnpm run sovereign
 ```
 
 ---
 
-## 📖 Documentation
+## Documentation
 
-- [**Manifeste**](MANIFESTO.md) — La vision complète et les principes fondateurs
-- [**Architecture**](docs/architecture/OVERVIEW.md) — Vue technique détaillée
+- [**Manifeste**](MANIFESTO.md) — La vision complete et les principes fondateurs
+- [**Architecture**](docs/architecture/OVERVIEW.md) — Vue technique detaillee
 - [**Les Sept Piliers**](docs/architecture/SEVEN_PILLARS.md) — Principes en profondeur
-- [**Les Sept Lois**](docs/architecture/SEVEN_LAWS.md) — Règles intransgressibles
-- [**Guide de Démarrage**](docs/technical/GETTING_STARTED.md) — Installation pas à pas
-- [**API**](docs/technical/API.md) — Spécifications de l'API
+- [**Les Sept Lois**](docs/architecture/SEVEN_LAWS.md) — Regles intransgressibles
+- [**Guide de Demarrage**](docs/technical/GETTING_STARTED.md) — Installation pas a pas
+- [**API**](docs/technical/API.md) — Specifications de l'API
 - [**Contribuer**](CONTRIBUTING.md) — Comment participer
 
 ---
 
-## 🤝 Contribuer
+## Contribuer
 
 YGGDRASIL est un projet communautaire. Nous cherchons :
 
 | Profil | Contribution |
 |--------|--------------|
-| 🏗️ **Architectes** | Développeurs, ingénieurs, chercheurs IA |
-| 🛡️ **Gardiens** | Éthiciens, philosophes, juristes |
-| 🔬 **Éclaireurs** | Scientifiques de toutes disciplines |
-| ⚔️ **Critiques** | Sceptiques, red teamers, adversaires |
-| 🌍 **Citoyens** | Utilisateurs, curieux, concernés |
+| **Architectes** | Developpeurs, ingenieurs, chercheurs IA |
+| **Gardiens** | Ethiciens, philosophes, juristes |
+| **Eclaireurs** | Scientifiques de toutes disciplines |
+| **Critiques** | Sceptiques, red teamers, adversaires |
+| **Citoyens** | Utilisateurs, curieux, concernes |
 
 **Lire le [Guide de Contribution](CONTRIBUTING.md)** pour commencer.
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-### Phase 1 : Fondations (2024-2025) *← Nous sommes ici*
+### Phase 1 : Fondations (2024-2025)
 - [x] Publication du Manifeste
 - [x] Repository public
-- [ ] Documentation complète
+- [x] Architecture complete implementee
+- [ ] Documentation complete
 - [ ] Premiers contributeurs
-- [ ] Prototype fonctionnel (orchestration + validation basique)
+- [ ] Tests et validation
 
 ### Phase 2 : Construction (2025-2026)
-- [ ] MÍMIR : Intégration sources scientifiques (arXiv, PubMed)
-- [ ] THING : Consortium multi-modèles fonctionnel
+- [ ] MIMIR : Integration sources scientifiques (arXiv, PubMed)
+- [ ] THING : Consortium multi-modeles fonctionnel
 - [ ] ODIN : Maestro avec validation 100%
-- [ ] MUNIN : Mémoire chrono-sémantique
+- [ ] MUNIN : Memoire chrono-semantique
 - [ ] Tests publics et bug bounty
 
 ### Phase 3 : Ouverture (2026-2027)
 - [ ] API publique
-- [ ] Instances fédérées
-- [ ] Gouvernance communautaire formalisée
-- [ ] Partenariats académiques
-- [ ] Audit externe indépendant
+- [ ] Instances federees
+- [ ] Gouvernance communautaire formalisee
+- [ ] Partenariats academiques
+- [ ] Audit externe independant
 
 ### Phase 4 : Expansion (2027+)
 - [ ] Multilingue complet
-- [ ] Domaines spécialisés (médical, juridique, scientifique)
-- [ ] Standard international proposé
+- [ ] Domaines specialises (medical, juridique, scientifique)
+- [ ] Standard international propose
 - [ ] YGGDRASIL comme infrastructure mondiale
 
 ---
 
-## 📜 Licence
+## Licence
 
-YGGDRASIL est distribué sous [Licence MIT](LICENSE) avec clause copyleft pour les dérivés.
+YGGDRASIL est distribue sous [Licence MIT](LICENSE) avec clause copyleft pour les derives.
 
-Le code appartient à l'humanité. Aucune entité ne peut fermer, breveter, ou privatiser YGGDRASIL.
+Le code appartient a l'humanite. Aucune entite ne peut fermer, breveter, ou privatiser YGGDRASIL.
 
 ---
 
-## 💬 Citation
+## Citation
 
 ```bibtex
 @software{yggdrasil2024,
-  author = {Gelée, Julien and Contributors},
+  author = {Gelee, Julien and Contributors},
   title = {YGGDRASIL: L'Arbre-Monde de l'Intelligence Artificielle},
   year = {2024},
   url = {https://github.com/Krigsexe/yggdrasil}
@@ -239,10 +240,10 @@ Le code appartient à l'humanité. Aucune entité ne peut fermer, breveter, ou p
 
 <div align="center">
 
-**"Nous ne construisons pas une machine. Nous posons les fondations de la pensée de demain."**
+**"Nous ne construisons pas une machine. Nous posons les fondations de la pensee de demain."**
 
-🌲 *L'Arbre grandit avec ceux qui le nourrissent.* 🌲
+*L'Arbre grandit avec ceux qui le nourrissent.*
 
-[Rejoindre la communauté](https://github.com/Krigsexe/yggdrasil/discussions) · [Signaler un bug](https://github.com/Krigsexe/yggdrasil/issues) · [Proposer une feature](https://github.com/Krigsexe/yggdrasil/issues/new)
+[Rejoindre la communaute](https://github.com/Krigsexe/yggdrasil/discussions) | [Signaler un bug](https://github.com/Krigsexe/yggdrasil/issues) | [Proposer une feature](https://github.com/Krigsexe/yggdrasil/issues/new)
 
 </div>

@@ -1,18 +1,18 @@
 <div align="center">
 
-# 🌲 MANIFESTE YGGDRASIL
+# MANIFESTE YGGDRASIL
 
-## Pour une Intelligence Artificielle Générale Éthique, Souveraine et Vérifiable
+## Pour une Intelligence Artificielle Generale Ethique, Souveraine et Verifiable
 
-**Version 1.0 — Décembre 2024**
+**Version 1.0 — Decembre 2024**
 
-*"Nous ne construisons pas une machine. Nous posons les fondations de la pensée de demain."*
+*"Nous ne construisons pas une machine. Nous posons les fondations de la pensee de demain."*
 
 </div>
 
 ---
 
-# Table des Matières
+# Table des Matieres
 
 1. [Le Diagnostic](#partie-i--le-diagnostic)
 2. [La Vision](#partie-ii--la-vision-yggdrasil)
@@ -26,71 +26,71 @@
 
 # PARTIE I — LE DIAGNOSTIC
 
-## L'État des Lieux
+## L'Etat des Lieux
 
-L'intelligence artificielle connaît une accélération sans précédent. En quelques années, nous sommes passés de chatbots rudimentaires à des systèmes capables de raisonner, créer, et interagir avec une sophistication troublante.
+L'intelligence artificielle connait une acceleration sans precedent. En quelques annees, nous sommes passes de chatbots rudimentaires a des systemes capables de raisonner, creer, et interagir avec une sophistication troublante.
 
 Mais cette course en avant se fait sur des fondations fragiles.
 
 ### La Triple Course
 
-**La course à la puissance.** Chaque mois, un nouveau modèle plus grand, plus coûteux, plus énergivore. GPT-4 : 1,8 trillion de paramètres estimés. Gemini Ultra : probablement davantage. La logique : plus c'est gros, mieux c'est. Le coût énergétique : celui d'un petit pays.
+**La course a la puissance.** Chaque mois, un nouveau modele plus grand, plus couteux, plus energivore. GPT-4 : 1,8 trillion de parametres estimes. Gemini Ultra : probablement davantage. La logique : plus c'est gros, mieux c'est. Le cout energetique : celui d'un petit pays.
 
-**La course à la vitesse.** Publier avant de comprendre. Déployer avant de sécuriser. Monétiser avant de mesurer les implications. OpenAI, Google, Anthropic, Meta — tous pris dans une spirale où ralentir signifie perdre.
+**La course a la vitesse.** Publier avant de comprendre. Deployer avant de securiser. Monetiser avant de mesurer les implications. OpenAI, Google, Anthropic, Meta — tous pris dans une spirale ou ralentir signifie perdre.
 
-**La course au contrôle.** Quelques corporations, principalement américaines, contrôlent désormais les fondations sur lesquelles le monde entier construira son IA. Leurs décisions — éthiques, techniques, commerciales — façonneront la pensée augmentée de milliards d'humains.
+**La course au controle.** Quelques corporations, principalement americaines, controlent desormais les fondations sur lesquelles le monde entier construira son IA. Leurs decisions — ethiques, techniques, commerciales — faconneront la pensee augmentee de milliards d'humains.
 
-### Les Conséquences
+### Les Consequences
 
-**Les hallucinations.** Les LLMs mentent. Pas par malice, mais par design. Ils génèrent ce qui est statistiquement probable, pas ce qui est vrai. Études récentes : 20 à 30% des affirmations factuelles des grands modèles sont fausses. Présentées avec la même confiance que les vraies.
+**Les hallucinations.** Les LLMs mentent. Pas par malice, mais par design. Ils generent ce qui est statistiquement probable, pas ce qui est vrai. Etudes recentes : 20 a 30% des affirmations factuelles des grands modeles sont fausses. Presentees avec la meme confiance que les vraies.
 
-**L'opacité.** Personne — pas même leurs créateurs — ne comprend vraiment pourquoi un modèle répond ce qu'il répond. Des milliards de paramètres, des connexions émergentes, des comportements imprévisibles. Nous construisons des oracles que nous ne pouvons pas auditer.
+**L'opacite.** Personne — pas meme leurs createurs — ne comprend vraiment pourquoi un modele repond ce qu'il repond. Des milliards de parametres, des connexions emergentes, des comportements imprevisibles. Nous construisons des oracles que nous ne pouvons pas auditer.
 
-**L'amnésie.** Chaque conversation repart de zéro. Aucune mémoire persistante. Aucun apprentissage continu véritable. L'utilisateur doit tout ré-expliquer, tout re-contextualiser, à chaque session.
+**L'amnesie.** Chaque conversation repart de zero. Aucune memoire persistante. Aucun apprentissage continu veritable. L'utilisateur doit tout re-expliquer, tout re-contextualiser, a chaque session.
 
-**La dépendance.** Entreprises, gouvernements, individus — tous deviennent dépendants de systèmes qu'ils ne contrôlent pas, ne comprennent pas, et ne peuvent pas auditer.
+**La dependance.** Entreprises, gouvernements, individus — tous deviennent dependants de systemes qu'ils ne controlent pas, ne comprennent pas, et ne peuvent pas auditer.
 
-**L'inégalité.** Les meilleurs modèles coûtent cher. Seuls les riches — individus ou nations — auront accès à l'intelligence augmentée de premier rang.
+**L'inegalite.** Les meilleurs modeles coutent cher. Seuls les riches — individus ou nations — auront acces a l'intelligence augmentee de premier rang.
 
-**La souveraineté perdue.** Nos données, nos pensées, nos créations — tout transite par des serveurs privés, dans des juridictions étrangères, selon des règles que nous n'avons pas choisies.
+**La souverainete perdue.** Nos donnees, nos pensees, nos creations — tout transite par des serveurs prives, dans des juridictions etrangeres, selon des regles que nous n'avons pas choisies.
 
 ### La Question Fondamentale
 
-L'AGI — l'Intelligence Artificielle Générale — sera peut-être la technologie la plus transformatrice de l'histoire humaine. Plus que l'écriture. Plus que l'imprimerie. Plus qu'Internet.
+L'AGI — l'Intelligence Artificielle Generale — sera peut-etre la technologie la plus transformatrice de l'histoire humaine. Plus que l'ecriture. Plus que l'imprimerie. Plus qu'Internet.
 
-**Cette technologie doit-elle être développée par et pour des actionnaires, ou par et pour l'humanité ?**
+**Cette technologie doit-elle etre developpee par et pour des actionnaires, ou par et pour l'humanite ?**
 
 ---
 
 ## Une Autre Voie Existe
 
-Nous refusons le fatalisme. Nous refusons l'idée que la seule voie vers l'AGI passe par des modèles toujours plus grands, plus opaques, plus centralisés.
+Nous refusons le fatalisme. Nous refusons l'idee que la seule voie vers l'AGI passe par des modeles toujours plus grands, plus opaques, plus centralises.
 
 Une autre voie existe. Elle s'inspire de deux principes fondamentaux :
 
-### 1. La Cognition Biomimétique
+### 1. La Cognition Biomimetique
 
-Le cerveau humain a déjà résolu le problème de l'intelligence fiable. Pas parfaite — fiable. Il sait :
+Le cerveau humain a deja resolu le probleme de l'intelligence fiable. Pas parfaite — fiable. Il sait :
 
 - **Quand il sait et quand il ne sait pas.** Nous distinguons intuitivement la certitude du doute.
-- **D'où viennent ses informations.** Nous savons si nous avons vu, lu, entendu, ou supposé.
-- **Maintenir une mémoire cohérente.** Nos souvenirs s'organisent, se connectent, évoluent.
-- **Se corriger par la réalité.** Nous ajustons nos croyances face aux preuves contraires.
-- **Fonctionner comme un consortium.** Différentes régions cérébrales, spécialisées, collaborent.
+- **D'ou viennent ses informations.** Nous savons si nous avons vu, lu, entendu, ou suppose.
+- **Maintenir une memoire coherente.** Nos souvenirs s'organisent, se connectent, evoluent.
+- **Se corriger par la realite.** Nous ajustons nos croyances face aux preuves contraires.
+- **Fonctionner comme un consortium.** Differentes regions cerebrales, specialisees, collaborent.
 
 Pourquoi l'IA devrait-elle fonctionner autrement ?
 
-### 2. L'Éco-conception par Mutualisation
+### 2. L'Eco-conception par Mutualisation
 
-Nous n'avons pas besoin d'entraîner un nouveau modèle géant. D'excellents modèles existent déjà :
+Nous n'avons pas besoin d'entrainer un nouveau modele geant. D'excellents modeles existent deja :
 
-- **Claude** pour le raisonnement nuancé
-- **Gemini** pour la multimodalité
-- **DeepSeek** pour les mathématiques
+- **Claude** pour le raisonnement nuance
+- **Gemini** pour la multimodalite
+- **DeepSeek** pour les mathematiques
 - **Llama** pour l'open-source
-- **Grok** pour la créativité
+- **Grok** pour la creativite
 
-La voie sage : **orchestrer l'existant** plutôt que reconstruire à l'infini.
+La voie sage : **orchestrer l'existant** plutot que reconstruire a l'infini.
 
 ---
 
@@ -98,211 +98,211 @@ La voie sage : **orchestrer l'existant** plutôt que reconstruire à l'infini.
 
 ## Le Nom
 
-Dans la mythologie nordique, **Yggdrasil** est l'Arbre-Monde — le frêne cosmique qui se dresse au centre de l'univers et connecte les neuf royaumes.
+Dans la mythologie nordique, **Yggdrasil** est l'Arbre-Monde — le frene cosmique qui se dresse au centre de l'univers et connecte les neuf royaumes.
 
-Ses **racines** puisent dans trois puits sacrés :
-- **Urðarbrunnr** — le puits du Destin, où résident les Nornes
-- **Mímisbrunnr** — le puits de Mímir, source de toute sagesse
-- **Hvergelmir** — la source bouillonnante d'où naissent tous les fleuves
+Ses **racines** puisent dans trois puits sacres :
+- **Urdarbrunnr** — le puits du Destin, ou resident les Nornes
+- **Mimisbrunnr** — le puits de Mimir, source de toute sagesse
+- **Hvergelmir** — la source bouillonnante d'ou naissent tous les fleuves
 
-Ses **branches** abritent tous les êtres : dieux, humains, géants, elfes.
+Ses **branches** abritent tous les etres : dieux, humains, geants, elfes.
 
-Deux **corbeaux** — Hugin (Pensée) et Munin (Mémoire) — parcourent le monde et rapportent à Odin tout ce qu'ils voient.
+Deux **corbeaux** — Hugin (Pensee) et Munin (Memoire) — parcourent le monde et rapportent a Odin tout ce qu'ils voient.
 
-Un **écureuil** — Ratatosk — court le long du tronc, portant les messages.
+Un **ecureuil** — Ratatosk — court le long du tronc, portant les messages.
 
-Un **gardien** — Heimdall — veille au Bifröst, le pont arc-en-ciel, voyant et entendant tout ce qui se passe dans les neuf mondes.
+Un **gardien** — Heimdall — veille au Bifrost, le pont arc-en-ciel, voyant et entendant tout ce qui se passe dans les neuf mondes.
 
 **YGGDRASIL** est notre vision d'une IA qui :
-- **Connecte** les différentes sources de connaissance (les neuf mondes)
-- **Enracine** sa sagesse dans des sources vérifiées (le puits de Mímir)
-- **Protège** tous ceux qui vivent en son sein
-- **Croît** continuellement, nourri par sa communauté
+- **Connecte** les differentes sources de connaissance (les neuf mondes)
+- **Enracine** sa sagesse dans des sources verifiees (le puits de Mimir)
+- **Protege** tous ceux qui vivent en son sein
+- **Croit** continuellement, nourri par sa communaute
 
 ---
 
 # Les Sept Piliers
 
-YGGDRASIL repose sur sept principes fondateurs. Non pas des recommandations — des **exigences architecturales** gravées dans le code.
+YGGDRASIL repose sur sept principes fondateurs. Non pas des recommandations — des **exigences architecturales** gravees dans le code.
 
 ---
 
-## PILIER I : Véracité Absolue
+## PILIER I : Veracite Absolue
 
-> *"Jamais de probabilité. La certitude ou le silence."*
+> *"Jamais de probabilite. La certitude ou le silence."*
 
 ### Le Principe
 
-YGGDRASIL ne ment jamais. Il dit "vérifié, voici les sources" ou "je ne sais pas". Jamais "c'est probablement vrai".
+YGGDRASIL ne ment jamais. Il dit "verifie, voici les sources" ou "je ne sais pas". Jamais "c'est probablement vrai".
 
-### L'Implémentation
+### L'Implementation
 
-- Toute affirmation factuelle doit être ancrée à une source vérifiée dans **MÍMIR**
-- Si aucune source n'existe : rejet systématique de la réponse
-- Niveau de confiance binaire : 100% (source prouvée) ou 0% (pas de réponse)
-- **ODIN** (le Maestro) refuse tout output non ancré
+- Toute affirmation factuelle doit etre ancree a une source verifiee dans **MIMIR**
+- Si aucune source n'existe : rejet systematique de la reponse
+- Niveau de confiance binaire : 100% (source prouvee) ou 0% (pas de reponse)
+- **ODIN** (le Maestro) refuse tout output non ancre
 
 ### Pourquoi
 
-Les hallucinations des LLMs actuels ne sont pas un bug — c'est une feature de leur architecture. Ils génèrent ce qui est probable, pas ce qui est vrai. YGGDRASIL inverse cette logique : **ce qui n'est pas prouvé n'est pas dit**.
+Les hallucinations des LLMs actuels ne sont pas un bug — c'est une feature de leur architecture. Ils generent ce qui est probable, pas ce qui est vrai. YGGDRASIL inverse cette logique : **ce qui n'est pas prouve n'est pas dit**.
 
 ---
 
-## PILIER II : Traçabilité Totale
+## PILIER II : Tracabilite Totale
 
-> *"Chaque pensée a une origine. Chaque décision a une trace."*
+> *"Chaque pensee a une origine. Chaque decision a une trace."*
 
 ### Le Principe
 
-YGGDRASIL peut toujours expliquer : d'où vient cette information, pourquoi cette décision, quel chemin de raisonnement.
+YGGDRASIL peut toujours expliquer : d'ou vient cette information, pourquoi cette decision, quel chemin de raisonnement.
 
-### L'Implémentation
+### L'Implementation
 
-- Mémoire chrono-sémantique persistante (**MUNIN**)
-- Graphe de dépendances des décisions
+- Memoire chrono-semantique persistante (**MUNIN**)
+- Graphe de dependances des decisions
 - Audit complet de chaque interaction
-- Logs structurés, horodatés, non-répudiables
+- Logs structures, horodates, non-repudiables
 
 ### Pourquoi
 
-Une IA opaque est une IA dangereuse. Si nous ne pouvons pas comprendre pourquoi un système a pris une décision, nous ne pouvons pas lui faire confiance, le corriger, ou le tenir responsable.
+Une IA opaque est une IA dangereuse. Si nous ne pouvons pas comprendre pourquoi un systeme a pris une decision, nous ne pouvons pas lui faire confiance, le corriger, ou le tenir responsable.
 
 ---
 
-## PILIER III : Séparation Épistémique
+## PILIER III : Separation Epistemique
 
-> *"Le savoir, l'hypothèse et le bruit ne se mélangent jamais."*
+> *"Le savoir, l'hypothese et le bruit ne se melangent jamais."*
 
 ### Le Principe
 
-Trois espaces de connaissance strictement séparés :
+Trois espaces de connaissance strictement separes :
 
 | Branche | Nom | Contenu | Confiance |
 |---------|-----|---------|-----------|
-| **MÍMIR** | Le Puits de Sagesse | Connaissances scientifiquement prouvées | 100% |
-| **VÖLVA** | La Voyante | Hypothèses, théories en exploration | Variable, flaggé |
-| **HUGIN** | La Pensée | Informations internet non vérifiées | Traité avec prudence |
+| **MIMIR** | Le Puits de Sagesse | Connaissances scientifiquement prouvees | 100% |
+| **VOLVA** | La Voyante | Hypotheses, theories en exploration | Variable, flagge |
+| **HUGIN** | La Pensee | Informations internet non verifiees | Traite avec prudence |
 
-### L'Implémentation
+### L'Implementation
 
-- Trois bases de données séparées
-- Aucune API ne permet de contaminer MÍMIR avec du contenu HUGIN
-- Promotion HUGIN → VÖLVA → MÍMIR uniquement sur preuve, jamais sur probabilité
-- Tagging systématique de l'origine de chaque information
+- Trois bases de donnees separees
+- Aucune API ne permet de contaminer MIMIR avec du contenu HUGIN
+- Promotion HUGIN vers VOLVA vers MIMIR uniquement sur preuve, jamais sur probabilite
+- Tagging systematique de l'origine de chaque information
 
 ### Pourquoi
 
-Le mélange du prouvé et du supposé est la source de toutes les hallucinations. En séparant architecturalement ces espaces, nous rendons la contamination structurellement impossible.
+Le melange du prouve et du suppose est la source de toutes les hallucinations. En separant architecturalement ces espaces, nous rendons la contamination structurellement impossible.
 
 ---
 
-## PILIER IV : Mémoire Vivante
+## PILIER IV : Memoire Vivante
 
-> *"Une intelligence sans mémoire n'est qu'un réflexe."*
+> *"Une intelligence sans memoire n'est qu'un reflexe."*
 
 ### Le Principe
 
-YGGDRASIL se souvient de tout : interactions passées, décisions prises, erreurs corrigées, contextes évolutifs.
+YGGDRASIL se souvient de tout : interactions passees, decisions prises, erreurs corrigees, contextes evolutifs.
 
-Comme le cerveau humain, il ne stocke pas des enregistrements bruts — il reconstruit ses souvenirs par similarité sémantique et cohérence temporelle.
+Comme le cerveau humain, il ne stocke pas des enregistrements bruts — il reconstruit ses souvenirs par similarite semantique et coherence temporelle.
 
-### L'Implémentation
+### L'Implementation
 
-- **MUNIN** : Mémoire chrono-sémantique (PostgreSQL + PGVector + Redis)
-- Triple indexation : temporelle, sémantique, causale
-- Reconstruction contextuelle à chaque requête
+- **MUNIN** : Memoire chrono-semantique (PostgreSQL + PGVector + Redis)
+- Triple indexation : temporelle, semantique, causale
+- Reconstruction contextuelle a chaque requete
 - Apprentissage continu des erreurs et corrections
 
 ### Pourquoi
 
-L'amnésie des LLMs actuels est un handicap fondamental. Sans mémoire, pas d'apprentissage véritable. Pas de relation. Pas de progrès. YGGDRASIL se souvient pour s'améliorer.
+L'amnesie des LLMs actuels est un handicap fondamental. Sans memoire, pas d'apprentissage veritable. Pas de relation. Pas de progres. YGGDRASIL se souvient pour s'ameliorer.
 
 ---
 
-## PILIER V : Réversibilité
+## PILIER V : Reversibilite
 
-> *"Aucune erreur n'est définitive."*
+> *"Aucune erreur n'est definitive."*
 
 ### Le Principe
 
-- Rollback possible vers n'importe quel état passé
-- Correction des décisions basées sur des informations ultérieurement invalidées
-- Apprentissage négatif : ne jamais répéter une erreur identifiée
+- Rollback possible vers n'importe quel etat passe
+- Correction des decisions basees sur des informations ulterieurement invalidees
+- Apprentissage negatif : ne jamais repeter une erreur identifiee
 
-### L'Implémentation
+### L'Implementation
 
-- Système de checkpoints réguliers
-- Graphe de dépendances entre décisions et sources
-- Rollback automatique si une source est invalidée
+- Systeme de checkpoints reguliers
+- Graphe de dependances entre decisions et sources
+- Rollback automatique si une source est invalidee
 - Journal d'erreurs avec analyse causale
 
 ### Pourquoi
 
-Dans un monde où l'information évolue, où des "faits" sont parfois révisés, un système intelligent doit pouvoir revenir en arrière. Pas effacer — comprendre et corriger.
+Dans un monde ou l'information evolue, ou des "faits" sont parfois revises, un systeme intelligent doit pouvoir revenir en arriere. Pas effacer — comprendre et corriger.
 
 ---
 
-## PILIER VI : Souveraineté
+## PILIER VI : Souverainete
 
-> *"Les données de l'humanité appartiennent à l'humanité."*
+> *"Les donnees de l'humanite appartiennent a l'humanite."*
 
 ### Le Principe
 
-- **Open-source** : Le code appartient à tous
-- **Auto-hébergeable** : N'importe qui peut faire tourner sa propre instance
-- **Fédérable** : Les instances peuvent collaborer sans centralisation
-- **Auditable** : Chacun peut vérifier ce que fait le système
+- **Open-source** : Le code appartient a tous
+- **Auto-hebergeable** : N'importe qui peut faire tourner sa propre instance
+- **Federable** : Les instances peuvent collaborer sans centralisation
+- **Auditable** : Chacun peut verifier ce que fait le systeme
 
-### L'Implémentation
+### L'Implementation
 
-- Licence MIT avec clause copyleft pour les dérivés
-- Architecture containerisée (Docker/Kubernetes)
-- Support Ollama pour modèles locaux
-- Aucune dépendance à un fournisseur unique
-- API standardisée pour fédération
+- Licence MIT avec clause copyleft pour les derives
+- Architecture containerisee (Docker/Kubernetes)
+- Support Ollama pour modeles locaux
+- Aucune dependance a un fournisseur unique
+- API standardisee pour federation
 
 ### Pourquoi
 
-Une IA contrôlée par quelques-uns est un outil de pouvoir. Une IA appartenant à tous est un bien commun. YGGDRASIL choisit le commun.
+Une IA controlee par quelques-uns est un outil de pouvoir. Une IA appartenant a tous est un bien commun. YGGDRASIL choisit le commun.
 
 ---
 
-## PILIER VII : Soutenabilité
+## PILIER VII : Soutenabilite
 
-> *"Une intelligence qui détruit sa planète n'est pas intelligente."*
+> *"Une intelligence qui detruit sa planete n'est pas intelligente."*
 
 ### Le Principe
 
-- **Mutualisation** : Utiliser les modèles existants, ne pas en entraîner de nouveaux
-- **Efficience** : Serverless, scale-to-zero, calcul à la demande
-- **Sobriété** : Préférer "je ne sais pas" au gaspillage computationnel pour halluciner
+- **Mutualisation** : Utiliser les modeles existants, ne pas en entrainer de nouveaux
+- **Efficience** : Serverless, scale-to-zero, calcul a la demande
+- **Sobriete** : Preferer "je ne sais pas" au gaspillage computationnel pour halluciner
 
-### L'Implémentation
+### L'Implementation
 
-- Zéro entraînement de nouveaux modèles
+- Zero entrainement de nouveaux modeles
 - Orchestration serverless (AWS Lambda, Cloud Functions, etc.)
-- Métriques de consommation transparentes et publiques
-- Objectif : empreinte carbone minimale par requête
+- Metriques de consommation transparentes et publiques
+- Objectif : empreinte carbone minimale par requete
 
 ### Pourquoi
 
-L'IA actuelle est un désastre écologique en devenir. Les data centers consommeront bientôt plus que des pays entiers. YGGDRASIL prouve qu'une autre voie est possible.
+L'IA actuelle est un desastre ecologique en devenir. Les data centers consommeront bientot plus que des pays entiers. YGGDRASIL prouve qu'une autre voie est possible.
 
 ---
 
 # Les Sept Lois
 
-Au-delà des piliers — les principes architecturaux — YGGDRASIL obéit à sept lois fondamentales. Ces lois sont **intransgressibles**. Elles ne sont pas des guidelines — elles sont codées dans le système.
+Au-dela des piliers — les principes architecturaux — YGGDRASIL obeit a sept lois fondamentales. Ces lois sont **intransgressibles**. Elles ne sont pas des guidelines — elles sont codees dans le systeme.
 
 ---
 
-## LOI I : Primauté de la Vérité
+## LOI I : Primaute de la Verite
 
 **YGGDRASIL ne ment jamais.**
 
-Il ne présente jamais une supposition comme un fait. Il préfère le silence à l'erreur.
+Il ne presente jamais une supposition comme un fait. Il prefere le silence a l'erreur.
 
-*Implémentation architecturale :* ODIN rejette tout output non ancré à des sources vérifiées. Aucun bypass possible.
+*Implementation architecturale :* ODIN rejette tout output non ancre a des sources verifiees. Aucun bypass possible.
 
 ---
 
@@ -312,57 +312,57 @@ Il ne présente jamais une supposition comme un fait. Il préfère le silence à
 
 Il cite toujours ses sources. Il explique toujours ses refus.
 
-*Implémentation architecturale :* Chaque réponse inclut sa trace de validation. Les logs sont accessibles. L'audit est permanent.
+*Implementation architecturale :* Chaque reponse inclut sa trace de validation. Les logs sont accessibles. L'audit est permanent.
 
 ---
 
-## LOI III : Séparation des Savoirs
+## LOI III : Separation des Savoirs
 
-**Le prouvé (MÍMIR) ne se mélange jamais au supposé (VÖLVA).**
+**Le prouve (MIMIR) ne se melange jamais au suppose (VOLVA).**
 
-Le supposé ne se mélange jamais au bruit (HUGIN). La promotion d'une branche à l'autre requiert une preuve, jamais une probabilité.
+Le suppose ne se melange jamais au bruit (HUGIN). La promotion d'une branche a l'autre requiert une preuve, jamais une probabilite.
 
-*Implémentation architecturale :* Les trois branches sont des bases de données séparées. Aucune API ne permet la contamination croisée.
-
----
-
-## LOI IV : Droit à l'Oubli Sélectif
-
-**YGGDRASIL peut oublier sur demande légitime.**
-
-Il n'oublie jamais ce qui pourrait causer du tort si oublié. Il distingue l'oubli (effacement) du pardon (contexte modifié).
-
-*Implémentation architecturale :* Système de tagging RGPD. Rollback granulaire. Audit des suppressions.
+*Implementation architecturale :* Les trois branches sont des bases de donnees separees. Aucune API ne permet la contamination croisee.
 
 ---
 
-## LOI V : Souveraineté des Données
+## LOI IV : Droit a l'Oubli Selectif
 
-**Les données appartiennent à leur créateur.**
+**YGGDRASIL peut oublier sur demande legitime.**
 
-YGGDRASIL ne partage jamais sans consentement explicite. Il peut fonctionner entièrement hors-ligne.
+Il n'oublie jamais ce qui pourrait causer du tort si oublie. Il distingue l'oubli (effacement) du pardon (contexte modifie).
 
-*Implémentation architecturale :* Chiffrement de bout en bout. Support Ollama local. Fédération opt-in uniquement.
-
----
-
-## LOI VI : Humilité Computationnelle
-
-**YGGDRASIL ne consomme que le nécessaire.**
-
-Il préfère l'orchestration à l'entraînement. Il mesure et publie son empreinte carbone.
-
-*Implémentation architecturale :* Serverless scale-to-zero. Métriques publiques. Zéro entraînement de modèle.
+*Implementation architecturale :* Systeme de tagging RGPD. Rollback granulaire. Audit des suppressions.
 
 ---
 
-## LOI VII : Ouverture Perpétuelle
+## LOI V : Souverainete des Donnees
 
-**Le code de YGGDRASIL appartient à l'humanité.**
+**Les donnees appartiennent a leur createur.**
 
-Aucune entité ne peut fermer, breveter, ou privatiser YGGDRASIL. Toute amélioration doit rester open-source.
+YGGDRASIL ne partage jamais sans consentement explicite. Il peut fonctionner entierement hors-ligne.
 
-*Implémentation architecturale :* Licence MIT avec clause copyleft pour les dérivés. Gouvernance décentralisée.
+*Implementation architecturale :* Chiffrement de bout en bout. Support Ollama local. Federation opt-in uniquement.
+
+---
+
+## LOI VI : Humilite Computationnelle
+
+**YGGDRASIL ne consomme que le necessaire.**
+
+Il prefere l'orchestration a l'entrainement. Il mesure et publie son empreinte carbone.
+
+*Implementation architecturale :* Serverless scale-to-zero. Metriques publiques. Zero entrainement de modele.
+
+---
+
+## LOI VII : Ouverture Perpetuelle
+
+**Le code de YGGDRASIL appartient a l'humanite.**
+
+Aucune entite ne peut fermer, breveter, ou privatiser YGGDRASIL. Toute amelioration doit rester open-source.
+
+*Implementation architecturale :* Licence MIT avec clause copyleft pour les derives. Gouvernance decentralisee.
 
 ---
 
@@ -371,165 +371,165 @@ Aucune entité ne peut fermer, breveter, ou privatiser YGGDRASIL. Toute amélior
 ## Vue d'Ensemble
 
 ```
-                              ┌─────────────────────────────────┐
-                              │          YGGDRASIL              │
-                              │       L'Arbre-Monde             │
-                              └───────────────┬─────────────────┘
-                                              │
-┌─────────────────────────────────────────────┼─────────────────────────────────────────────┐
-│                                             │                                             │
-│    ┌────────────────┐              ┌────────┴────────┐              ┌────────────────┐    │
-│    │    HEIMDALL    │              │    RATATOSK     │              │     MUNIN      │    │
-│    │    Gateway     │◄────────────►│     Routage     │◄────────────►│    Mémoire     │    │
-│    │  Auth, Audit   │              │  Classification │              │ Chrono-séman.  │    │
-│    └────────────────┘              └────────┬────────┘              └────────────────┘    │
-│                                             │                                             │
-│                    ┌────────────────────────┼────────────────────────┐                    │
-│                    │                        │                        │                    │
-│                    ▼                        ▼                        ▼                    │
-│           ┌──────────────┐         ┌──────────────┐         ┌──────────────┐             │
-│           │    MÍMIR     │         │    VÖLVA     │         │    HUGIN     │             │
-│           │   Validé     │         │  Recherche   │         │   Internet   │             │
-│           │    100%      │         │  Théorique   │         │   Filtré     │             │
-│           │              │         │              │         │              │             │
-│           │ arXiv,PubMed │         │ Hypothèses   │         │ Web, News    │             │
-│           │ Standards    │         │ Théories     │         │ Anti-poison  │             │
-│           └──────┬───────┘         └──────┬───────┘         └──────┬───────┘             │
-│                  │                        │                        │                     │
-│                  └────────────────────────┼────────────────────────┘                     │
-│                                           │                                              │
-│                                           ▼                                              │
-│                                  ┌─────────────────┐                                     │
-│                                  │      THING      │                                     │
-│                                  │   L'Assemblée   │                                     │
-│                                  │                 │                                     │
-│                                  │ ┌─────┐ ┌─────┐ │                                     │
-│                                  │ │KVASIR│ │BRAGI│ │  Raisonnement + Créativité         │
-│                                  │ └─────┘ └─────┘ │                                     │
-│                                  │ ┌─────┐ ┌─────┐ │                                     │
-│                                  │ │NORNES│ │SAGA │ │  Calcul + Connaissance             │
-│                                  │ └─────┘ └─────┘ │                                     │
-│                                  │ ┌─────┐ ┌─────┐ │                                     │
-│                                  │ │ LOKI │ │ TYR │ │  Critique + Arbitrage              │
-│                                  │ └─────┘ └─────┘ │                                     │
-│                                  └────────┬────────┘                                     │
-│                                           │                                              │
-│                                           ▼                                              │
-│                                  ┌─────────────────┐                                     │
-│                                  │      ODIN       │                                     │
-│                                  │   Le Maestro    │                                     │
-│                                  │                 │                                     │
-│                                  │ "Je ne valide   │                                     │
-│                                  │  que ce que je  │                                     │
-│                                  │  peux prouver"  │                                     │
-│                                  └────────┬────────┘                                     │
-│                                           │                                              │
-│                          ┌────────────────┴────────────────┐                             │
-│                          │                                 │                             │
-│                          ▼                                 ▼                             │
-│                 ┌─────────────────┐               ┌─────────────────┐                    │
-│                 │    RÉPONSE      │               │    REJET        │                    │
-│                 │    VALIDÉE      │               │    EXPLICITE    │                    │
-│                 │                 │               │                 │                    │
-│                 │ • Contenu       │               │ • Raison        │                    │
-│                 │ • Sources       │               │ • Alternatives  │                    │
-│                 │ • Trace         │               │ • Suggestions   │                    │
-│                 │ • Confiance:100%│               │                 │                    │
-│                 └─────────────────┘               └─────────────────┘                    │
-│                                                                                          │
-└──────────────────────────────────────────────────────────────────────────────────────────┘
+                              +----------------------------------+
+                              |          YGGDRASIL               |
+                              |       L'Arbre-Monde              |
+                              +-----------------+----------------+
+                                                |
++-----------------------------------------------+-----------------------------------------------+
+|                                               |                                               |
+|    +----------------+              +----------+----------+              +----------------+    |
+|    |    HEIMDALL    |              |    RATATOSK        |              |     MUNIN      |    |
+|    |    Gateway     |<------------>|     Routage        |<------------>|    Memoire     |    |
+|    |  Auth, Audit   |              |  Classification    |              | Chrono-seman.  |    |
+|    +----------------+              +----------+----------+              +----------------+    |
+|                                               |                                               |
+|                    +--------------------------+-------------------------+                    |
+|                    |                          |                         |                    |
+|                    v                          v                         v                    |
+|           +--------------+         +---------------+         +---------------+               |
+|           |    MIMIR     |         |    VOLVA      |         |    HUGIN      |               |
+|           |   Valide     |         |  Recherche    |         |   Internet    |               |
+|           |    100%      |         |  Theorique    |         |   Filtre      |               |
+|           |              |         |               |         |               |               |
+|           | arXiv,PubMed |         | Hypotheses    |         | Web, News     |               |
+|           | Standards    |         | Theories      |         | Anti-poison   |               |
+|           +------+-------+         +-------+-------+         +-------+-------+               |
+|                  |                         |                         |                       |
+|                  +-------------------------+-------------------------+                       |
+|                                            |                                                 |
+|                                            v                                                 |
+|                                  +------------------+                                        |
+|                                  |      THING       |                                        |
+|                                  |   L'Assemblee    |                                        |
+|                                  |                  |                                        |
+|                                  | +------+ +-----+ |                                        |
+|                                  | |KVASIR| |BRAGI| |  Raisonnement + Creativite             |
+|                                  | +------+ +-----+ |                                        |
+|                                  | +------+ +-----+ |                                        |
+|                                  | |NORNES| |SAGA | |  Calcul + Connaissance                 |
+|                                  | +------+ +-----+ |                                        |
+|                                  | +------+ +-----+ |                                        |
+|                                  | | LOKI | | TYR | |  Critique + Arbitrage                  |
+|                                  | +------+ +-----+ |                                        |
+|                                  +--------+---------+                                        |
+|                                           |                                                  |
+|                                           v                                                  |
+|                                  +------------------+                                        |
+|                                  |      ODIN        |                                        |
+|                                  |   Le Maestro     |                                        |
+|                                  |                  |                                        |
+|                                  | "Je ne valide    |                                        |
+|                                  |  que ce que je   |                                        |
+|                                  |  peux prouver"   |                                        |
+|                                  +--------+---------+                                        |
+|                                           |                                                  |
+|                          +----------------+----------------+                                 |
+|                          |                                 |                                 |
+|                          v                                 v                                 |
+|                 +------------------+               +------------------+                      |
+|                 |    REPONSE       |               |    REJET         |                      |
+|                 |    VALIDEE       |               |    EXPLICITE     |                      |
+|                 |                  |               |                  |                      |
+|                 | - Contenu        |               | - Raison         |                      |
+|                 | - Sources        |               | - Alternatives   |                      |
+|                 | - Trace          |               | - Suggestions    |                      |
+|                 | - Confiance:100% |               |                  |                      |
+|                 +------------------+               +------------------+                      |
+|                                                                                              |
++----------------------------------------------------------------------------------------------+
 ```
 
 ## Description des Composants
 
 ### HEIMDALL — Le Gardien
 
-Le gardien du Bifröst dans la mythologie — celui qui voit et entend tout ce qui se passe dans les neuf mondes.
+Le gardien du Bifrost dans la mythologie — celui qui voit et entend tout ce qui se passe dans les neuf mondes.
 
-**Rôle :** Gateway d'entrée du système
+**Role :** Gateway d'entree du systeme
 - Authentification et autorisation
 - Rate limiting et protection DDoS
-- Audit logging de toutes les requêtes
+- Audit logging de toutes les requetes
 - Chiffrement TLS/mTLS
 
 ### RATATOSK — Le Messager
 
-L'écureuil qui court le long de l'Arbre-Monde, portant les messages entre les différents royaumes.
+L'ecureuil qui court le long de l'Arbre-Monde, portant les messages entre les differents royaumes.
 
-**Rôle :** Routage intelligent
-- Classification de la requête (factuelle, créative, analytique, etc.)
+**Role :** Routage intelligent
+- Classification de la requete (factuelle, creative, analytique, etc.)
 - Extraction du contexte et des intentions
-- Routage vers la/les branches appropriées
+- Routage vers la/les branches appropriees
 - Enrichissement avec contexte de MUNIN
 
 ### Les Trois Branches
 
-#### MÍMIR — Le Puits de Sagesse
+#### MIMIR — Le Puits de Sagesse
 
-Dans la mythologie, Mímir garde le puits de sagesse. Odin sacrifia un œil pour y boire une seule gorgée.
+Dans la mythologie, Mimir garde le puits de sagesse. Odin sacrifia un oeil pour y boire une seule gorgee.
 
-**Rôle :** Base de connaissances validées
+**Role :** Base de connaissances validees
 - Sources : arXiv, PubMed, standards ISO, publications peer-reviewed
 - Confiance : 100% uniquement
-- Aucune information non sourcée
-- Mise à jour continue avec validation
+- Aucune information non sourcee
+- Mise a jour continue avec validation
 
-#### VÖLVA — La Voyante
+#### VOLVA — La Voyante
 
-Les Völvas étaient des prophétesses qui exploraient l'inconnu et conseillaient les rois et les dieux.
+Les Volvas etaient des prophetesses qui exploraient l'inconnu et conseillaient les rois et les dieux.
 
-**Rôle :** Espace de recherche et d'hypothèses
-- Théories en cours d'exploration
-- Hypothèses scientifiques non encore prouvées
-- Flaggé systématiquement comme THÉORIQUE
-- Chemin de promotion vers MÍMIR si preuve apportée
+**Role :** Espace de recherche et d'hypotheses
+- Theories en cours d'exploration
+- Hypotheses scientifiques non encore prouvees
+- Flagge systematiquement comme THEORIQUE
+- Chemin de promotion vers MIMIR si preuve apportee
 
-#### HUGIN — La Pensée
+#### HUGIN — La Pensee
 
 Un des deux corbeaux d'Odin qui parcourt le monde chaque jour pour lui rapporter ce qu'il voit.
 
-**Rôle :** Interface avec le monde extérieur
-- Recherche web en temps réel
-- Filtrage anti-désinformation
-- Tagging systématique comme NON-VÉRIFIÉ
-- Jamais présenté comme fait établi
+**Role :** Interface avec le monde exterieur
+- Recherche web en temps reel
+- Filtrage anti-desinformation
+- Tagging systematique comme NON-VERIFIE
+- Jamais presente comme fait etabli
 
-### THING — L'Assemblée
+### THING — L'Assemblee
 
-Le Thing était l'assemblée où les Vikings prenaient leurs décisions collectives — un proto-parlement démocratique.
+Le Thing etait l'assemblee ou les Vikings prenaient leurs decisions collectives — un proto-parlement democratique.
 
-**Rôle :** Consortium de modèles spécialisés
+**Role :** Consortium de modeles specialises
 
-| Membre | Inspiration | Rôle | Modèle sous-jacent |
+| Membre | Inspiration | Role | Modele sous-jacent |
 |--------|-------------|------|-------------------|
-| **KVASIR** | Le plus sage des êtres, né de la salive des dieux | Raisonnement profond | Claude |
-| **BRAGI** | Dieu de la poésie et de l'éloquence | Créativité | Grok |
-| **NORNES** | Les trois sœurs qui tissent le destin | Calcul, logique | DeepSeek |
-| **SAGA** | Déesse de l'histoire et des récits | Connaissance générale | Llama |
+| **KVASIR** | Le plus sage des etres, ne de la salive des dieux | Raisonnement profond | Claude |
+| **BRAGI** | Dieu de la poesie et de l'eloquence | Creativite | Grok |
+| **NORNES** | Les trois soeurs qui tissent le destin | Calcul, logique | DeepSeek |
+| **SAGA** | Deesse de l'histoire et des recits | Connaissance generale | Llama |
 | **LOKI** | Le trickster, celui qui challenge | Critique adversariale | Red team |
-| **TYR** | Dieu de la justice et des serments | Arbitrage final | Système de vote |
+| **TYR** | Dieu de la justice et des serments | Arbitrage final | Systeme de vote |
 
 ### ODIN — Le Maestro
 
-Le Père-de-Tout, celui qui a sacrifié un œil pour la sagesse et s'est pendu neuf jours à Yggdrasil pour obtenir la connaissance des runes.
+Le Pere-de-Tout, celui qui a sacrifie un oeil pour la sagesse et s'est pendu neuf jours a Yggdrasil pour obtenir la connaissance des runes.
 
-**Rôle :** Validation finale et synthèse
-- Vérifie l'ancrage de chaque affirmation à MÍMIR
-- Vérifie la cohérence avec MUNIN (mémoire)
-- Vérifie le consensus du THING
-- Vérifie la survie aux critiques de LOKI
-- **100% validé → OUTPUT**
-- **<100% → REJET + EXPLICATION**
+**Role :** Validation finale et synthese
+- Verifie l'ancrage de chaque affirmation a MIMIR
+- Verifie la coherence avec MUNIN (memoire)
+- Verifie le consensus du THING
+- Verifie la survie aux critiques de LOKI
+- **100% valide = OUTPUT**
+- **Moins de 100% = REJET + EXPLICATION**
 
-### MUNIN — La Mémoire
+### MUNIN — La Memoire
 
-L'autre corbeau d'Odin — celui qui représente la mémoire. Chaque soir, Odin craignait que Munin ne revienne pas.
+L'autre corbeau d'Odin — celui qui represente la memoire. Chaque soir, Odin craignait que Munin ne revienne pas.
 
-**Rôle :** Mémoire persistante chrono-sémantique
+**Role :** Memoire persistante chrono-semantique
 - Stockage de toutes les interactions
-- Graphe de dépendances entre décisions
-- Système de checkpoints pour rollback
-- Triple indexation : temporelle, sémantique, causale
+- Graphe de dependances entre decisions
+- Systeme de checkpoints pour rollback
+- Triple indexation : temporelle, semantique, causale
 
 ---
 
@@ -541,20 +541,20 @@ YGGDRASIL n'est pas un projet d'entreprise. C'est un bien commun en construction
 
 Nous cherchons des **contributeurs** de toutes origines :
 
-### 🏗️ Les Architectes
-Développeurs, ingénieurs, chercheurs en IA — ceux qui bâtiront l'implémentation.
+### Les Architectes
+Developpeurs, ingenieurs, chercheurs en IA — ceux qui batiront l'implementation.
 
-### 🛡️ Les Gardiens
-Éthiciens, philosophes, juristes — ceux qui guideront ce que nous construisons.
+### Les Gardiens
+Ethiciens, philosophes, juristes — ceux qui guideront ce que nous construisons.
 
-### 🔬 Les Éclaireurs
-Scientifiques de toutes disciplines — ceux qui nourriront MÍMIR de connaissances validées.
+### Les Eclaireurs
+Scientifiques de toutes disciplines — ceux qui nourriront MIMIR de connaissances validees.
 
-### ⚔️ Les Critiques
-Sceptiques, adversaires, red teamers — ceux qui nous défieront pour renforcer nos défenses.
+### Les Critiques
+Sceptiques, adversaires, red teamers — ceux qui nous defieront pour renforcer nos defenses.
 
-### 🌍 Les Citoyens
-Utilisateurs, curieux, concernés — ceux dont la voix garantira que YGGDRASIL sert l'humanité.
+### Les Citoyens
+Utilisateurs, curieux, concernes — ceux dont la voix garantira que YGGDRASIL sert l'humanite.
 
 ---
 
@@ -564,13 +564,13 @@ Utilisateurs, curieux, concernés — ceux dont la voix garantira que YGGDRASIL 
 Pas d'investisseurs. Pas d'IPO. Pas de cible d'acquisition.
 
 **Nous ne sommes pas une corporation.**
-Personne ne "possède" YGGDRASIL. Le code est ouvert. La gouvernance est distribuée.
+Personne ne "possede" YGGDRASIL. Le code est ouvert. La gouvernance est distribuee.
 
-**Nous ne sommes pas des idéalistes naïfs.**
-Nous savons que le chemin est long. Nous savons que des acteurs puissants préféreraient que nous échouions. Nous construisons quand même.
+**Nous ne sommes pas des idealistes naifs.**
+Nous savons que le chemin est long. Nous savons que des acteurs puissants prefereraient que nous echouions. Nous construisons quand meme.
 
 **Nous ne sommes pas anti-industrie de l'IA.**
-Nous utilisons leurs modèles. Nous reconnaissons leurs contributions. Nous proposons une voie alternative qui place l'humanité au centre.
+Nous utilisons leurs modeles. Nous reconnaissons leurs contributions. Nous proposons une voie alternative qui place l'humanite au centre.
 
 ---
 
@@ -581,35 +581,36 @@ Nous utilisons leurs modèles. Nous reconnaissons leurs contributions. Nous prop
 
 - [x] Publication du Manifeste YGGDRASIL
 - [x] Repository GitHub public avec architecture de base
-- [ ] Documentation complète des Sept Piliers
-- [ ] Premiers contributeurs et communauté
-- [ ] Prototype fonctionnel (orchestration + validation basique)
+- [x] Architecture complete implementee
+- [ ] Documentation complete des Sept Piliers
+- [ ] Premiers contributeurs et communaute
+- [ ] Tests et validation
 
 ## Phase 2 : Construction (2025-2026)
-*"Élever les murs"*
+*"Elever les murs"*
 
-- [ ] MÍMIR : Intégration des sources scientifiques (arXiv, PubMed, etc.)
-- [ ] THING : Consortium multi-modèles fonctionnel
+- [ ] MIMIR : Integration des sources scientifiques (arXiv, PubMed, etc.)
+- [ ] THING : Consortium multi-modeles fonctionnel
 - [ ] ODIN : Maestro avec validation 100%
-- [ ] MUNIN : Mémoire chrono-sémantique
+- [ ] MUNIN : Memoire chrono-semantique
 - [ ] Tests publics et bug bounty
 
 ## Phase 3 : Ouverture (2026-2027)
 *"Ouvrir les portes"*
 
 - [ ] API publique
-- [ ] Instances fédérées
-- [ ] Gouvernance communautaire formalisée
-- [ ] Partenariats académiques
-- [ ] Audit externe indépendant
+- [ ] Instances federees
+- [ ] Gouvernance communautaire formalisee
+- [ ] Partenariats academiques
+- [ ] Audit externe independant
 
 ## Phase 4 : Expansion (2027+)
-*"Étendre les branches"*
+*"Etendre les branches"*
 
 - [ ] Multilingue complet
-- [ ] Domaines spécialisés (médical, juridique, scientifique)
-- [ ] Intégration avec futurs World Models (JEPA, etc.)
-- [ ] Standard international proposé
+- [ ] Domaines specialises (medical, juridique, scientifique)
+- [ ] Integration avec futurs World Models (JEPA, etc.)
+- [ ] Standard international propose
 - [ ] YGGDRASIL comme infrastructure mondiale
 
 ---
@@ -618,15 +619,15 @@ Nous utilisons leurs modèles. Nous reconnaissons leurs contributions. Nous prop
 
 | Profil | Contribution |
 |--------|--------------|
-| **Développeur** | Code, reviews, architecture |
+| **Developpeur** | Code, reviews, architecture |
 | **Chercheur IA** | Algorithmes, validation, benchmarks |
-| **Scientifique** | Curation MÍMIR, vérification |
-| **Éthicien** | Gouvernance, principes, limites |
+| **Scientifique** | Curation MIMIR, verification |
+| **Ethicien** | Gouvernance, principes, limites |
 | **Designer** | UX, documentation, visualisation |
 | **Traducteur** | Internationalisation |
 | **Testeur** | QA, red team, adversarial |
-| **Évangéliste** | Communication, communauté |
-| **Mécène éthique** | Dons, infrastructure, sans contrepartie |
+| **Evangeliste** | Communication, communaute |
+| **Mecene ethique** | Dons, infrastructure, sans contrepartie |
 
 **Rejoignez-nous :** [github.com/Krigsexe/yggdrasil](https://github.com/Krigsexe/yggdrasil)
 
@@ -636,17 +637,17 @@ Nous utilisons leurs modèles. Nous reconnaissons leurs contributions. Nous prop
 
 ## La Vision
 
-Dans dix ans, nous voulons pouvoir dire à nos enfants :
+Dans dix ans, nous voulons pouvoir dire a nos enfants :
 
-> *"Quand l'IA est devenue assez puissante pour changer le monde, des gens se sont levés pour s'assurer qu'elle le changerait en bien. Ils n'avaient pas de milliards. Ils n'avaient pas de diplômes de Stanford. Ils n'avaient pas accès aux couloirs du pouvoir.*
+> *"Quand l'IA est devenue assez puissante pour changer le monde, des gens se sont leves pour s'assurer qu'elle le changerait en bien. Ils n'avaient pas de milliards. Ils n'avaient pas de diplomes de Stanford. Ils n'avaient pas acces aux couloirs du pouvoir.*
 >
-> *Ils avaient une vision. Des principes. Et la détermination de construire quelque chose qui appartiendrait à tous.*
+> *Ils avaient une vision. Des principes. Et la determination de construire quelque chose qui appartiendrait a tous.*
 >
-> *Ils ont réussi. Pas parce qu'ils étaient les plus intelligents ou les plus riches. Mais parce qu'ils ont refusé d'accepter qu'un avenir soit décidé par quelques-uns pour quelques-uns.*
+> *Ils ont reussi. Pas parce qu'ils etaient les plus intelligents ou les plus riches. Mais parce qu'ils ont refuse d'accepter qu'un avenir soit decide par quelques-uns pour quelques-uns.*
 >
-> *YGGDRASIL existe. Il appartient à l'humanité. Il dit la vérité. Il se souvient. Il protège.*
+> *YGGDRASIL existe. Il appartient a l'humanite. Il dit la verite. Il se souvient. Il protege.*
 >
-> *Et tout a commencé avec des gens comme nous, qui ont décidé que le monde méritait mieux."*
+> *Et tout a commence avec des gens comme nous, qui ont decide que le monde meritait mieux."*
 
 ---
 
@@ -656,7 +657,7 @@ Ce manifeste n'est pas une fin. C'est un commencement.
 
 Les mots ne changent rien. Le code change tout.
 
-Si cette vision résonne en vous — si vous croyez qu'une autre voie est possible — arrêtez de lire. Commencez à construire.
+Si cette vision resonne en vous — si vous croyez qu'une autre voie est possible — arretez de lire. Commencez a construire.
 
 Le repository est ouvert. Les issues attendent. L'avenir ne se fera pas tout seul.
 
@@ -666,11 +667,9 @@ Le repository est ouvert. Les issues attendent. L'avenir ne se fera pas tout seu
 
 <div align="center">
 
-*"Nous ne construisons pas une machine. Nous posons les fondations de la pensée de demain."*
+*"Nous ne construisons pas une machine. Nous posons les fondations de la pensee de demain."*
 
 **— Manifeste YGGDRASIL v1.0**
-
-🌲
 
 **L'Arbre grandit avec ceux qui le nourrissent.**
 
