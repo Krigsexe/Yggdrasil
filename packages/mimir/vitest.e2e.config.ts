@@ -12,7 +12,7 @@ export default defineConfig({
       },
     },
     env: {
-      DATABASE_URL: 'postgresql://yggdrasil:yggdrasil@localhost:5432/yggdrasil',
+      DATABASE_URL: 'postgresql://postgres:postgres@localhost:54322/postgres',
     },
   },
 });

@@ -5,7 +5,7 @@
  * with pgvector embeddings and can be retrieved via semantic search.
  *
  * Prerequisites:
- * - PostgreSQL with pgvector extension running on localhost:5432
+ * - Supabase running (npx supabase start from packages/bifrost)
  * - Database schema applied via Prisma
  */
 

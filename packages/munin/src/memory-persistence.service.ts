@@ -151,8 +151,8 @@ export class MemoryPersistenceService {
       contentLength: content.length,
     });
 
-    // Extract facts from message
-    const facts = this.factExtractor.extract(content);
+    // Extract facts from message using LLM (ODIN Step 1)
+    const facts = await this.factExtractor.extract(content);
 
     if (facts.length === 0) {
       return {
@@ -377,6 +377,7 @@ export class MemoryPersistenceService {
       [FactType.GOAL]: 80,           // User objectives
       [FactType.CONTEXT]: 70,        // Background info
       [FactType.PREFERENCE]: 60,     // Preferences
+      [FactType.DECLARATION]: 50,    // General declarative facts
     };
 
     return importanceMap[type] ?? 50;

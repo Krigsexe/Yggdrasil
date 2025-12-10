@@ -169,13 +169,18 @@ cp .env.example .env
 ### Etape 4 : Demarrer les Services
 
 ```bash
-# Demarrer PostgreSQL et Supabase via Docker
+# 1. Demarrer Supabase (fournit PostgreSQL sur le port 54322)
+cd packages/bifrost
+npx supabase start
+
+# 2. Revenir a la racine et demarrer Redis (optionnel, pour le cache)
+cd ../..
 docker compose up -d
 
-# Initialiser la base de donnees
+# 3. Initialiser la base de donnees
 pnpm prisma migrate dev
 
-# Demarrer HEIMDALL (backend) sur le port 3000
+# 4. Demarrer HEIMDALL (backend) sur le port 3000
 pnpm --filter @yggdrasil/heimdall dev
 
 # Dans un autre terminal, demarrer BIFROST (frontend) sur le port 3001

@@ -69,11 +69,11 @@ jobs:
       postgres:
         image: pgvector/pgvector:pg16
         env:
-          POSTGRES_USER: yggdrasil
-          POSTGRES_PASSWORD: yggdrasil
-          POSTGRES_DB: yggdrasil_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
         ports:
-          - 5432:5432
+          - 54322:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -111,18 +111,18 @@ jobs:
         run: pnpm prisma generate
         working-directory: ./prisma
         env:
-          DATABASE_URL: postgresql://yggdrasil:yggdrasil@localhost:5432/yggdrasil_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:54322/postgres
 
       - name: Run migrations
         run: pnpm prisma migrate deploy
         working-directory: ./prisma
         env:
-          DATABASE_URL: postgresql://yggdrasil:yggdrasil@localhost:5432/yggdrasil_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:54322/postgres
 
       - name: Run tests
         run: pnpm test
         env:
-          DATABASE_URL: postgresql://yggdrasil:yggdrasil@localhost:5432/yggdrasil_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:54322/postgres
           REDIS_URL: redis://localhost:6379
           JWT_SECRET: test-secret-for-ci
           NODE_ENV: test

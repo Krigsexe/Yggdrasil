@@ -8,13 +8,23 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
+// Default DATABASE_URL for development (Supabase local)
+const DEFAULT_DATABASE_URL = 'postgresql://postgres:postgres@127.0.0.1:54322/postgres';
+
 @Injectable()
 export class DatabaseService
   extends PrismaClient
   implements OnModuleInit, OnModuleDestroy
 {
   constructor() {
+    const databaseUrl = process.env['DATABASE_URL'] || DEFAULT_DATABASE_URL;
+
     super({
+      datasources: {
+        db: {
+          url: databaseUrl,
+        },
+      },
       log:
         process.env['NODE_ENV'] === 'development'
           ? ['query', 'info', 'warn', 'error']
