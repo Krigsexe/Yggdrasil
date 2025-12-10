@@ -22,7 +22,7 @@ export interface LokiChallenge {
 export class LokiAdapter {
   private readonly challengeThreshold = 0.7;
 
-  async challenge(response: CouncilResponse): Promise<LokiChallenge | null> {
+  challenge(response: CouncilResponse): LokiChallenge | null {
     logger.info('LOKI analyzing response', {
       member: response.member,
       confidence: response.confidence,
@@ -49,11 +49,11 @@ export class LokiAdapter {
     return null;
   }
 
-  async critique(content: string): Promise<{
+  critique(content: string): {
     issues: string[];
     suggestions: string[];
     severity: ChallengeSeverity;
-  }> {
+  } {
     logger.info('LOKI critique', { contentLength: content.length });
 
     // Placeholder - would perform deep critique

@@ -8,7 +8,7 @@ export interface ErrorDetails {
 
 export abstract class YggdrasilError extends Error {
   public readonly code: string;
-  public readonly details?: ErrorDetails;
+  public readonly details: ErrorDetails | undefined;
   public readonly timestamp: Date;
   public readonly isOperational: boolean;
 
@@ -21,7 +21,7 @@ export abstract class YggdrasilError extends Error {
     super(message);
     this.name = this.constructor.name;
     this.code = code;
-    this.details = details;
+    this.details = details ?? undefined;
     this.timestamp = new Date();
     this.isOperational = isOperational;
 

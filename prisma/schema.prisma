@@ -38,6 +38,7 @@ model User {
   checkpoints   Checkpoint[]
   auditLogs     AuditLog[]
   sessions      Session[]
+  profile       Profile?
 
   @@map("users")
 }
@@ -363,4 +364,389 @@ model AuditLog {
   @@index([action])
   @@index([resourceType, resourceId])
   @@map("audit_logs")
+}
+
+// ============================================================================
+// BIFROST - Chat UI (adapted from Chatbot UI)
+// ============================================================================
+
+model Profile {
+  id                   String   @id @default(cuid())
+  userId               String   @unique @map("user_id")
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  displayName          String?  @map("display_name")
+  username             String   @unique
+  bio                  String?
+  imageUrl             String?  @map("image_url")
+  hasOnboarded         Boolean  @default(false) @map("has_onboarded")
+  openaiApiKey         String?  @map("openai_api_key")
+  anthropicApiKey      String?  @map("anthropic_api_key")
+  googleGeminiApiKey   String?  @map("google_gemini_api_key")
+  mistralApiKey        String?  @map("mistral_api_key")
+  groqApiKey           String?  @map("groq_api_key")
+  perplexityApiKey     String?  @map("perplexity_api_key")
+  azureOpenaiApiKey    String?  @map("azure_openai_api_key")
+  openrouterApiKey     String?  @map("openrouter_api_key")
+  useAzureOpenai       Boolean  @default(false) @map("use_azure_openai")
+  createdAt            DateTime @default(now()) @map("created_at")
+  updatedAt            DateTime @updatedAt @map("updated_at")
+
+  @@map("profiles")
+}
+
+model Workspace {
+  id                        String   @id @default(cuid())
+  userId                    String   @map("user_id")
+  name                      String
+  description               String?
+  isHome                    Boolean  @default(false) @map("is_home")
+  defaultContextLength      Int      @default(4096) @map("default_context_length")
+  defaultModel              String   @default("claude-3-5-sonnet-20241022") @map("default_model")
+  defaultPrompt             String   @default("You are a helpful assistant.") @map("default_prompt")
+  defaultTemperature        Float    @default(0.5) @map("default_temperature")
+  includeProfileContext     Boolean  @default(true) @map("include_profile_context")
+  includeWorkspaceInstructions Boolean @default(true) @map("include_workspace_instructions")
+  instructions              String?
+  embeddingsProvider        String   @default("openai") @map("embeddings_provider")
+  imageUrl                  String?  @map("image_url")
+  sharing                   String   @default("private")
+  createdAt                 DateTime @default(now()) @map("created_at")
+  updatedAt                 DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  chats      Chat[]
+  folders    Folder[]
+  presets    Preset[]
+  prompts    Prompt[]
+  assistants Assistant[]
+  files      File[]
+
+  @@index([userId])
+  @@map("workspaces")
+}
+
+model Folder {
+  id          String   @id @default(cuid())
+  userId      String   @map("user_id")
+  workspaceId String   @map("workspace_id")
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  name        String
+  description String?
+  type        String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  chats    Chat[]
+  presets  Preset[]
+  prompts  Prompt[]
+  files    File[]
+
+  @@index([workspaceId])
+  @@index([userId])
+  @@map("folders")
+}
+
+model Chat {
+  id                String    @id @default(cuid())
+  userId            String    @map("user_id")
+  workspaceId       String    @map("workspace_id")
+  workspace         Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  folderId          String?   @map("folder_id")
+  folder            Folder?   @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  assistantId       String?   @map("assistant_id")
+  assistant         Assistant? @relation(fields: [assistantId], references: [id], onDelete: SetNull)
+  name              String
+  model             String?
+  prompt            String?
+  temperature       Float?
+  contextLength     Int?      @map("context_length")
+  includeProfileContext Boolean @default(true) @map("include_profile_context")
+  includeWorkspaceInstructions Boolean @default(true) @map("include_workspace_instructions")
+  embeddingsProvider String?  @map("embeddings_provider")
+  sharing           String    @default("private")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  messages   Message[]
+  chatFiles  ChatFile[]
+
+  @@index([workspaceId])
+  @@index([userId])
+  @@index([folderId])
+  @@map("chats")
+}
+
+model Message {
+  id                 String   @id @default(cuid())
+  chatId             String   @map("chat_id")
+  chat               Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  userId             String   @map("user_id")
+  assistantId        String?  @map("assistant_id")
+  role               String   // user, assistant, system
+  content            String
+  model              String?
+  imageUrls          String[] @map("image_urls")
+  sequenceNumber     Int      @map("sequence_number")
+
+  // YGGDRASIL metadata
+  yggdrasilBranch    EpistemicBranch? @map("yggdrasil_branch")
+  yggdrasilConfidence Int?            @map("yggdrasil_confidence")
+  yggdrasilSources    Json?           @map("yggdrasil_sources")
+  yggdrasilTrace      Json?           @map("yggdrasil_trace")
+  yggdrasilRequestId  String?         @map("yggdrasil_request_id")
+
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  messageFiles MessageFile[]
+
+  @@index([chatId])
+  @@index([userId])
+  @@map("messages")
+}
+
+model Preset {
+  id                        String    @id @default(cuid())
+  userId                    String    @map("user_id")
+  workspaceId               String    @map("workspace_id")
+  workspace                 Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  folderId                  String?   @map("folder_id")
+  folder                    Folder?   @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  name                      String
+  description               String?
+  model                     String
+  prompt                    String
+  temperature               Float
+  contextLength             Int       @map("context_length")
+  includeProfileContext     Boolean   @default(true) @map("include_profile_context")
+  includeWorkspaceInstructions Boolean @default(true) @map("include_workspace_instructions")
+  embeddingsProvider        String?   @map("embeddings_provider")
+  sharing                   String    @default("private")
+  createdAt                 DateTime  @default(now()) @map("created_at")
+  updatedAt                 DateTime  @updatedAt @map("updated_at")
+
+  @@index([workspaceId])
+  @@index([userId])
+  @@map("presets")
+}
+
+model Prompt {
+  id          String    @id @default(cuid())
+  userId      String    @map("user_id")
+  workspaceId String    @map("workspace_id")
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  folderId    String?   @map("folder_id")
+  folder      Folder?   @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  name        String
+  content     String
+  sharing     String    @default("private")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@index([workspaceId])
+  @@index([userId])
+  @@map("prompts")
+}
+
+model Assistant {
+  id                        String    @id @default(cuid())
+  userId                    String    @map("user_id")
+  workspaceId               String    @map("workspace_id")
+  workspace                 Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  name                      String
+  description               String?
+  model                     String
+  prompt                    String
+  temperature               Float
+  contextLength             Int       @map("context_length")
+  includeProfileContext     Boolean   @default(true) @map("include_profile_context")
+  includeWorkspaceInstructions Boolean @default(true) @map("include_workspace_instructions")
+  embeddingsProvider        String?   @map("embeddings_provider")
+  imageUrl                  String?   @map("image_url")
+  sharing                   String    @default("private")
+  createdAt                 DateTime  @default(now()) @map("created_at")
+  updatedAt                 DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  chats              Chat[]
+  assistantFiles     AssistantFile[]
+  assistantTools     AssistantTool[]
+
+  @@index([workspaceId])
+  @@index([userId])
+  @@map("assistants")
+}
+
+model File {
+  id            String    @id @default(cuid())
+  userId        String    @map("user_id")
+  workspaceId   String    @map("workspace_id")
+  workspace     Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  folderId      String?   @map("folder_id")
+  folder        Folder?   @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  name          String
+  description   String?
+  type          String
+  filePath      String    @map("file_path")
+  size          Int
+  tokens        Int?
+  sharing       String    @default("private")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  chatFiles      ChatFile[]
+  messageFiles   MessageFile[]
+  assistantFiles AssistantFile[]
+  fileItems      FileItem[]
+
+  @@index([workspaceId])
+  @@index([userId])
+  @@map("files")
+}
+
+model FileItem {
+  id        String   @id @default(cuid())
+  fileId    String   @map("file_id")
+  file      File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  userId    String   @map("user_id")
+  content   String
+  tokens    Int
+  localEmbedding Unsupported("vector(1536)")? @map("local_embedding")
+  openaiEmbedding Unsupported("vector(1536)")? @map("openai_embedding")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([fileId])
+  @@index([userId])
+  @@map("file_items")
+}
+
+model ChatFile {
+  id        String   @id @default(cuid())
+  chatId    String   @map("chat_id")
+  chat      Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  fileId    String   @map("file_id")
+  file      File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([chatId, fileId])
+  @@map("chat_files")
+}
+
+model MessageFile {
+  id        String   @id @default(cuid())
+  messageId String   @map("message_id")
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  fileId    String   @map("file_id")
+  file      File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([messageId, fileId])
+  @@map("message_files")
+}
+
+model AssistantFile {
+  id          String    @id @default(cuid())
+  assistantId String    @map("assistant_id")
+  assistant   Assistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+  fileId      String    @map("file_id")
+  file        File      @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  userId      String    @map("user_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  @@unique([assistantId, fileId])
+  @@map("assistant_files")
+}
+
+model Tool {
+  id           String   @id @default(cuid())
+  userId       String   @map("user_id")
+  name         String
+  description  String?
+  url          String
+  customHeaders Json?   @map("custom_headers")
+  schema       Json
+  sharing      String   @default("private")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  assistantTools AssistantTool[]
+
+  @@index([userId])
+  @@map("tools")
+}
+
+model AssistantTool {
+  id          String    @id @default(cuid())
+  assistantId String    @map("assistant_id")
+  assistant   Assistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+  toolId      String    @map("tool_id")
+  tool        Tool      @relation(fields: [toolId], references: [id], onDelete: Cascade)
+  userId      String    @map("user_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  @@unique([assistantId, toolId])
+  @@map("assistant_tools")
+}
+
+// ============================================================================
+// HUGIN - Web Content (Internet Branch)
+// ============================================================================
+
+model WebContent {
+  id          String    @id @default(cuid())
+  url         String    @unique
+  title       String
+  content     String
+  fetchedAt   DateTime  @map("fetched_at")
+  trustScore  Int       @map("trust_score")
+  domain      String
+  language    String?
+  author      String?
+  publishedAt DateTime? @map("published_at")
+  description String?
+  warnings    String[]
+
+  // Watch configuration
+  watchId     String?   @map("watch_id")
+  watch       WebWatch? @relation(fields: [watchId], references: [id], onDelete: SetNull)
+
+  @@index([domain])
+  @@index([trustScore])
+  @@index([fetchedAt])
+  @@map("web_content")
+}
+
+model WebWatch {
+  id            String        @id @default(cuid())
+  name          String
+  url           String?
+  domain        String?
+  searchQuery   String?       @map("search_query")
+  watchType     WebWatchType  @map("watch_type")
+  intervalMs    Int           @map("interval_ms")
+  isActive      Boolean       @default(true) @map("is_active")
+  lastCheckedAt DateTime?     @map("last_checked_at")
+  lastChangeAt  DateTime?     @map("last_change_at")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  // Relations
+  content       WebContent[]
+
+  @@index([isActive])
+  @@map("web_watches")
+}
+
+enum WebWatchType {
+  URL
+  DOMAIN
+  SEARCH
 }

@@ -19,3 +19,7 @@ export * from './validation/index.js';
 
 // Utils
 export * from './utils/index.js';
+
+// Database exports are available via '@yggdrasil/shared/database'
+// Import directly to avoid Prisma binary issues in test environments:
+// import { DatabaseModule, DatabaseService } from '@yggdrasil/shared/database';

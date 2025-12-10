@@ -10,7 +10,6 @@ import {
   ValidationResult,
   ValidationTrace,
   ValidationStep,
-  ValidationDecision,
   RejectionReason,
   Source,
   CouncilDeliberation,
@@ -33,7 +32,7 @@ export interface ValidationInput {
 export class ValidationService {
   constructor(private readonly anchoring: AnchoringService) {}
 
-  async validate(input: ValidationInput): Promise<ValidationResult> {
+  validate(input: ValidationInput): ValidationResult {
     const startTime = Date.now();
     const traceId = generateId();
     const steps: ValidationStep[] = [];
@@ -41,7 +40,7 @@ export class ValidationService {
     let stepNumber = 1;
 
     // Step 1: Source anchoring check
-    const anchoringResult = await this.checkAnchoring(input, stepNumber++, steps);
+    const anchoringResult = this.checkAnchoring(input, stepNumber++, steps);
     if (!anchoringResult.passed && input.requireMimirAnchor !== false) {
       return this.createRejectionResult(
         input,
@@ -53,7 +52,7 @@ export class ValidationService {
     }
 
     // Step 2: Memory consistency check
-    const memoryResult = await this.checkMemoryConsistency(input, stepNumber++, steps);
+    const memoryResult = this.checkMemoryConsistency(input, stepNumber++, steps);
     if (!memoryResult.passed) {
       return this.createRejectionResult(
         input,
@@ -66,7 +65,7 @@ export class ValidationService {
 
     // Step 3: Council consensus check
     if (input.deliberation) {
-      const consensusResult = await this.checkConsensus(input.deliberation, stepNumber++, steps);
+      const consensusResult = this.checkConsensus(input.deliberation, stepNumber++, steps);
       if (!consensusResult.passed) {
         return this.createRejectionResult(
           input,
@@ -78,7 +77,7 @@ export class ValidationService {
       }
 
       // Step 4: LOKI challenges check
-      const lokiResult = await this.checkLokiChallenges(input.deliberation, stepNumber++, steps);
+      const lokiResult = this.checkLokiChallenges(input.deliberation, stepNumber++, steps);
       if (!lokiResult.passed) {
         return this.createRejectionResult(
           input,
@@ -91,7 +90,14 @@ export class ValidationService {
     }
 
     // Step 5: Confidence threshold check
-    const confidenceResult = await this.checkConfidence(input, stepNumber++, steps);
+    // CRITICAL: Confidence is derived from SOURCE trust scores, not council averages
+    // This is the key to "verified source orchestration"
+    const confidenceResult = this.checkConfidence(
+      input,
+      anchoringResult.sources,
+      stepNumber++,
+      steps
+    );
     if (!confidenceResult.passed) {
       return this.createRejectionResult(
         input,
@@ -108,18 +114,19 @@ export class ValidationService {
       anchoringResult.sources,
       steps,
       traceId,
-      startTime
+      startTime,
+      confidenceResult.confidence
     );
   }
 
-  private async checkAnchoring(
+  private checkAnchoring(
     input: ValidationInput,
     stepNumber: number,
     steps: ValidationStep[]
-  ): Promise<{ passed: boolean; sources: Source[] }> {
+  ): { passed: boolean; sources: Source[] } {
     const stepStart = Date.now();
 
-    const sources = await this.anchoring.findSources(input.content);
+    const sources = this.anchoring.findSources(input.content);
     const passed = sources.length > 0;
 
     steps.push({
@@ -135,11 +142,11 @@ export class ValidationService {
     return { passed, sources };
   }
 
-  private async checkMemoryConsistency(
-    input: ValidationInput,
+  private checkMemoryConsistency(
+    _input: ValidationInput,
     stepNumber: number,
     steps: ValidationStep[]
-  ): Promise<{ passed: boolean }> {
+  ): { passed: boolean } {
     const stepStart = Date.now();
 
     // Placeholder - would check against MUNIN for contradictions
@@ -158,11 +165,11 @@ export class ValidationService {
     return { passed };
   }
 
-  private async checkConsensus(
+  private checkConsensus(
     deliberation: CouncilDeliberation,
     stepNumber: number,
     steps: ValidationStep[]
-  ): Promise<{ passed: boolean }> {
+  ): { passed: boolean } {
     const stepStart = Date.now();
 
     const passed = ['CONSENSUS', 'MAJORITY'].includes(deliberation.tyrVerdict.verdict);
@@ -183,11 +190,11 @@ export class ValidationService {
     return { passed };
   }
 
-  private async checkLokiChallenges(
+  private checkLokiChallenges(
     deliberation: CouncilDeliberation,
     stepNumber: number,
     steps: ValidationStep[]
-  ): Promise<{ passed: boolean }> {
+  ): { passed: boolean } {
     const stepStart = Date.now();
 
     const criticalChallenges = deliberation.lokiChallenges.filter(
@@ -211,37 +218,81 @@ export class ValidationService {
     return { passed };
   }
 
-  private async checkConfidence(
+  private checkConfidence(
     input: ValidationInput,
+    sources: Source[],
     stepNumber: number,
     steps: ValidationStep[]
-  ): Promise<{ passed: boolean }> {
+  ): { passed: boolean; confidence: number } {
     const stepStart = Date.now();
 
-    let confidence = 100;
-    if (input.deliberation) {
+    // YGGDRASIL confidence thresholds per Epistemic Branch:
+    // - MIMIR (verified facts): requires 100% confidence from verified sources
+    // - VOLVA (research/hypotheses): requires >= 70% confidence
+    // - HUGIN (internet/unverified): requires >= 50% confidence
+    //
+    // CRITICAL PRINCIPLE (per project vision):
+    // "La clé réside dans la source des infos verifiées grace a l'orchestration"
+    // Confidence is derived from SOURCE TRUST SCORES, not council averages.
+    // When verified sources are found, that IS the verification.
+
+    let confidence = 0;
+    let confidenceSource = 'none';
+
+    // Priority 1: Use source trust scores (the verified source orchestration)
+    if (sources.length > 0) {
+      // Calculate minimum trust score from sources
+      // MIMIR sources have trustScore >= 85 (arXiv) or 100 (PubMed)
+      const minTrustScore = Math.min(...sources.map((s) => s.trustScore));
+      const avgTrustScore = Math.round(
+        sources.reduce((sum, s) => sum + s.trustScore, 0) / sources.length
+      );
+
+      // For MIMIR: if all sources are 100% trusted, confidence is 100%
+      // Otherwise, use the minimum to be conservative
+      confidence = minTrustScore;
+      confidenceSource = 'sources';
+
+      logger.info('Confidence from sources', {
+        sourceCount: sources.length,
+        minTrustScore,
+        avgTrustScore,
+        confidence,
+      });
+    }
+    // Priority 2: Fall back to council deliberation if no sources
+    else if (input.deliberation) {
       const responses = input.deliberation.responses;
       if (responses.length > 0) {
         confidence = Math.round(
           responses.reduce((sum, r) => sum + r.confidence, 0) / responses.length
         );
+        confidenceSource = 'council';
       }
     }
 
-    // ODIN requires 100% confidence or rejection
-    const passed = confidence === 100;
+    // MIMIR requires 100% confidence (from verified sources)
+    // VOLVA/HUGIN can accept lower thresholds
+    const requiredThreshold = input.requireMimirAnchor ? 100 : 60;
+    const passed = confidence >= requiredThreshold;
 
     steps.push({
       stepNumber,
       component: 'ODIN',
       action: 'confidence_threshold_check',
       result: passed ? 'PASS' : 'FAIL',
-      details: { confidence, required: 100 },
+      details: {
+        confidence,
+        confidenceSource,
+        requiredThreshold,
+        mimirRequired: input.requireMimirAnchor ?? false,
+        sourceCount: sources.length,
+      },
       timestamp: new Date(),
       durationMs: Date.now() - stepStart,
     });
 
-    return { passed };
+    return { passed, confidence };
   }
 
   private createApprovalResult(
@@ -249,7 +300,8 @@ export class ValidationService {
     sources: Source[],
     steps: ValidationStep[],
     traceId: string,
-    startTime: number
+    startTime: number,
+    confidence: number = 100
   ): ValidationResult {
     const trace: ValidationTrace = {
       id: traceId,
@@ -264,12 +316,13 @@ export class ValidationService {
     logger.info('Validation APPROVED', {
       requestId: input.requestId,
       sourceCount: sources.length,
+      confidence,
       processingTimeMs: trace.processingTimeMs,
     });
 
     return {
       isValid: true,
-      confidence: 100,
+      confidence,
       sources,
       trace,
     };

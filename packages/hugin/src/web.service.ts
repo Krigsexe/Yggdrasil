@@ -2,18 +2,21 @@
  * Web Service
  *
  * Fetches and manages web content in HUGIN.
- * All content is marked as unverified.
+ * All content is marked as unverified with max 49% trust score.
+ *
+ * Implements real URL fetching with HTML parsing and content extraction.
  */
 
 import { Injectable } from '@nestjs/common';
 import {
-  EpistemicBranch,
   Source,
   SourceType,
   createLogger,
   generateId,
 } from '@yggdrasil/shared';
+import { DatabaseService } from '@yggdrasil/shared/database';
 import { FilterService } from './filter.service.js';
+import * as cheerio from 'cheerio';
 
 const logger = createLogger('WebService', 'info');
 
@@ -30,60 +33,189 @@ export interface WebContent {
     language?: string;
     author?: string;
     publishedAt?: Date;
+    description?: string;
   };
 }
 
-// In-memory store
-const webContent = new Map<string, WebContent>();
+interface WebContentRow {
+  id: string;
+  url: string;
+  title: string;
+  content: string;
+  fetched_at: Date;
+  trust_score: number;
+  domain: string;
+  language: string | null;
+  author: string | null;
+  published_at: Date | null;
+  description: string | null;
+  warnings: string[];
+}
+
+// User-agent for web requests
+const USER_AGENT = 'YggdrasilBot/1.0 (HUGIN; +https://github.com/Krigsexe/yggdrasil)';
+
+// Request timeout
+const FETCH_TIMEOUT = 10000; // 10 seconds
 
 @Injectable()
 export class WebService {
-  constructor(private readonly filterService: FilterService) {}
+  constructor(
+    private readonly db: DatabaseService,
+    private readonly filterService: FilterService
+  ) {}
 
+  /**
+   * Fetch content from a URL with real HTTP request
+   */
   async fetch(url: string): Promise<WebContent> {
     const id = generateId();
+    const domain = this.extractDomain(url);
+    const now = new Date();
 
-    // In a real implementation, this would:
-    // 1. Fetch the URL content
-    // 2. Parse and extract text
-    // 3. Run through filter service
+    logger.info('Fetching URL', { id, url, domain });
 
-    const domain = new URL(url).hostname;
-    const trustScore = this.filterService.calculateTrustScore(domain);
-    const warnings = this.filterService.getWarnings(domain);
+    try {
+      // Make HTTP request with timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
 
-    const content: WebContent = {
-      id,
-      url,
-      title: 'Fetched content', // Would be extracted from page
-      content: '', // Would be extracted from page
-      fetchedAt: new Date(),
-      trustScore,
-      warnings,
-      metadata: { domain },
-    };
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': USER_AGENT,
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.5',
+        },
+        signal: controller.signal,
+      });
 
-    webContent.set(id, content);
+      clearTimeout(timeoutId);
 
-    logger.info('Web content fetched', { id, url, trustScore, warningCount: warnings.length });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
 
-    return content;
+      const html = await response.text();
+      const parsed = this.parseHtml(html, url);
+
+      // Run through filter service
+      const filterResult = this.filterService.filter(url, parsed.content);
+
+      if (filterResult.blocked) {
+        logger.warn('URL blocked by filter', { url, reason: filterResult.blockReason });
+        throw new Error(`Blocked: ${filterResult.blockReason}`);
+      }
+
+      const content: WebContent = {
+        id,
+        url,
+        title: parsed.title,
+        content: parsed.content,
+        fetchedAt: now,
+        trustScore: Math.min(filterResult.trustScore, 49), // HUGIN max is 49
+        warnings: filterResult.warnings,
+        metadata: {
+          domain,
+          language: parsed.language,
+          author: parsed.author,
+          publishedAt: parsed.publishedAt,
+          description: parsed.description,
+        },
+      };
+
+      // Store in database
+      await this.storeContent(content);
+
+      logger.info('URL fetched and stored', {
+        id,
+        url,
+        trustScore: content.trustScore,
+        contentLength: content.content.length,
+      });
+
+      return content;
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      logger.error('Failed to fetch URL', new Error(errorMessage), { url });
+
+      // Return error content with 0 trust
+      return {
+        id,
+        url,
+        title: 'Fetch Error',
+        content: '',
+        fetchedAt: now,
+        trustScore: 0,
+        warnings: [`Failed to fetch: ${errorMessage}`],
+        metadata: { domain },
+      };
+    }
   }
 
-  async search(query: string): Promise<WebContent[]> {
-    // In a real implementation, this would search the web
-    // For now, search local cache
-    const normalizedQuery = query.toLowerCase();
+  /**
+   * Search cached web content
+   */
+  async search(query: string, limit = 10): Promise<WebContent[]> {
+    logger.info('Searching web content', { query, limit });
 
-    return Array.from(webContent.values())
-      .filter((c) =>
-        c.title.toLowerCase().includes(normalizedQuery) ||
-        c.content.toLowerCase().includes(normalizedQuery)
-      )
-      .sort((a, b) => b.trustScore - a.trustScore);
+    const normalizedQuery = query.toLowerCase().trim();
+    const searchTerms = normalizedQuery.split(/\s+/);
+
+    // Search in database using text matching
+    const results = await this.db.$queryRaw<WebContentRow[]>`
+      SELECT id, url, title, content, fetched_at, trust_score, domain,
+             language, author, published_at, description, warnings
+      FROM web_content
+      WHERE trust_score > 10
+        AND (
+          LOWER(title) LIKE ${'%' + normalizedQuery + '%'}
+          OR LOWER(content) LIKE ${'%' + normalizedQuery + '%'}
+        )
+      ORDER BY trust_score DESC, fetched_at DESC
+      LIMIT ${limit}
+    `;
+
+    return results.map((row) => this.rowToWebContent(row));
   }
 
-  async toSource(content: WebContent): Promise<Omit<Source, 'id' | 'fetchedAt' | 'branch'>> {
+  /**
+   * Get content by ID
+   */
+  async getById(id: string): Promise<WebContent | null> {
+    const result = await this.db.$queryRaw<WebContentRow[]>`
+      SELECT id, url, title, content, fetched_at, trust_score, domain,
+             language, author, published_at, description, warnings
+      FROM web_content
+      WHERE id = ${id}
+    `;
+
+    if (result.length === 0) {
+      return null;
+    }
+
+    return this.rowToWebContent(result[0]!);
+  }
+
+  /**
+   * Get recent content for a domain
+   */
+  async getByDomain(domain: string, limit = 20): Promise<WebContent[]> {
+    const results = await this.db.$queryRaw<WebContentRow[]>`
+      SELECT id, url, title, content, fetched_at, trust_score, domain,
+             language, author, published_at, description, warnings
+      FROM web_content
+      WHERE domain = ${domain}
+      ORDER BY fetched_at DESC
+      LIMIT ${limit}
+    `;
+
+    return results.map((row) => this.rowToWebContent(row));
+  }
+
+  /**
+   * Convert to YGGDRASIL Source format
+   */
+  toSource(content: WebContent): Omit<Source, 'id' | 'fetchedAt' | 'branch'> {
     return {
       type: SourceType.WEB,
       identifier: content.url,
@@ -91,21 +223,17 @@ export class WebService {
       title: content.title,
       authors: content.metadata?.author ? [content.metadata.author] : [],
       publishedAt: content.metadata?.publishedAt,
-      trustScore: Math.min(content.trustScore, 49), // HUGIN max is 49
+      trustScore: Math.min(content.trustScore, 49),
       metadata: {
-        domain: content.metadata?.domain,
-        warnings: content.warnings,
+        abstract: content.metadata?.description,
       },
     };
   }
 
-  async promoteToVolva(contentId: string): Promise<{ eligible: boolean; reason?: string }> {
-    const content = webContent.get(contentId);
-    if (!content) {
-      return { eligible: false, reason: 'Content not found' };
-    }
-
-    // Check promotion criteria
+  /**
+   * Check if content can be promoted to VOLVA
+   */
+  promoteToVolva(content: WebContent): { eligible: boolean; reason?: string } {
     if (content.warnings.length > 0) {
       return {
         eligible: false,
@@ -120,10 +248,170 @@ export class WebService {
       };
     }
 
-    // Would need additional verification sources
+    // Requires independent verification
     return {
       eligible: false,
       reason: 'Requires independent source verification for VOLVA promotion',
     };
+  }
+
+  /**
+   * Parse HTML and extract content
+   */
+  private parseHtml(html: string, url: string): {
+    title: string;
+    content: string;
+    language?: string;
+    author?: string;
+    publishedAt?: Date;
+    description?: string;
+  } {
+    const $ = cheerio.load(html);
+
+    // Extract title
+    const title = $('title').first().text().trim() ||
+      $('meta[property="og:title"]').attr('content') ||
+      $('h1').first().text().trim() ||
+      new URL(url).hostname;
+
+    // Extract language
+    const language = $('html').attr('lang') ||
+      $('meta[http-equiv="content-language"]').attr('content');
+
+    // Extract author
+    const author = $('meta[name="author"]').attr('content') ||
+      $('meta[property="article:author"]').attr('content') ||
+      $('[rel="author"]').first().text().trim();
+
+    // Extract description
+    const description = $('meta[name="description"]').attr('content') ||
+      $('meta[property="og:description"]').attr('content');
+
+    // Extract published date
+    let publishedAt: Date | undefined;
+    const dateString = $('meta[property="article:published_time"]').attr('content') ||
+      $('meta[name="date"]').attr('content') ||
+      $('time[datetime]').first().attr('datetime');
+
+    if (dateString) {
+      const parsed = new Date(dateString);
+      if (!isNaN(parsed.getTime())) {
+        publishedAt = parsed;
+      }
+    }
+
+    // Extract main content
+    // Remove script, style, nav, header, footer, ads
+    $('script, style, nav, header, footer, aside, .ads, .advertisement, #ads, .sidebar, .comments').remove();
+
+    // Try to find main content area
+    let content = '';
+    const mainSelectors = [
+      'article',
+      '[role="main"]',
+      'main',
+      '.content',
+      '.post-content',
+      '.article-content',
+      '#content',
+      '.entry-content',
+    ];
+
+    for (const selector of mainSelectors) {
+      const element = $(selector).first();
+      if (element.length > 0) {
+        content = element.text().trim();
+        if (content.length > 100) break;
+      }
+    }
+
+    // Fall back to body text
+    if (!content || content.length < 100) {
+      content = $('body').text().trim();
+    }
+
+    // Clean up whitespace
+    content = content
+      .replace(/\s+/g, ' ')
+      .replace(/\n\s*\n/g, '\n')
+      .trim()
+      .slice(0, 10000); // Limit content length
+
+    return {
+      title: title.slice(0, 500),
+      content,
+      language: language?.slice(0, 10),
+      author: author?.slice(0, 200),
+      publishedAt,
+      description: description?.slice(0, 500),
+    };
+  }
+
+  /**
+   * Store content in database
+   */
+  private async storeContent(content: WebContent): Promise<void> {
+    await this.db.$executeRaw`
+      INSERT INTO web_content (
+        id, url, title, content, fetched_at, trust_score,
+        domain, language, author, published_at, description, warnings
+      ) VALUES (
+        ${content.id},
+        ${content.url},
+        ${content.title},
+        ${content.content},
+        ${content.fetchedAt},
+        ${content.trustScore},
+        ${content.metadata?.domain ?? ''},
+        ${content.metadata?.language ?? null},
+        ${content.metadata?.author ?? null},
+        ${content.metadata?.publishedAt ?? null},
+        ${content.metadata?.description ?? null},
+        ${content.warnings}::text[]
+      )
+      ON CONFLICT (url) DO UPDATE SET
+        title = EXCLUDED.title,
+        content = EXCLUDED.content,
+        fetched_at = EXCLUDED.fetched_at,
+        trust_score = EXCLUDED.trust_score,
+        language = EXCLUDED.language,
+        author = EXCLUDED.author,
+        published_at = EXCLUDED.published_at,
+        description = EXCLUDED.description,
+        warnings = EXCLUDED.warnings
+    `;
+  }
+
+  /**
+   * Convert database row to WebContent
+   */
+  private rowToWebContent(row: WebContentRow): WebContent {
+    return {
+      id: row.id,
+      url: row.url,
+      title: row.title,
+      content: row.content,
+      fetchedAt: row.fetched_at,
+      trustScore: row.trust_score,
+      warnings: row.warnings ?? [],
+      metadata: {
+        domain: row.domain,
+        language: row.language ?? undefined,
+        author: row.author ?? undefined,
+        publishedAt: row.published_at ?? undefined,
+        description: row.description ?? undefined,
+      },
+    };
+  }
+
+  /**
+   * Extract domain from URL
+   */
+  private extractDomain(url: string): string {
+    try {
+      return new URL(url).hostname.replace('www.', '');
+    } catch {
+      return url;
+    }
   }
 }

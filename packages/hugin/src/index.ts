@@ -8,3 +8,4 @@
 export * from './hugin.module.js';
 export * from './web.service.js';
 export * from './filter.service.js';
+export * from './watcher.service.js';

@@ -21,7 +21,7 @@ export class SagaAdapter {
   private readonly ollamaUrl = process.env['OLLAMA_BASE_URL'] ?? 'http://localhost:11434';
   private readonly modelId = 'llama3.2';
 
-  async query(query: string): Promise<SagaResponse> {
+  query(query: string): SagaResponse {
     logger.info('SAGA query', { queryLength: query.length });
 
     // Placeholder implementation
@@ -42,11 +42,11 @@ export class SagaAdapter {
     };
   }
 
-  async factCheck(statement: string): Promise<{
+  factCheck(statement: string): {
     accurate: boolean;
     confidence: number;
     explanation: string;
-  }> {
+  } {
     logger.info('SAGA fact check', { statementLength: statement.length });
 
     // Placeholder - would use Llama to check facts
@@ -57,7 +57,7 @@ export class SagaAdapter {
     };
   }
 
-  async isAvailable(): Promise<boolean> {
+  isAvailable(): boolean {
     try {
       // Would check Ollama availability
       return true;

@@ -47,6 +47,14 @@ export interface SourceMetadata {
   volume?: string;
   issue?: string;
   pages?: string;
+  // arXiv-specific metadata
+  pdfUrl?: string;
+  primaryCategory?: string;
+  updatedAt?: string;
+  // Web-specific metadata
+  domain?: string;
+  warnings?: string[];
+  language?: string;
 }
 
 export interface SourceValidation {
@@ -77,9 +85,10 @@ export const SOURCE_TRUST_SCORES: Record<SourceType, { min: number; max: number 
  */
 export function isMimirEligible(type: SourceType): boolean {
   return [
-    SourceType.PUBMED,
-    SourceType.ISO,
-    SourceType.RFC,
-    SourceType.JOURNAL,
+    SourceType.ARXIV,    // Peer-reviewed preprints
+    SourceType.PUBMED,   // Medical research
+    SourceType.ISO,      // International standards
+    SourceType.RFC,      // Internet standards
+    SourceType.JOURNAL,  // Peer-reviewed journals
   ].includes(type);
 }

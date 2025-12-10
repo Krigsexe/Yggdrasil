@@ -22,7 +22,7 @@ const sources = new Map<string, Source>();
 
 @Injectable()
 export class SourceService {
-  async add(source: Omit<Source, 'id' | 'fetchedAt' | 'branch'>): Promise<Source> {
+  add(source: Omit<Source, 'id' | 'fetchedAt' | 'branch'>): Source {
     // Validate source type is eligible for MIMIR
     if (!isMimirEligible(source.type)) {
       throw new Error(`Source type ${source.type} is not eligible for MIMIR`);
@@ -52,7 +52,7 @@ export class SourceService {
     return newSource;
   }
 
-  async getById(id: string): Promise<Source> {
+  getById(id: string): Source {
     const source = sources.get(id);
     if (!source) {
       throw new NotFoundError('Source', id);
@@ -60,16 +60,16 @@ export class SourceService {
     return source;
   }
 
-  async getByIdentifier(type: SourceType, identifier: string): Promise<Source | null> {
+  getByIdentifier(type: SourceType, identifier: string): Source | null {
     return Array.from(sources.values()).find(
       (s) => s.type === type && s.identifier === identifier
     ) ?? null;
   }
 
-  async search(query: string, options?: {
+  search(query: string, options?: {
     types?: SourceType[];
     limit?: number;
-  }): Promise<Source[]> {
+  }): Source[] {
     const normalizedQuery = query.toLowerCase();
     let results = Array.from(sources.values());
 
@@ -101,8 +101,8 @@ export class SourceService {
     return results.slice(0, limit);
   }
 
-  async validate(id: string): Promise<boolean> {
-    const source = await this.getById(id);
+  validate(id: string): boolean {
+    const source = this.getById(id);
 
     // In a real implementation, this would:
     // 1. Re-fetch the source from its origin
@@ -113,8 +113,8 @@ export class SourceService {
     return true;
   }
 
-  async invalidate(id: string, reason: string): Promise<void> {
-    const source = await this.getById(id);
+  invalidate(id: string, reason: string): void {
+    const source = this.getById(id);
     sources.delete(id);
 
     logger.warn('Source invalidated from MIMIR', {
@@ -125,10 +125,10 @@ export class SourceService {
     });
   }
 
-  async getStats(): Promise<{
+  getStats(): {
     totalSources: number;
     byType: Record<SourceType, number>;
-  }> {
+  } {
     const allSources = Array.from(sources.values());
     const byType = {} as Record<SourceType, number>;
 

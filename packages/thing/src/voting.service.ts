@@ -20,10 +20,10 @@ const logger = createLogger('VotingService', 'info');
 export class VotingService {
   private readonly consensusThreshold = 0.66;
 
-  async renderVerdict(
+  renderVerdict(
     responses: CouncilResponse[],
     challenges: LokiChallenge[]
-  ): Promise<TyrVerdict> {
+  ): TyrVerdict {
     if (responses.length === 0) {
       return {
         verdict: 'DEADLOCK',

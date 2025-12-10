@@ -17,6 +17,7 @@ export type QueryType =
   | 'current_events'
   | 'personal'
   | 'procedural'
+  | 'conversational'  // Greetings, simple chat, no verification needed
   | 'unknown';
 
 export type QueryDomain =
@@ -67,13 +68,35 @@ export class ClassifierService {
     /design|brainstorm|suggest ideas/i,
   ];
 
+  private readonly conversationalPatterns = [
+    // Greetings (multilingual) - ASCII-safe patterns
+    /^(hi|hello|hey|bonjour|salut|coucou|yo|hola|ciao)\b/i,
+    /^(good morning|good afternoon|good evening|bonsoir|bonne nuit)/i,
+    // Presence checks - use .? for any Unicode character
+    /^tu es l.[\?]?$/i,
+    /^es.tu l.[\?]?$/i,
+    /^(you there|are you there)[\?]?$/i,
+    /^t.es l.[\?]?$/i,
+    /^.a va[\?]?$/i,
+    // Simple acknowledgments
+    /^(ok|okay|d.accord|merci|thanks|thank you|cool|nice|great|super|parfait)\s*[!?]?$/i,
+    // Farewells - use . for special chars
+    /^(bye|goodbye|au revoir|see you|ciao|salut|a plus|.+ plus)\s*[!]?$/i,
+    // Simple yes/no
+    /^(oui|non|yes|no|yep|nope|yeah|nah)\s*[!?]?$/i,
+    // How are you - use . for special chars
+    /^(how are you|comment .a va|comment vas.tu|.a va|quoi de neuf|what.s up)\s*[\?]?$/i,
+    // Very short queries (< 4 words, no question keywords)
+    /^.{1,15}[!?]?$/i,
+  ];
+
   private readonly controversialTopics = [
     /politics|political|election|vote/i,
     /religion|religious|faith|belief/i,
     /abortion|gun control|climate change debate/i,
   ];
 
-  async classify(query: string): Promise<QueryClassification> {
+  classify(query: string): QueryClassification {
     const normalizedQuery = query.toLowerCase().trim();
 
     const type = this.classifyType(normalizedQuery);
@@ -104,6 +127,10 @@ export class ClassifierService {
   }
 
   private classifyType(query: string): QueryType {
+    // Check conversational FIRST - greetings/chat don't need verification
+    if (this.matchesPattern(query, this.conversationalPatterns)) {
+      return 'conversational';
+    }
     if (this.matchesPattern(query, this.currentEventPatterns)) {
       return 'current_events';
     }

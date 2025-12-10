@@ -110,49 +110,195 @@ MONDE --> HEIMDALL --> RATATOSK --> [MIMIR|VOLVA|HUGIN] --> THING --> ODIN --> M
 | **THING** | Consortium — Deliberation multi-modeles | L'assemblee ou les dieux prennent les decisions |
 | **ODIN** | Maestro — Validation finale, synthese | Le Pere-de-Tout, celui qui sait |
 | **MUNIN** | Memoire — Stockage chrono-semantique | "Memoire" — l'autre corbeau d'Odin |
+| **BIFROST** | Interface Chat — Frontend utilisateur | Le pont arc-en-ciel vers les dieux |
 
-### Le Conseil (THING)
+### Le Conseil (THING) — Configuration Actuelle
 
-| Membre | Specialite | Modele |
-|--------|------------|--------|
-| **KVASIR** | Raisonnement profond | Claude |
-| **BRAGI** | Creativite, eloquence | Grok |
-| **NORNES** | Calcul, logique formelle | DeepSeek |
-| **SAGA** | Connaissance generale | Llama |
-| **LOKI** | Critique, adversarial | Red team |
-| **TYR** | Arbitrage, consensus | Voting system |
+| Membre | Specialite | Modele | Provider |
+|--------|------------|--------|----------|
+| **KVASIR** | Raisonnement profond | Gemini 2.5 Pro | Google |
+| **BRAGI** | Synthese creative | Gemini 2.5 Flash | Google |
+| **SYN** | Vision multimodale | Gemini 2.5 Pro | Google |
+| **NORNES** | Raisonnement avance | Qwen QWQ-32B | Groq |
+| **SAGA** | Connaissance generale | Llama 3.3 70B | Groq |
+| **LOKI** | Critique adversariale | DeepSeek R1 Distill | Groq |
+| **TYR** | Arbitrage, consensus | Voting system | Local |
 
 ---
 
-## Quick Start
+## Installation Rapide
+
+### Prerequis
+
+- **Node.js** 20+ (LTS)
+- **pnpm** 9+ (`npm install -g pnpm`)
+- **Docker** (pour PostgreSQL et Supabase)
+- **Git**
+
+### Etape 1 : Cloner et Installer
 
 ```bash
 # Cloner le repository
 git clone https://github.com/Krigsexe/yggdrasil.git
 cd yggdrasil
 
-# Installation
+# Installer les dependances
 pnpm install
+```
 
-# Configuration
+### Etape 2 : Obtenir les Cles API (GRATUIT)
+
+YGGDRASIL utilise deux providers LLM avec **tiers gratuits genereux** :
+
+| Provider | Cles Requises | Lien d'inscription |
+|----------|--------------|---------------------|
+| **Groq** | `GROQ_API_KEY` | [console.groq.com](https://console.groq.com/keys) |
+| **Google Gemini** | `GOOGLE_GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com/apikey) |
+
+### Etape 3 : Configuration
+
+```bash
+# Copier le template d'environnement
 cp .env.example .env
-# Editer .env avec vos cles API
 
-# Lancement en developpement
+# Editer .env et ajouter vos cles API
+# GROQ_API_KEY=gsk_xxxx
+# GOOGLE_GEMINI_API_KEY=AIzaSyxxxx
+```
+
+### Etape 4 : Demarrer les Services
+
+```bash
+# Demarrer PostgreSQL et Supabase via Docker
+docker compose up -d
+
+# Initialiser la base de donnees
+pnpm prisma migrate dev
+
+# Demarrer HEIMDALL (backend) sur le port 3000
+pnpm --filter @yggdrasil/heimdall dev
+
+# Dans un autre terminal, demarrer BIFROST (frontend) sur le port 3001
+cd packages/bifrost
 pnpm dev
 ```
 
-### Avec Docker
+### Etape 5 : Utiliser YGGDRASIL
+
+Ouvrir [http://localhost:3001](http://localhost:3001) dans votre navigateur.
+
+1. Creer un compte utilisateur
+2. Creer un workspace
+3. Selectionner le modele **"YGGDRASIL"** dans les parametres
+4. Commencer a discuter !
+
+---
+
+## Installation One-Click (Scripts)
+
+### Linux / macOS
 
 ```bash
-docker-compose up -d
+curl -fsSL https://raw.githubusercontent.com/Krigsexe/yggdrasil/main/scripts/setup.sh | bash
 ```
 
-### Auto-hebergement complet (avec Ollama pour modeles locaux)
+### Windows (PowerShell)
+
+```powershell
+irm https://raw.githubusercontent.com/Krigsexe/yggdrasil/main/scripts/setup.ps1 | iex
+```
+
+Ces scripts :
+1. Verifient les prerequis (Node.js, pnpm, Docker)
+2. Clonent le repository
+3. Installent les dependances
+4. Creent le fichier `.env` a partir du template
+5. Demarrent les services Docker
+6. Affichent les instructions pour ajouter les cles API
+
+---
+
+## Configuration des Cles API
+
+### Groq (GRATUIT)
+
+1. Aller sur [console.groq.com](https://console.groq.com/)
+2. Creer un compte (email ou GitHub)
+3. Aller dans "API Keys"
+4. Creer une nouvelle cle
+5. Copier la cle `gsk_xxxx...`
+6. Ajouter dans `.env` : `GROQ_API_KEY=gsk_xxxx...`
+
+**Modeles utilises :**
+- `qwen-qwq-32b` (NORNES) — Raisonnement avance
+- `llama-3.3-70b-versatile` (SAGA) — Connaissance generale
+- `deepseek-r1-distill-llama-70b` (LOKI) — Critique
+
+### Google Gemini (GRATUIT)
+
+1. Aller sur [aistudio.google.com](https://aistudio.google.com/)
+2. Se connecter avec un compte Google
+3. Cliquer sur "Get API Key"
+4. Creer une cle API
+5. Copier la cle `AIzaSy...`
+6. Ajouter dans `.env` : `GOOGLE_GEMINI_API_KEY=AIzaSy...`
+
+**Modeles utilises :**
+- `gemini-2.5-pro` (KVASIR, SYN) — Raisonnement profond
+- `gemini-2.5-flash-preview-05-20` (BRAGI) — Synthese rapide
+
+---
+
+## Commandes Utiles
 
 ```bash
-# Mode souverain — aucune donnee ne quitte votre infrastructure
-pnpm run sovereign
+# Developement
+pnpm dev                                    # Tous les packages
+pnpm --filter @yggdrasil/heimdall dev       # Backend uniquement
+pnpm --filter @yggdrasil/bifrost dev        # Frontend uniquement
+
+# Build
+pnpm build
+
+# Tests
+pnpm test
+
+# Linting
+pnpm lint
+pnpm lint:fix
+
+# Base de donnees
+pnpm prisma studio                          # Interface visuelle DB
+pnpm prisma migrate dev                     # Appliquer migrations
+pnpm prisma generate                        # Regenerer le client
+
+# Docker
+docker compose up -d                        # Demarrer les services
+docker compose down                         # Arreter les services
+docker compose logs -f                      # Voir les logs
+```
+
+---
+
+## Structure du Projet
+
+```
+yggdrasil/
+├── packages/
+│   ├── heimdall/          # Gateway API (NestJS)
+│   ├── ratatosk/          # Routeur (classification)
+│   ├── mimir/             # Branche Validee
+│   ├── volva/             # Branche Recherche
+│   ├── hugin/             # Branche Internet
+│   ├── thing/             # Conseil multi-modeles
+│   ├── odin/              # Maestro validation
+│   ├── munin/             # Memoire
+│   ├── bifrost/           # Frontend Chat (Next.js)
+│   └── shared/            # Types partages
+├── prisma/                # Schema base de donnees
+├── docker-compose.yml     # Services Docker
+├── .env.example           # Template configuration
+└── CLAUDE.md              # Guide developpeur
 ```
 
 ---
@@ -191,15 +337,16 @@ YGGDRASIL est un projet communautaire. Nous cherchons :
 - [x] Publication du Manifeste
 - [x] Repository public
 - [x] Architecture complete implementee
+- [x] THING Council operationnel (Gemini + Groq)
+- [x] BIFROST frontend integre
+- [x] Streaming temps reel des reflexions
 - [ ] Documentation complete
-- [ ] Premiers contributeurs
 - [ ] Tests et validation
 
 ### Phase 2 : Construction (2025-2026)
 - [ ] MIMIR : Integration sources scientifiques (arXiv, PubMed)
-- [ ] THING : Consortium multi-modeles fonctionnel
-- [ ] ODIN : Maestro avec validation 100%
-- [ ] MUNIN : Memoire chrono-semantique
+- [ ] ODIN : Validation 100% avec ancrage sources
+- [ ] MUNIN : Memoire chrono-semantique complete
 - [ ] Tests publics et bug bounty
 
 ### Phase 3 : Ouverture (2026-2027)

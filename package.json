@@ -35,7 +35,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.0",
-    "prisma": "^5.7.0",
+    "prisma": "^6.19.0",
     "turbo": "^1.11.0",
     "typescript": "^5.3.0",
     "vitest": "^1.0.0"
@@ -68,5 +68,10 @@
   "bugs": {
     "url": "https://github.com/Krigsexe/yggdrasil/issues"
   },
-  "homepage": "https://github.com/Krigsexe/yggdrasil#readme"
+  "homepage": "https://github.com/Krigsexe/yggdrasil#readme",
+  "dependencies": {
+    "@prisma/client": "6.19.0",
+    "dotenv": "^17.2.3",
+    "pg": "^8.16.3"
+  }
 }

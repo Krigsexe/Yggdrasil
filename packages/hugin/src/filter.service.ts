@@ -50,7 +50,7 @@ export class FilterService {
     ['advertorial-site.com', ['commercial_bias']],
   ]);
 
-  async filter(url: string, content: string): Promise<FilterResult> {
+  filter(url: string, content: string): FilterResult {
     const domain = this.extractDomain(url);
 
     // Check if domain is blocked
@@ -125,7 +125,7 @@ export class FilterService {
     return warnings;
   }
 
-  private detectBias(domain: string, content: string): BiasIndicator[] {
+  private detectBias(domain: string, _content: string): BiasIndicator[] {
     const indicators: BiasIndicator[] = [];
 
     // Domain-based bias

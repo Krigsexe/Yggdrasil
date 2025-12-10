@@ -7,7 +7,6 @@
 
 import { Injectable } from '@nestjs/common';
 import {
-  EpistemicBranch,
   Source,
   createLogger,
   generateId,
@@ -39,11 +38,11 @@ const hypotheses = new Map<string, Hypothesis>();
 
 @Injectable()
 export class HypothesisService {
-  async create(
+  create(
     statement: string,
     confidence: number,
     supportingEvidence: Source[] = []
-  ): Promise<Hypothesis> {
+  ): Hypothesis {
     // Validate confidence range for VOLVA (50-99)
     if (confidence < 50 || confidence > 99) {
       throw new Error('VOLVA confidence must be between 50 and 99');
@@ -70,7 +69,7 @@ export class HypothesisService {
     return hypothesis;
   }
 
-  async getById(id: string): Promise<Hypothesis> {
+  getById(id: string): Hypothesis {
     const hypothesis = hypotheses.get(id);
     if (!hypothesis) {
       throw new NotFoundError('Hypothesis', id);
@@ -78,7 +77,7 @@ export class HypothesisService {
     return hypothesis;
   }
 
-  async search(query: string): Promise<Hypothesis[]> {
+  search(query: string): Hypothesis[] {
     const normalizedQuery = query.toLowerCase();
 
     return Array.from(hypotheses.values())
@@ -86,12 +85,12 @@ export class HypothesisService {
       .sort((a, b) => b.confidence - a.confidence);
   }
 
-  async addEvidence(
+  addEvidence(
     id: string,
     evidence: Source,
     supports: boolean
-  ): Promise<Hypothesis> {
-    const hypothesis = await this.getById(id);
+  ): Hypothesis {
+    const hypothesis = this.getById(id);
 
     if (supports) {
       hypothesis.supportingEvidence.push(evidence);
@@ -116,8 +115,8 @@ export class HypothesisService {
     return hypothesis;
   }
 
-  async promoteToMimir(id: string): Promise<{ eligible: boolean; reason?: string }> {
-    const hypothesis = await this.getById(id);
+  promoteToMimir(id: string): { eligible: boolean; reason?: string } {
+    const hypothesis = this.getById(id);
 
     // Check promotion criteria
     if (hypothesis.confidence < 95) {

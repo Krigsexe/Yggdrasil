@@ -13,11 +13,11 @@ export interface LogEntry {
   component?: string;
   requestId?: string;
   userId?: string;
-  data?: Record<string, unknown>;
+  data?: Record<string, unknown> | undefined;
   error?: {
     name: string;
     message: string;
-    stack?: string;
+    stack?: string | undefined;
   };
 }
 

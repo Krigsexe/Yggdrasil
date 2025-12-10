@@ -1,0 +1,118 @@
+# =============================================================================
+# YGGDRASIL Development Environment
+# =============================================================================
+#
+# Start with: docker compose up -d
+# Stop with: docker compose down
+# View logs: docker compose logs -f
+#
+# This provides all infrastructure services needed for local development.
+# The application itself runs on the host machine with pnpm.
+#
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # PostgreSQL with pgvector
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: yggdrasil-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: yggdrasil
+      POSTGRES_PASSWORD: yggdrasil
+      POSTGRES_DB: yggdrasil
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yggdrasil -d yggdrasil"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---------------------------------------------------------------------------
+  # Redis for caching, sessions, and rate limiting
+  # ---------------------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: yggdrasil-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---------------------------------------------------------------------------
+  # Ollama for local LLM inference (SAGA council member)
+  # ---------------------------------------------------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: yggdrasil-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    profiles:
+      - with-ollama
+
+  # ---------------------------------------------------------------------------
+  # Adminer for database management (development only)
+  # ---------------------------------------------------------------------------
+  adminer:
+    image: adminer:4
+    container_name: yggdrasil-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      - postgres
+    profiles:
+      - with-tools
+
+  # ---------------------------------------------------------------------------
+  # Redis Commander for Redis management (development only)
+  # ---------------------------------------------------------------------------
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: yggdrasil-redis-commander
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      REDIS_HOSTS: local:redis:6379
+    depends_on:
+      - redis
+    profiles:
+      - with-tools
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  ollama_data:
+    driver: local
+
+networks:
+  default:
+    name: yggdrasil-network

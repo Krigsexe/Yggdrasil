@@ -19,7 +19,7 @@ export class EmbeddingService {
    * In production, this would call an embedding model (OpenAI, Cohere, etc.)
    * For development, we generate a deterministic pseudo-embedding based on text hash.
    */
-  async generate(text: string): Promise<number[]> {
+  generate(text: string): number[] {
     // Development implementation: deterministic pseudo-embedding
     // TODO: Replace with actual embedding model (OpenAI, Cohere, etc.)
 
@@ -36,8 +36,8 @@ export class EmbeddingService {
   /**
    * Generate embeddings for multiple texts in batch.
    */
-  async generateBatch(texts: string[]): Promise<number[][]> {
-    return Promise.all(texts.map((text) => this.generate(text)));
+  generateBatch(texts: string[]): number[][] {
+    return texts.map((text) => this.generate(text));
   }
 
   /**
@@ -67,7 +67,7 @@ export class EmbeddingService {
    * Uses a simple hash-based approach.
    */
   private generateDeterministicEmbedding(text: string): number[] {
-    const embedding: number[] = new Array(this.dimension).fill(0);
+    const embedding: number[] = new Array<number>(this.dimension).fill(0);
 
     // Simple deterministic embedding based on character codes
     // This is NOT suitable for production, just for testing

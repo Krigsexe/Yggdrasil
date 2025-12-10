@@ -22,7 +22,7 @@ const checkpoints = new Map<string, Checkpoint>();
 
 @Injectable()
 export class CheckpointService {
-  async create(
+  create(
     userId: string,
     label: string,
     memoryIds: string[],
@@ -30,7 +30,7 @@ export class CheckpointService {
       description?: string;
       metadata?: Record<string, unknown>;
     }
-  ): Promise<Checkpoint> {
+  ): Checkpoint {
     const id = generateCheckpointId();
     const stateHash = this.generateStateHash(memoryIds);
 
@@ -57,7 +57,7 @@ export class CheckpointService {
     return checkpoint;
   }
 
-  async getById(id: string): Promise<Checkpoint> {
+  getById(id: string): Checkpoint {
     const checkpoint = checkpoints.get(id);
     if (!checkpoint) {
       throw new NotFoundError('Checkpoint', id);
@@ -65,14 +65,14 @@ export class CheckpointService {
     return checkpoint;
   }
 
-  async listForUser(userId: string): Promise<Checkpoint[]> {
+  listForUser(userId: string): Checkpoint[] {
     return Array.from(checkpoints.values())
       .filter((c) => c.userId === userId)
       .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
   }
 
-  async rollback(checkpointId: string): Promise<RollbackResult> {
-    const checkpoint = await this.getById(checkpointId);
+  rollback(checkpointId: string): RollbackResult {
+    const checkpoint = this.getById(checkpointId);
 
     // In a real implementation, this would:
     // 1. Get all memories created after the checkpoint
@@ -95,7 +95,7 @@ export class CheckpointService {
     };
   }
 
-  async delete(id: string): Promise<void> {
+  delete(id: string): void {
     if (!checkpoints.has(id)) {
       throw new NotFoundError('Checkpoint', id);
     }

@@ -23,7 +23,7 @@ export interface AnchoringResult {
 
 @Injectable()
 export class AnchoringService {
-  async findSources(content: string): Promise<Source[]> {
+  findSources(content: string): Source[] {
     // Extract claims from content
     const claims = this.extractClaims(content);
 
@@ -33,7 +33,7 @@ export class AnchoringService {
     const allSources: Source[] = [];
 
     for (const claim of claims) {
-      const sources = await this.findSourcesForClaim(claim);
+      const sources = this.findSourcesForClaim(claim);
       allSources.push(...sources);
     }
 
@@ -45,12 +45,12 @@ export class AnchoringService {
     return uniqueSources;
   }
 
-  async anchorClaims(content: string): Promise<AnchoringResult[]> {
+  anchorClaims(content: string): AnchoringResult[] {
     const claims = this.extractClaims(content);
     const results: AnchoringResult[] = [];
 
     for (const claim of claims) {
-      const sources = await this.findSourcesForClaim(claim);
+      const sources = this.findSourcesForClaim(claim);
       results.push({
         claim,
         anchored: sources.length > 0,
@@ -62,7 +62,7 @@ export class AnchoringService {
     return results;
   }
 
-  async verifySource(source: Source): Promise<boolean> {
+  verifySource(source: Source): boolean {
     // Verify source is from MIMIR branch
     if (source.branch !== EpistemicBranch.MIMIR) {
       logger.warn('Source not from MIMIR', { sourceId: source.id, branch: source.branch });
@@ -102,7 +102,7 @@ export class AnchoringService {
     return factualClaims.slice(0, 10); // Limit to first 10 claims
   }
 
-  private async findSourcesForClaim(claim: string): Promise<Source[]> {
+  private findSourcesForClaim(claim: string): Source[] {
     // Placeholder - would search MIMIR database
     // In production:
     // 1. Search MIMIR for matching sources

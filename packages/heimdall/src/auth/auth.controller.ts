@@ -42,13 +42,13 @@ export class AuthController {
 
   @Post('logout')
   @HttpCode(HttpStatus.NO_CONTENT)
-  async logout(@Body() dto: LogoutDto) {
-    await this.authService.logout(dto.refreshToken);
+  logout(@Body() dto: LogoutDto) {
+    this.authService.logout(dto.refreshToken);
   }
 
   @Get('me')
   @UseGuards(JwtAuthGuard)
-  async me(@CurrentUser() user: User) {
+  me(@CurrentUser() user: User) {
     return { user };
   }
 }

@@ -1,13 +1,18 @@
 /**
  * HEIMDALL App Module
+ *
+ * The root module that assembles all YGGDRASIL components.
+ * HEIMDALL is the guardian - all requests pass through here.
  */
 
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { DatabaseModule } from '@yggdrasil/shared/database';
 import { AuthModule } from './auth/auth.module.js';
 import { AuditModule } from './audit/audit.module.js';
 import { HealthModule } from './health/health.module.js';
+import { YggdrasilModule } from './yggdrasil/yggdrasil.module.js';
 
 @Module({
   imports: [
@@ -16,6 +21,9 @@ import { HealthModule } from './health/health.module.js';
       isGlobal: true,
       envFilePath: ['.env.local', '.env'],
     }),
+
+    // Database (Prisma)
+    DatabaseModule,
 
     // Rate limiting
     ThrottlerModule.forRoot([
@@ -40,6 +48,9 @@ import { HealthModule } from './health/health.module.js';
     AuthModule,
     AuditModule,
     HealthModule,
+
+    // Main YGGDRASIL pipeline
+    YggdrasilModule,
   ],
 })
 export class AppModule {}

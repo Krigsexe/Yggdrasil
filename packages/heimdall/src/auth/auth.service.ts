@@ -98,7 +98,7 @@ export class AuthService {
       throw new InvalidCredentialsError();
     }
 
-    const tokens = await this.generateTokens(user);
+    const tokens = this.generateTokens(user);
 
     logger.info('User logged in', { userId: user.id });
 
@@ -133,15 +133,15 @@ export class AuthService {
       isActive: true,
     };
 
-    return this.generateTokens(user);
+    return Promise.resolve(this.generateTokens(user));
   }
 
-  async logout(refreshToken: string): Promise<void> {
+  logout(refreshToken: string): void {
     refreshTokens.delete(refreshToken);
     logger.info('User logged out');
   }
 
-  private async generateTokens(user: User): Promise<TokenPair> {
+  private generateTokens(user: User): TokenPair {
     const payload: Omit<JwtPayload, 'iat' | 'exp'> = {
       sub: user.id,
       email: user.email,
@@ -190,7 +190,7 @@ export class AuthService {
     }
   }
 
-  async getUserById(id: string): Promise<User | null> {
+  getUserById(id: string): User | null {
     const userData = users.get(id);
     if (!userData) {
       return null;

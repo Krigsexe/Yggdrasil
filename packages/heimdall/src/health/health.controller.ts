@@ -10,8 +10,8 @@ export class HealthController {
   private readonly startTime = Date.now();
 
   @Get()
-  async check(): Promise<HealthStatus> {
-    const components = await this.checkComponents();
+  check(): HealthStatus {
+    const components = this.checkComponents();
     const overallStatus = this.determineOverallStatus(components);
 
     return {
@@ -24,9 +24,9 @@ export class HealthController {
   }
 
   @Get('ready')
-  async ready(): Promise<{ ready: boolean }> {
+  ready(): { ready: boolean } {
     // Check if all critical components are healthy
-    const components = await this.checkComponents();
+    const components = this.checkComponents();
     const ready = components.every(
       (c) => c.status === 'healthy' || c.status === 'degraded'
     );
@@ -39,7 +39,7 @@ export class HealthController {
     return { live: true };
   }
 
-  private async checkComponents(): Promise<ComponentHealth[]> {
+  private checkComponents(): ComponentHealth[] {
     const components: ComponentHealth[] = [];
 
     // HEIMDALL (self)

@@ -59,7 +59,7 @@ export class AuditInterceptor implements NestInterceptor {
     const durationMs = Date.now() - startTime;
     const action = this.getActionFromRequest(request);
 
-    this.auditService.log({
+    void this.auditService.log({
       action,
       userId: request.user?.id,
       resourceType: this.getResourceType(request.url),

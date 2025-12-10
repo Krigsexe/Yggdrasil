@@ -21,7 +21,7 @@ const auditLogs: AuditLog[] = [];
 
 @Injectable()
 export class AuditService {
-  async log(entry: Omit<AuditLog, 'id' | 'timestamp'>): Promise<AuditLog> {
+  log(entry: Omit<AuditLog, 'id' | 'timestamp'>): AuditLog {
     const auditLog: AuditLog = {
       id: generateId(),
       ...entry,
@@ -43,7 +43,7 @@ export class AuditService {
     return auditLog;
   }
 
-  async query(query: AuditQuery): Promise<AuditLog[]> {
+  query(query: AuditQuery): AuditLog[] {
     let results = [...auditLogs];
 
     if (query.userId) {
@@ -85,11 +85,11 @@ export class AuditService {
     return results;
   }
 
-  async getById(id: string): Promise<AuditLog | undefined> {
+  getById(id: string): AuditLog | undefined {
     return auditLogs.find((log) => log.id === id);
   }
 
-  async getStats(fromDate: Date, toDate: Date) {
+  getStats(fromDate: Date, toDate: Date) {
     const logsInRange = auditLogs.filter(
       (log) => log.timestamp >= fromDate && log.timestamp <= toDate
     );
