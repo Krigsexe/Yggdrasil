@@ -1,5 +1,5 @@
 <div align="center">
-
+[![Visitors Badge](https://api.visitorbadge.io/api/VisitorHit?user=Krigsexe&repo=yggdrasil&countColor=%237B1E7A)](https://github.com/Krigsexe/yggdrasil)
 # YGGDRASIL
 
 ### L'Arbre-Monde de l'Intelligence Artificielle
