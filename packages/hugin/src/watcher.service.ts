@@ -74,7 +74,7 @@ export class WatcherService implements OnModuleInit, OnModuleDestroy {
   /**
    * Stop all watches on module destruction
    */
-  async onModuleDestroy(): Promise<void> {
+  onModuleDestroy(): void {
     logger.info('Shutting down HUGIN Watcher');
     this.stopAllWatches();
   }
@@ -284,12 +284,14 @@ export class WatcherService implements OnModuleInit, OnModuleDestroy {
     });
 
     // Set up interval for future checks
-    const timer = setInterval(async () => {
-      try {
-        await this.executeCheck(watch);
-      } catch (error) {
-        logger.error('Watch check failed', error as Error, { watchId: watch.id });
-      }
+    const timer = setInterval(() => {
+      void (async () => {
+        try {
+          await this.executeCheck(watch);
+        } catch (error) {
+          logger.error('Watch check failed', error as Error, { watchId: watch.id });
+        }
+      })();
     }, watch.intervalMs);
 
     this.watchTimers.set(watch.id, timer);

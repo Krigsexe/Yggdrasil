@@ -55,15 +55,6 @@ function fromPrismaSourceType(type: PrismaSourceType): SourceType {
   return mapping[type] ?? SourceType.OTHER;
 }
 
-function toPrismaEpistemicBranch(branch: EpistemicBranch): PrismaEpistemicBranch {
-  const mapping: Record<EpistemicBranch, PrismaEpistemicBranch> = {
-    [EpistemicBranch.MIMIR]: 'MIMIR',
-    [EpistemicBranch.VOLVA]: 'VOLVA',
-    [EpistemicBranch.HUGIN]: 'HUGIN',
-  };
-  return mapping[branch];
-}
-
 function fromPrismaEpistemicBranch(branch: PrismaEpistemicBranch): EpistemicBranch {
   const mapping: Record<PrismaEpistemicBranch, EpistemicBranch> = {
     'MIMIR': EpistemicBranch.MIMIR,

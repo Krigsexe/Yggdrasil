@@ -201,7 +201,7 @@ export class EmbeddingService implements OnModuleInit {
         embeddings: Array<{ values: number[] }>;
       };
 
-      const results = data.embeddings.map((item, index) => {
+      const results = data.embeddings.map((item) => {
         const embedding = item.values;
         const truncated =
           embedding.length > this.dimension
@@ -297,8 +297,8 @@ export class EmbeddingService implements OnModuleInit {
   /**
    * Generate deterministic dev mode embedding (async version).
    */
-  private async generateDevMode(text: string): Promise<EmbeddingResult> {
-    return this.generateDevModeSync(text);
+  private generateDevMode(text: string): Promise<EmbeddingResult> {
+    return Promise.resolve(this.generateDevModeSync(text));
   }
 
   /**

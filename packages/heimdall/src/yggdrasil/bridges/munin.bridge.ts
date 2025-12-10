@@ -12,7 +12,6 @@
 
 import { Injectable } from '@nestjs/common';
 import {
-  MemoryType,
   ValidationResult,
   createLogger,
   generateId,

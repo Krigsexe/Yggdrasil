@@ -35,7 +35,7 @@ export class RatatoaskBridge {
     this.router = new RouterService(classifier);
   }
 
-  async route(query: string, context?: Record<string, unknown>): Promise<RouteDecision> {
+  route(query: string, context?: Record<string, unknown>): RouteDecision {
     logger.info('Routing query', { queryLength: query.length });
 
     const decision = this.router.route(query, context);

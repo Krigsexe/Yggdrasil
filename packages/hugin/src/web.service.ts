@@ -159,7 +159,9 @@ export class WebService {
     logger.info('Searching web content', { query, limit });
 
     const normalizedQuery = query.toLowerCase().trim();
-    const searchTerms = normalizedQuery.split(/\s+/);
+    // searchTerms reserved for future semantic search implementation
+    const _searchTerms = normalizedQuery.split(/\s+/);
+    void _searchTerms; // Suppress unused warning
 
     // Search in database using text matching
     const results = await this.db.$queryRaw<WebContentRow[]>`

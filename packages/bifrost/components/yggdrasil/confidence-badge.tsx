@@ -161,7 +161,7 @@ export function UnknownBadge({
         <TooltipTrigger asChild>
           <Badge variant="outline" className={cn('gap-1', className)}>
             <IconQuestionMark size={14} />
-            <span>I DON'T KNOW</span>
+            <span>I DON&apos;T KNOW</span>
           </Badge>
         </TooltipTrigger>
         <TooltipContent side="top" className="max-w-xs">

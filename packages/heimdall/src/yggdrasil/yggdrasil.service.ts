@@ -101,7 +101,7 @@ export class YggdrasilService {
 
     try {
       // Step 1: RATATOSK routes the query
-      const routingDecision = await this.ratatosk.route(request.query, request.context);
+      const routingDecision = this.ratatosk.route(request.query, request.context);
 
       logger.info('Routing decision', {
         requestId,
@@ -179,7 +179,7 @@ export class YggdrasilService {
           },
         };
       } else {
-        validation = await this.odin.validate({
+        validation = this.odin.validate({
           content: contentToValidate,
           deliberation,
           requestId,
@@ -415,7 +415,7 @@ export class YggdrasilService {
       addThought('routing', `Je recois une question : "${shortQuery}"`);
 
       // Step 2: RATATOSK routes the query
-      const routingDecision = await this.ratatosk.route(
+      const routingDecision = this.ratatosk.route(
         request.query,
         request.context
       );
@@ -525,7 +525,7 @@ export class YggdrasilService {
       } else {
         addThought('validating', `ODIN verifie la coherence et les sources...`);
 
-        validation = await this.odin.validate({
+        validation = this.odin.validate({
           content: contentToValidate,
           deliberation,
           requestId,
@@ -636,8 +636,8 @@ export class YggdrasilService {
       await new Promise(resolve => setImmediate(resolve));
     };
 
-    // Process asynchronously
-    (async () => {
+    // Process asynchronously (intentionally fire-and-forget for SSE streaming)
+    void (async () => {
       try {
         // Step 1: Receive and analyze
         const shortQuery =
@@ -647,7 +647,7 @@ export class YggdrasilService {
         await emitThought('routing', `Je recois une question : "${shortQuery}"`);
 
         // Step 2: RATATOSK routes the query
-        const routingDecision = await this.ratatosk.route(
+        const routingDecision = this.ratatosk.route(
           request.query,
           request.context
         );
@@ -764,7 +764,7 @@ export class YggdrasilService {
         } else {
           await emitThought('validating', `ODIN verifie la coherence et les sources...`);
 
-          validation = await this.odin.validate({
+          validation = this.odin.validate({
             content: contentToValidate,
             deliberation,
             requestId,

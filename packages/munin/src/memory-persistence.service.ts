@@ -17,7 +17,7 @@
  */
 
 import { Injectable } from '@nestjs/common';
-import { createLogger, MemoryType, generateMemoryId } from '@yggdrasil/shared';
+import { createLogger, generateMemoryId } from '@yggdrasil/shared';
 import { DatabaseService } from '@yggdrasil/shared/database';
 import { FactExtractorService, ExtractedFact, FactType } from './fact-extractor.service.js';
 import { EmbeddingService } from '@yggdrasil/shared/embedding';

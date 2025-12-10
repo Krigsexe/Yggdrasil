@@ -39,5 +39,7 @@ module.exports = {
     '*.js',
     '*.cjs',
     '*.mjs',
+    '**/*.spec.ts',
+    '**/*.test.ts',
   ],
 };

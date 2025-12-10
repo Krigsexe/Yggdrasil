@@ -124,7 +124,7 @@ export class PubmedAdapter {
       params.append('api_key', this.apiKey);
     }
 
-    const url = `${NCBI_BASE_URL}/esearch.fcgi?${params}`;
+    const url = `${NCBI_BASE_URL}/esearch.fcgi?${params.toString()}`;
 
     logger.info('PubMed esearch', { query, maxResults });
 
@@ -167,7 +167,7 @@ export class PubmedAdapter {
       params.append('api_key', this.apiKey);
     }
 
-    const url = `${NCBI_BASE_URL}/efetch.fcgi?${params}`;
+    const url = `${NCBI_BASE_URL}/efetch.fcgi?${params.toString()}`;
 
     logger.info('PubMed efetch', { pmidCount: pmids.length });
 

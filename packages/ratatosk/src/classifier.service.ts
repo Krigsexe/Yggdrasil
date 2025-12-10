@@ -73,11 +73,11 @@ export class ClassifierService {
     /^(hi|hello|hey|bonjour|salut|coucou|yo|hola|ciao)\b/i,
     /^(good morning|good afternoon|good evening|bonsoir|bonne nuit)/i,
     // Presence checks - use .? for any Unicode character
-    /^tu es l.[\?]?$/i,
-    /^es.tu l.[\?]?$/i,
-    /^(you there|are you there)[\?]?$/i,
-    /^t.es l.[\?]?$/i,
-    /^.a va[\?]?$/i,
+    /^tu es l.[?]?$/i,
+    /^es.tu l.[?]?$/i,
+    /^(you there|are you there)[?]?$/i,
+    /^t.es l.[?]?$/i,
+    /^.a va[?]?$/i,
     // Simple acknowledgments
     /^(ok|okay|d.accord|merci|thanks|thank you|cool|nice|great|super|parfait)\s*[!?]?$/i,
     // Farewells - use . for special chars
@@ -85,7 +85,7 @@ export class ClassifierService {
     // Simple yes/no
     /^(oui|non|yes|no|yep|nope|yeah|nah)\s*[!?]?$/i,
     // How are you - use . for special chars
-    /^(how are you|comment .a va|comment vas.tu|.a va|quoi de neuf|what.s up)\s*[\?]?$/i,
+    /^(how are you|comment .a va|comment vas.tu|.a va|quoi de neuf|what.s up)\s*[?]?$/i,
     // Very short queries (< 4 words, no question keywords)
     /^.{1,15}[!?]?$/i,
   ];

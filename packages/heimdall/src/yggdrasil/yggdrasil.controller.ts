@@ -22,13 +22,13 @@ import {
   Query,
 } from '@nestjs/common';
 import { ThrottlerGuard } from '@nestjs/throttler';
-import { Observable, map, merge, of, delay } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
 import { CurrentUser } from '../auth/decorators/current-user.decorator.js';
 import { YggdrasilService, YggdrasilResponse } from './yggdrasil.service.js';
 import { ThinkingService, ThinkingStep } from './thinking.service.js';
 import { MuninBridge } from './bridges/munin.bridge.js';
-import { FactType, FactState, StoredFact, PersistenceResult } from '@yggdrasil/munin';
+import { FactState, StoredFact, PersistenceResult } from '@yggdrasil/munin';
 
 interface QueryDto {
   query: string;
@@ -215,7 +215,7 @@ export class YggdrasilController {
    */
   @Post('health')
   @HttpCode(HttpStatus.OK)
-  async health(): Promise<{ status: string; components: Record<string, string> }> {
+  health(): { status: string; components: Record<string, string> } {
     return {
       status: 'healthy',
       components: {

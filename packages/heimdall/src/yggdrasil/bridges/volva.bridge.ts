@@ -46,7 +46,7 @@ export class VolvaBridge {
     this.hypothesisService = new HypothesisService();
   }
 
-  async query(query: string): Promise<VolvaResult> {
+  query(query: string): VolvaResult {
     logger.info('Querying VOLVA', { queryLength: query.length });
 
     // Search for relevant hypotheses

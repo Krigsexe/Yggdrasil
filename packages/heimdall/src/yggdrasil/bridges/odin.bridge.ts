@@ -17,7 +17,6 @@ import {
 import {
   ValidationService,
   AnchoringService,
-  SynthesisService,
 } from '@yggdrasil/odin';
 
 const logger = createLogger('OdinBridge', 'info');
@@ -38,7 +37,7 @@ export class OdinBridge {
     this.validation = new ValidationService(anchoring);
   }
 
-  async validate(input: ValidationInput): Promise<ValidationResult> {
+  validate(input: ValidationInput): ValidationResult {
     logger.info('ODIN validation starting', {
       requestId: input.requestId,
       contentLength: input.content.length,
