@@ -227,7 +227,7 @@ export class MuninBridge {
       take: limit,
     });
 
-    return memories.map((m) => {
+    return memories.map((m: { content: unknown }) => {
       const content = m.content as {
         query: string;
         response: { isVerified: boolean };
@@ -372,7 +372,7 @@ export class MuninBridge {
       take: limit,
     });
 
-    return memories.map((m) => ({
+    return memories.map((m: { id: string; type: string; content: unknown }) => ({
       id: m.id,
       type: m.type,
       content: m.content,

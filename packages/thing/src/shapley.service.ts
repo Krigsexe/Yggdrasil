@@ -523,14 +523,21 @@ export class ShapleyService {
       LIMIT ${limit}
     `;
 
-    return results.map((row) => ({
-      member: row.member as CouncilMember,
-      totalDeliberations: Number(row.total_deliberations),
-      averageShapleyValue: row.avg_shapley_value,
-      cumulativeContribution: row.cumulative_contribution,
-      correctPredictions: 0,
-      incorrectPredictions: 0,
-      accuracyRate: 0,
-    }));
+    return results.map(
+      (row: {
+        member: string;
+        total_deliberations: bigint;
+        avg_shapley_value: number;
+        cumulative_contribution: number;
+      }) => ({
+        member: row.member as CouncilMember,
+        totalDeliberations: Number(row.total_deliberations),
+        averageShapleyValue: row.avg_shapley_value,
+        cumulativeContribution: row.cumulative_contribution,
+        correctPredictions: 0,
+        incorrectPredictions: 0,
+        accuracyRate: 0,
+      })
+    );
   }
 }

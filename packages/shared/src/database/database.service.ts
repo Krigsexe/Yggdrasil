@@ -28,11 +28,11 @@ export class DatabaseService extends PrismaClient implements OnModuleInit, OnMod
   }
 
   async onModuleInit(): Promise<void> {
-    await this.$connect();
+    await this['$connect']();
   }
 
   async onModuleDestroy(): Promise<void> {
-    await this.$disconnect();
+    await this['$disconnect']();
   }
 
   /**
@@ -40,7 +40,7 @@ export class DatabaseService extends PrismaClient implements OnModuleInit, OnMod
    */
   async isHealthy(): Promise<boolean> {
     try {
-      await this.$queryRaw`SELECT 1`;
+      await this['$queryRaw']`SELECT 1`;
       return true;
     } catch {
       return false;
@@ -56,7 +56,7 @@ export class DatabaseService extends PrismaClient implements OnModuleInit, OnMod
   }> {
     const start = Date.now();
     try {
-      await this.$queryRaw`SELECT 1`;
+      await this['$queryRaw']`SELECT 1`;
       return {
         connected: true,
         latencyMs: Date.now() - start,

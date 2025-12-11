@@ -254,7 +254,7 @@ export class KnowledgeLedgerService {
       WHERE source_id = ${nodeId}
     `;
 
-    return results.map((row) => ({
+    return results.map((row: DependencyRow) => ({
       nodeId: row.target_id,
       strength: row.strength,
     }));
@@ -392,7 +392,7 @@ export class KnowledgeLedgerService {
       LIMIT ${limit}
     `;
 
-    return results.map((row) => this.rowToKnowledgeNode(row));
+    return results.map((row: KnowledgeNodeRow) => this.rowToKnowledgeNode(row));
   }
 
   /**

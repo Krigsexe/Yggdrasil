@@ -174,7 +174,7 @@ export class CheckpointService {
       take: options?.limit ?? 100,
     });
 
-    return checkpoints.map((c) => this.rowToCheckpoint(c as unknown as CheckpointRow));
+    return checkpoints.map((c: unknown) => this.rowToCheckpoint(c as CheckpointRow));
   }
 
   /**
@@ -299,7 +299,7 @@ export class CheckpointService {
       WHERE id = ANY(${nodeIds}::text[])
     `;
 
-    return nodes.map((node) => ({
+    return nodes.map((node: KnowledgeNodeRow) => ({
       nodeId: node.id,
       statement: node.statement,
       currentState: node.current_state,

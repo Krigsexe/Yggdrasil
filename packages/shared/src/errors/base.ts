@@ -24,13 +24,16 @@ export abstract class YggdrasilError extends Error {
   }
 
   toJSON(): Record<string, unknown> {
+    const isProduction = process.env['NODE_ENV'] === 'production';
+
     return {
       name: this.name,
       message: this.message,
       code: this.code,
       details: this.details,
       timestamp: this.timestamp.toISOString(),
-      stack: this.stack,
+      // Security: Never expose stack traces in production
+      ...(isProduction ? {} : { stack: this.stack }),
     };
   }
 }

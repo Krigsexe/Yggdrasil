@@ -311,7 +311,11 @@ export class SourceService {
     let results: SourceRow[];
 
     if (types.length > 0) {
-      results = await this.db.$queryRawUnsafe<SourceRow[]>(
+      results = await (
+        this.db as unknown as {
+          $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T>;
+        }
+      ).$queryRawUnsafe<SourceRow[]>(
         `
         SELECT id, type, identifier, url, title, authors,
                published_at, fetched_at, trust_score, branch, is_valid,
@@ -336,7 +340,11 @@ export class SourceService {
         limit
       );
     } else {
-      results = await this.db.$queryRawUnsafe<SourceRow[]>(
+      results = await (
+        this.db as unknown as {
+          $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T>;
+        }
+      ).$queryRawUnsafe<SourceRow[]>(
         `
         SELECT id, type, identifier, url, title, authors,
                published_at, fetched_at, trust_score, branch, is_valid,
@@ -386,7 +394,11 @@ export class SourceService {
     let results: SourceWithSimilarity[];
 
     if (types.length > 0) {
-      results = await this.db.$queryRawUnsafe<SourceWithSimilarity[]>(
+      results = await (
+        this.db as unknown as {
+          $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T>;
+        }
+      ).$queryRawUnsafe<SourceWithSimilarity[]>(
         `
         SELECT id, type, identifier, url, title, authors,
                published_at, fetched_at, trust_score, branch, is_valid,
@@ -406,7 +418,11 @@ export class SourceService {
         limit
       );
     } else {
-      results = await this.db.$queryRawUnsafe<SourceWithSimilarity[]>(
+      results = await (
+        this.db as unknown as {
+          $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T>;
+        }
+      ).$queryRawUnsafe<SourceWithSimilarity[]>(
         `
         SELECT id, type, identifier, url, title, authors,
                published_at, fetched_at, trust_score, branch, is_valid,

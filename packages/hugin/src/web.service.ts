@@ -149,30 +149,47 @@ export class WebService {
 
   /**
    * Search cached web content
+   * Security: Uses parameterized query to prevent SQL injection
    */
   async search(query: string, limit = 10): Promise<WebContent[]> {
-    logger.info('Searching web content', { query, limit });
+    // Input validation to prevent ReDoS and excessive memory usage
+    const maxQueryLength = 500;
+    const maxLimit = 100;
+
+    if (query.length > maxQueryLength) {
+      logger.warn('Search query too long, truncating', { originalLength: query.length });
+      query = query.substring(0, maxQueryLength);
+    }
+
+    const safeLimit = Math.min(Math.max(1, limit), maxLimit);
+
+    logger.info('Searching web content', { query: query.substring(0, 50), limit: safeLimit });
 
     const normalizedQuery = query.toLowerCase().trim();
-    // searchTerms reserved for future semantic search implementation
-    const _searchTerms = normalizedQuery.split(/\s+/);
-    void _searchTerms; // Suppress unused warning
 
-    // Search in database using text matching
+    // Escape special LIKE characters to prevent pattern injection
+    const escapedQuery = normalizedQuery
+      .replace(/\\/g, '\\\\')
+      .replace(/%/g, '\\%')
+      .replace(/_/g, '\\_');
+
+    const searchPattern = `%${escapedQuery}%`;
+
+    // Search in database using properly parameterized query
     const results = await this.db.$queryRaw<WebContentRow[]>`
       SELECT id, url, title, content, fetched_at, trust_score, domain,
              language, author, published_at, description, warnings
       FROM web_content
       WHERE trust_score > 10
         AND (
-          LOWER(title) LIKE ${'%' + normalizedQuery + '%'}
-          OR LOWER(content) LIKE ${'%' + normalizedQuery + '%'}
+          LOWER(title) LIKE ${searchPattern}
+          OR LOWER(content) LIKE ${searchPattern}
         )
       ORDER BY trust_score DESC, fetched_at DESC
-      LIMIT ${limit}
+      LIMIT ${safeLimit}
     `;
 
-    return results.map((row) => this.rowToWebContent(row));
+    return results.map((row: WebContentRow) => this.rowToWebContent(row));
   }
 
   /**
@@ -206,7 +223,7 @@ export class WebService {
       LIMIT ${limit}
     `;
 
-    return results.map((row) => this.rowToWebContent(row));
+    return results.map((row: WebContentRow) => this.rowToWebContent(row));
   }
 
   /**

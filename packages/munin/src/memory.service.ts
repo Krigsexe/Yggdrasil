@@ -213,7 +213,7 @@ export class MemoryService {
       );
       const queryVector = `[${queryResult.embedding.join(',')}]`;
 
-      results = await this.db.$queryRawUnsafe<MemoryWithSimilarity[]>(
+      results = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<MemoryWithSimilarity[]>(
         `
         SELECT id, user_id, session_id, type, content, tags, importance,
                access_count, last_accessed_at, created_at, updated_at,
@@ -235,7 +235,7 @@ export class MemoryService {
       }
     } else {
       // Regular query, order by creation date
-      results = await this.db.$queryRawUnsafe<MemoryRow[]>(
+      results = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<MemoryRow[]>(
         `
         SELECT id, user_id, session_id, type, content, tags, importance,
                access_count, last_accessed_at, created_at, updated_at,
@@ -250,7 +250,7 @@ export class MemoryService {
     }
 
     // Get total count
-    const countResult = await this.db.$queryRawUnsafe<{ count: bigint }[]>(
+    const countResult = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<{ count: bigint }[]>(
       `
       SELECT COUNT(*) as count
       FROM memories
@@ -313,7 +313,7 @@ export class MemoryService {
       LIMIT ${limit}
     `;
 
-    return results.map((row) => this.rowToMemoryEntry(row));
+    return results.map((row: MemoryRow) => this.rowToMemoryEntry(row));
   }
 
   async getUserMemoryCount(userId: string): Promise<number> {
@@ -349,7 +349,7 @@ export class MemoryService {
       include: { memory: true },
     });
 
-    return Promise.all(dependencies.map((dep) => this.getById(dep.memoryId)));
+    return Promise.all(dependencies.map((dep: { memoryId: string }) => this.getById(dep.memoryId)));
   }
 
   async cascadeInvalidate(id: string, invalidatedBy: string, reason: string): Promise<number> {

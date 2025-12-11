@@ -426,7 +426,7 @@ export class MemoryPersistenceService {
     `;
 
     return results
-      .map((row) => ({
+      .map((row: MemoryRow) => ({
         id: row.id,
         userId: row.user_id,
         chatId: row.session_id ?? '',
@@ -438,7 +438,7 @@ export class MemoryPersistenceService {
         keywords: row.tags,
         createdAt: row.created_at,
       }))
-      .filter((fact) => {
+      .filter((fact: StoredFact) => {
         if (options?.factTypes && !options.factTypes.includes(fact.factType)) {
           return false;
         }
@@ -485,7 +485,7 @@ export class MemoryPersistenceService {
       similarity: number;
     }
 
-    const relevantResults = await this.db.$queryRawUnsafe<MemoryWithSimilarity[]>(
+    const relevantResults = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<MemoryWithSimilarity[]>(
       `
       SELECT id, user_id, session_id, content, tags, created_at,
              1 - (embedding <=> '${queryVector}'::vector) as similarity
@@ -502,8 +502,8 @@ export class MemoryPersistenceService {
     );
 
     const relevantFacts: StoredFact[] = relevantResults
-      .filter((r) => r.similarity > 0.3) // Only include if similarity > 30%
-      .map((row) => ({
+      .filter((r: MemoryWithSimilarity) => r.similarity > 0.3) // Only include if similarity > 30%
+      .map((row: MemoryWithSimilarity) => ({
         id: row.id,
         userId: row.user_id,
         chatId: row.session_id ?? '',

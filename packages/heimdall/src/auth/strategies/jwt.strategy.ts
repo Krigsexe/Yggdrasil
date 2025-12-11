@@ -15,10 +15,17 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly authService: AuthService,
     configService: ConfigService
   ) {
+    const jwtSecret = configService.get<string>('JWT_SECRET');
+    if (!jwtSecret) {
+      throw new Error(
+        'SECURITY: JWT_SECRET environment variable is required. ' +
+          'Generate a secure secret: openssl rand -base64 64'
+      );
+    }
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: configService.get<string>('JWT_SECRET', 'yggdrasil-dev-secret'),
+      secretOrKey: jwtSecret,
     });
   }
 

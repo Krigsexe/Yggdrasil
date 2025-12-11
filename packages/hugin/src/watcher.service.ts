@@ -138,7 +138,7 @@ export class WatcherService implements OnModuleInit, OnModuleDestroy {
       ORDER BY created_at DESC
     `;
 
-    return results.map((row) => this.rowToWatchConfig(row));
+    return results.map((row: WatchRow) => this.rowToWatchConfig(row));
   }
 
   /**
@@ -153,7 +153,7 @@ export class WatcherService implements OnModuleInit, OnModuleDestroy {
       ORDER BY last_checked_at ASC NULLS FIRST
     `;
 
-    return results.map((row) => this.rowToWatchConfig(row));
+    return results.map((row: WatchRow) => this.rowToWatchConfig(row));
   }
 
   /**
