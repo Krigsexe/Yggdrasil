@@ -85,7 +85,7 @@ Construire les composants principaux et atteindre un systeme fonctionnel.
 
 ### Milestones
 
-#### M2.1 : Les Trois Branches (Q2-Q3 2025) - EN COURS
+#### M2.1 : Les Trois Branches (Q2-Q3 2025) - COMPLETE
 
 - [x] **MIMIR** : Integration arXiv
 - [x] **MIMIR** : Integration PubMed
@@ -93,7 +93,7 @@ Construire les composants principaux et atteindre un systeme fonctionnel.
 - [x] **MIMIR** : EmbeddingService partage (Gemini)
 - [x] **VOLVA** : Espace hypotheses avec flagging
 - [x] **HUGIN** : Recherche web avec filtrage
-- [ ] **HUGIN** : Detection de desinformation avancee
+- [x] **HUGIN** : Detection de desinformation avancee
 - [x] Separation stricte des bases de donnees (epistemique)
 
 #### M2.2 : Le Conseil (Q3-Q4 2025) - COMPLETE

@@ -8,6 +8,7 @@
  * - Knowledge Watcher daemon with priority queues
  * - Proactive contradiction detection
  * - Alert system for epistemic velocity changes
+ * - Advanced disinformation detection (M2.1)
  */
 
 export * from './hugin.module.js';
@@ -15,3 +16,4 @@ export * from './web.service.js';
 export * from './filter.service.js';
 export * from './watcher.service.js';
 export * from './knowledge-watcher.service.js';
+export * from './disinformation-detector.service.js';
