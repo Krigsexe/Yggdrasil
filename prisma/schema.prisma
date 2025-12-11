@@ -756,3 +756,84 @@ enum WebWatchType {
   DOMAIN
   SEARCH
 }
+
+// ============================================================================
+// KNOWLEDGE LEDGER - AGI v2.0 (MUNIN Advanced)
+// Immutable temporal ledger for knowledge state tracking
+// ============================================================================
+
+model KnowledgeNode {
+  id                 String             @id @default(cuid())
+  statement          String
+  domain             String?
+  tags               String[]
+
+  // State management
+  currentState       MemoryState        @default(PENDING_PROOF) @map("current_state")
+  epistemicBranch    EpistemicBranch    @default(HUGIN) @map("epistemic_branch")
+  confidenceScore    Float              @default(0) @map("confidence_score")
+  epistemicVelocity  Float              @default(0) @map("epistemic_velocity")
+
+  // Attribution (Shapley values for THING council)
+  shapleyAttribution Json?              @map("shapley_attribution")
+
+  // Immutable audit trail (append-only)
+  auditTrail         Json               @default("[]") @map("audit_trail")
+
+  // Surveillance configuration (HUGIN Watcher)
+  priorityQueue      PriorityQueue      @default(WARM) @map("priority_queue")
+  lastScan           DateTime?          @map("last_scan")
+  nextScan           DateTime?          @map("next_scan")
+  idleCycles         Int                @default(0) @map("idle_cycles")
+
+  // Timestamps
+  createdAt          DateTime           @default(now()) @map("created_at")
+  updatedAt          DateTime           @updatedAt @map("updated_at")
+
+  // Relations
+  dependsOn          KnowledgeDependency[] @relation("KnowledgeDependencies")
+  dependents         KnowledgeDependency[] @relation("DependentKnowledge")
+
+  @@index([currentState])
+  @@index([epistemicBranch])
+  @@index([priorityQueue])
+  @@index([nextScan])
+  @@map("knowledge_nodes")
+}
+
+model KnowledgeDependency {
+  id           String                @id @default(cuid())
+  sourceId     String                @map("source_id")
+  source       KnowledgeNode         @relation("KnowledgeDependencies", fields: [sourceId], references: [id], onDelete: Cascade)
+  targetId     String                @map("target_id")
+  target       KnowledgeNode         @relation("DependentKnowledge", fields: [targetId], references: [id], onDelete: Cascade)
+  relation     KnowledgeRelationType
+  strength     Float                 @default(1.0)
+  createdAt    DateTime              @default(now()) @map("created_at")
+
+  @@unique([sourceId, targetId])
+  @@index([sourceId])
+  @@index([targetId])
+  @@map("knowledge_dependencies")
+}
+
+enum MemoryState {
+  VERIFIED
+  REJECTED
+  PENDING_PROOF
+  WATCHING
+  DEPRECATED
+}
+
+enum PriorityQueue {
+  HOT
+  WARM
+  COLD
+}
+
+enum KnowledgeRelationType {
+  DERIVED_FROM
+  ASSUMES
+  SUPPORTS
+  CONTRADICTS
+}
