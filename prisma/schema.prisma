@@ -837,3 +837,65 @@ enum KnowledgeRelationType {
   SUPPORTS
   CONTRADICTS
 }
+
+// ============================================================================
+// HUGIN ALERTS - AGI v2.0 (Proactive Monitoring)
+// Alerts from the Knowledge Watcher daemon
+// ============================================================================
+
+model HuginAlert {
+  id           String         @id
+  type         AlertType
+  nodeId       String         @map("node_id")
+  statement    String
+  severity     AlertSeverity
+  message      String
+  metadata     Json?
+  createdAt    DateTime       @default(now()) @map("created_at")
+  acknowledged Boolean        @default(false)
+  acknowledgedAt DateTime?    @map("acknowledged_at")
+  acknowledgedBy String?      @map("acknowledged_by")
+
+  @@index([type])
+  @@index([severity])
+  @@index([acknowledged])
+  @@index([createdAt])
+  @@map("hugin_alerts")
+}
+
+enum AlertType {
+  VELOCITY_SPIKE
+  CONTRADICTION
+  CONFIDENCE_DROP
+  NEW_SOURCE
+}
+
+enum AlertSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// ============================================================================
+// SHAPLEY ATTRIBUTION - AGI v2.0 (THING Council)
+// Tracks individual member contributions using Shapley values
+// ============================================================================
+
+model ShapleyAttribution {
+  id                     String        @id @default(cuid())
+  deliberationId         String        @map("deliberation_id")
+  member                 CouncilMember
+  shapleyValue           Float         @map("shapley_value")
+  percentageContribution Float         @map("percentage_contribution")
+  responseQuality        Float         @map("response_quality")
+  challengeImpact        Float         @map("challenge_impact")
+  consensusAlignment     Float         @map("consensus_alignment")
+  createdAt              DateTime      @default(now()) @map("created_at")
+
+  @@unique([deliberationId, member])
+  @@index([member])
+  @@index([deliberationId])
+  @@index([shapleyValue])
+  @@map("shapley_attributions")
+}
