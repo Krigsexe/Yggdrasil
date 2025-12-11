@@ -171,7 +171,7 @@ Rendre YGGDRASIL utilisable par le public et etablir une gouvernance.
 
 #### M3.1 : API Publique (Q3 2026)
 
-- [ ] API REST documentee (OpenAPI)
+- [x] API REST documentee (OpenAPI) - docs/api/openapi.yaml
 - [ ] SDK JavaScript/TypeScript
 - [ ] SDK Python
 - [ ] Exemples et tutoriels
