@@ -485,7 +485,9 @@ export class MemoryPersistenceService {
       similarity: number;
     }
 
-    const relevantResults = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<MemoryWithSimilarity[]>(
+    const relevantResults = await (
+      this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }
+    ).$queryRawUnsafe<MemoryWithSimilarity[]>(
       `
       SELECT id, user_id, session_id, content, tags, created_at,
              1 - (embedding <=> '${queryVector}'::vector) as similarity

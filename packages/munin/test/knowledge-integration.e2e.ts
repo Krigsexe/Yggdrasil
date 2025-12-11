@@ -208,7 +208,9 @@ describe('Knowledge Ledger Integration', () => {
 
       mockDb.$queryRaw
         .mockResolvedValueOnce([existingNode])
-        .mockResolvedValueOnce([{ ...existingNode, confidence_score: 85, epistemic_velocity: 0.15 }]);
+        .mockResolvedValueOnce([
+          { ...existingNode, confidence_score: 85, epistemic_velocity: 0.15 },
+        ]);
 
       const updatedNode = await ledgerService.transitionState(
         'velocity-node',
@@ -369,11 +371,10 @@ describe('Knowledge Ledger Integration', () => {
         created_at: new Date(),
       });
 
-      const checkpoint = await checkpointService.create(
-        'user-123',
-        'Test Checkpoint',
-        ['node-1', 'node-2']
-      );
+      const checkpoint = await checkpointService.create('user-123', 'Test Checkpoint', [
+        'node-1',
+        'node-2',
+      ]);
 
       expect(checkpoint).toBeDefined();
       expect(checkpoint.label).toBe('Test Checkpoint');
@@ -464,9 +465,8 @@ describe('Knowledge Ledger Integration', () => {
         updated_at: new Date(),
       };
 
-      mockDb.$queryRaw
-        .mockResolvedValueOnce([node])
-        .mockResolvedValueOnce([{
+      mockDb.$queryRaw.mockResolvedValueOnce([node]).mockResolvedValueOnce([
+        {
           ...node,
           current_state: MemoryState.WATCHING,
           confidence_score: 60,
@@ -482,18 +482,15 @@ describe('Knowledge Ledger Integration', () => {
               reason: 'Found correlating sources',
             },
           ],
-        }]);
+        },
+      ]);
 
-      const updatedNode = await ledgerService.transitionState(
-        'audit-node',
-        MemoryState.WATCHING,
-        {
-          trigger: 'CORRELATION_FOUND',
-          agent: 'VOLVA',
-          reason: 'Found correlating sources',
-          newConfidence: 60,
-        }
-      );
+      const updatedNode = await ledgerService.transitionState('audit-node', MemoryState.WATCHING, {
+        trigger: 'CORRELATION_FOUND',
+        agent: 'VOLVA',
+        reason: 'Found correlating sources',
+        newConfidence: 60,
+      });
 
       expect(updatedNode.auditTrail).toHaveLength(2);
       expect(updatedNode.auditTrail[1]!.action).toBe(KnowledgeLedgerAction.TRANSITION);

@@ -516,10 +516,7 @@ export class DisinformationDetectorService {
     return Array.from(types);
   }
 
-  private determineSeverity(
-    riskScore: number,
-    detectedTypes: DisinformationType[]
-  ): SeverityLevel {
+  private determineSeverity(riskScore: number, detectedTypes: DisinformationType[]): SeverityLevel {
     // Critical if fabricated or scientific misinfo
     if (
       detectedTypes.includes(DisinformationType.FABRICATED_CONTENT) ||

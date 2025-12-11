@@ -306,9 +306,7 @@ describe('CheckpointService', () => {
         created_at: new Date(),
       });
 
-      await expect(service.rollback('chk-123', 'different-user')).rejects.toThrow(
-        'Unauthorized'
-      );
+      await expect(service.rollback('chk-123', 'different-user')).rejects.toThrow('Unauthorized');
     });
 
     it('should handle empty nodeSnapshots gracefully', async () => {
@@ -371,9 +369,7 @@ describe('CheckpointService', () => {
         created_at: new Date(),
       });
 
-      await expect(service.delete('chk-123', 'different-user')).rejects.toThrow(
-        'Unauthorized'
-      );
+      await expect(service.delete('chk-123', 'different-user')).rejects.toThrow('Unauthorized');
     });
   });
 

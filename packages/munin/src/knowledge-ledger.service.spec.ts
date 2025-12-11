@@ -234,18 +234,16 @@ describe('KnowledgeLedgerService', () => {
 
       // First call gets the node, second returns the updated node
       mockDb.$queryRaw.mockResolvedValueOnce([mockNode]);
-      mockDb.$queryRaw.mockResolvedValueOnce([{ ...mockNode, current_state: 'VERIFIED', confidence_score: 95 }]);
+      mockDb.$queryRaw.mockResolvedValueOnce([
+        { ...mockNode, current_state: 'VERIFIED', confidence_score: 95 },
+      ]);
 
-      await service.transitionState(
-        'test-id',
-        MemoryState.VERIFIED,
-        {
-          trigger: 'COUNCIL_DELIBERATION',
-          agent: 'THING',
-          reason: 'Consensus reached',
-          newConfidence: 95,
-        }
-      );
+      await service.transitionState('test-id', MemoryState.VERIFIED, {
+        trigger: 'COUNCIL_DELIBERATION',
+        agent: 'THING',
+        reason: 'Consensus reached',
+        newConfidence: 95,
+      });
 
       expect(mockDb.$executeRaw).toHaveBeenCalled();
     });
@@ -294,15 +292,11 @@ describe('KnowledgeLedgerService', () => {
       mockDb.$queryRaw.mockResolvedValueOnce([mockNode]);
       mockDb.$queryRaw.mockResolvedValueOnce([mockNode]); // For getNode after update
 
-      await service.transitionState(
-        'test-id',
-        MemoryState.REJECTED,
-        {
-          trigger: 'CONTRADICTION_DETECTED',
-          agent: 'HUGIN',
-          reason: 'Multiple sources contradict this claim',
-        }
-      );
+      await service.transitionState('test-id', MemoryState.REJECTED, {
+        trigger: 'CONTRADICTION_DETECTED',
+        agent: 'HUGIN',
+        reason: 'Multiple sources contradict this claim',
+      });
 
       // Verify database was called
       expect(mockDb.$executeRaw).toHaveBeenCalled();
@@ -383,12 +377,7 @@ describe('KnowledgeLedgerService', () => {
 
   describe('addDependency', () => {
     it('should add dependency between nodes', async () => {
-      await service.addDependency(
-        'source-id',
-        'target-id',
-        'SUPPORTS',
-        0.85
-      );
+      await service.addDependency('source-id', 'target-id', 'SUPPORTS', 0.85);
 
       expect(mockDb.$executeRaw).toHaveBeenCalled();
     });
@@ -403,8 +392,22 @@ describe('KnowledgeLedgerService', () => {
   describe('getDependents', () => {
     it('should return nodes that depend on given node', async () => {
       mockDb.$queryRaw.mockResolvedValueOnce([
-        { id: 'd1', source_id: 'source', target_id: 'dependent1', relation: 'SUPPORTS', strength: 0.9, created_at: new Date() },
-        { id: 'd2', source_id: 'source', target_id: 'dependent2', relation: 'DERIVED_FROM', strength: 0.7, created_at: new Date() },
+        {
+          id: 'd1',
+          source_id: 'source',
+          target_id: 'dependent1',
+          relation: 'SUPPORTS',
+          strength: 0.9,
+          created_at: new Date(),
+        },
+        {
+          id: 'd2',
+          source_id: 'source',
+          target_id: 'dependent2',
+          relation: 'DERIVED_FROM',
+          strength: 0.7,
+          created_at: new Date(),
+        },
       ]);
 
       const result = await service.getDependents('source');

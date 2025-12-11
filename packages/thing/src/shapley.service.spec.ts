@@ -171,10 +171,7 @@ describe('ShapleyService', () => {
       expect(result.totalValue).toBeGreaterThan(0);
 
       // Verify percentage contributions sum to 100
-      const totalPercentage = result.members.reduce(
-        (sum, m) => sum + m.percentageContribution,
-        0
-      );
+      const totalPercentage = result.members.reduce((sum, m) => sum + m.percentageContribution, 0);
       expect(totalPercentage).toBeCloseTo(100, 0);
 
       // Members should be sorted by contribution (highest first)
@@ -187,20 +184,14 @@ describe('ShapleyService', () => {
 
     it('should include LOKI when challenges exist', () => {
       const response = createResponse(CouncilMember.KVASIR, 'Test response', 80, 'Test');
-      const challenge = createChallenge(
-        CouncilMember.KVASIR,
-        'I challenge this assertion',
-        'HIGH'
-      );
+      const challenge = createChallenge(CouncilMember.KVASIR, 'I challenge this assertion', 'HIGH');
 
       const deliberation = createDeliberation(
         'test-id',
         'Test query',
         [response],
         [challenge],
-        createVerdict('SPLIT', { yes: 1, no: 1 }, 'Disagreement exists', [
-          CouncilMember.LOKI,
-        ])
+        createVerdict('SPLIT', { yes: 1, no: 1 }, 'Disagreement exists', [CouncilMember.LOKI])
       );
 
       const result = service.calculateShapleyValues(deliberation);
@@ -215,11 +206,7 @@ describe('ShapleyService', () => {
         createResponse(CouncilMember.SAGA, 'Saga response', 80, 'Same confidence'),
       ];
 
-      const challenge = createChallenge(
-        CouncilMember.KVASIR,
-        'Critical flaw detected',
-        'CRITICAL'
-      );
+      const challenge = createChallenge(CouncilMember.KVASIR, 'Critical flaw detected', 'CRITICAL');
 
       const deliberation = createDeliberation(
         'test-id',
@@ -249,9 +236,7 @@ describe('ShapleyService', () => {
         'Is this true?',
         responses,
         [],
-        createVerdict('DEADLOCK', { yes: 1, no: 1 }, 'Cannot resolve', [
-          CouncilMember.SAGA,
-        ])
+        createVerdict('DEADLOCK', { yes: 1, no: 1 }, 'Cannot resolve', [CouncilMember.SAGA])
       );
 
       const result = service.calculateShapleyValues(deliberation);

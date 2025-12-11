@@ -271,7 +271,11 @@ export class KnowledgeWatcherService implements OnModuleInit, OnModuleDestroy {
           statement: node.statement,
           severity: 'HIGH',
           message: `Significant confidence drop: ${(confidenceDrop * 100).toFixed(1)}%`,
-          metadata: { previousConfidence: node.confidence_score, newConfidence, drop: confidenceDrop },
+          metadata: {
+            previousConfidence: node.confidence_score,
+            newConfidence,
+            drop: confidenceDrop,
+          },
         });
       }
 
@@ -459,7 +463,9 @@ export class KnowledgeWatcherService implements OnModuleInit, OnModuleDestroy {
   /**
    * Create an alert
    */
-  private async createAlert(alert: Omit<Alert, 'id' | 'createdAt' | 'acknowledged'>): Promise<void> {
+  private async createAlert(
+    alert: Omit<Alert, 'id' | 'createdAt' | 'acknowledged'>
+  ): Promise<void> {
     const fullAlert: Alert = {
       ...alert,
       id: `alert_${Date.now()}_${Math.random().toString(36).substring(7)}`,

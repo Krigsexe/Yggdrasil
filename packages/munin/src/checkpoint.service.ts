@@ -127,19 +127,14 @@ export class CheckpointService {
   ): Promise<Checkpoint> {
     const allNodeIds = [sourceNodeId, ...affectedNodeIds];
 
-    return this.create(
-      userId,
-      `Pre-cascade: ${sourceNodeId}`,
-      allNodeIds,
-      {
-        description: `Automatic checkpoint before cascade invalidation from node ${sourceNodeId}`,
-        type: 'PRE_CASCADE',
-        metadata: {
-          sourceNodeId,
-          affectedCount: affectedNodeIds.length,
-        },
-      }
-    );
+    return this.create(userId, `Pre-cascade: ${sourceNodeId}`, allNodeIds, {
+      description: `Automatic checkpoint before cascade invalidation from node ${sourceNodeId}`,
+      type: 'PRE_CASCADE',
+      metadata: {
+        sourceNodeId,
+        affectedCount: affectedNodeIds.length,
+      },
+    });
   }
 
   /**
@@ -308,9 +303,7 @@ export class CheckpointService {
    * Generate hash from node states for integrity verification
    */
   private generateStateHash(snapshots: NodeSnapshot[]): string {
-    const content = JSON.stringify(
-      snapshots.sort((a, b) => a.nodeId.localeCompare(b.nodeId))
-    );
+    const content = JSON.stringify(snapshots.sort((a, b) => a.nodeId.localeCompare(b.nodeId)));
     return createHash('sha256').update(content).digest('hex').slice(0, 16);
   }
 

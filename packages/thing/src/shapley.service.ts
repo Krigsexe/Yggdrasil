@@ -116,11 +116,7 @@ export class ShapleyService {
     let totalShapleyValue = 0;
 
     for (const member of members) {
-      const shapleyValue = this.calculateMemberShapleyValue(
-        member,
-        members,
-        coalitionValues
-      );
+      const shapleyValue = this.calculateMemberShapleyValue(member, members, coalitionValues);
 
       const responseQuality = this.calculateResponseQuality(member, deliberation);
       const challengeImpact = this.calculateChallengeImpact(member, deliberation);
@@ -209,9 +205,7 @@ export class ShapleyService {
   ): number {
     if (coalition.length === 0) return 0;
 
-    const coalitionResponses = deliberation.responses.filter((r) =>
-      coalition.includes(r.member)
-    );
+    const coalitionResponses = deliberation.responses.filter((r) => coalition.includes(r.member));
 
     if (coalitionResponses.length === 0) return 0;
 
@@ -221,8 +215,7 @@ export class ShapleyService {
     // 3. Alignment with final verdict
 
     const avgConfidence =
-      coalitionResponses.reduce((sum, r) => sum + r.confidence, 0) /
-      coalitionResponses.length;
+      coalitionResponses.reduce((sum, r) => sum + r.confidence, 0) / coalitionResponses.length;
 
     // Calculate agreement between members
     const agreementScore = this.calculateAgreementScore(coalitionResponses);
@@ -231,8 +224,7 @@ export class ShapleyService {
     const verdictAlignment = this.checkVerdictAlignment(coalition, deliberation);
 
     // Weighted combination
-    const value =
-      avgConfidence * 0.3 + agreementScore * 0.3 + verdictAlignment * 0.4;
+    const value = avgConfidence * 0.3 + agreementScore * 0.3 + verdictAlignment * 0.4;
 
     return value;
   }
@@ -245,11 +237,9 @@ export class ShapleyService {
 
     // Simple heuristic: check if confidence levels are similar
     const confidences = responses.map((r) => r.confidence);
-    const avgConfidence =
-      confidences.reduce((a, b) => a + b, 0) / confidences.length;
+    const avgConfidence = confidences.reduce((a, b) => a + b, 0) / confidences.length;
     const variance =
-      confidences.reduce((sum, c) => sum + Math.pow(c - avgConfidence, 2), 0) /
-      confidences.length;
+      confidences.reduce((sum, c) => sum + Math.pow(c - avgConfidence, 2), 0) / confidences.length;
 
     // Lower variance = higher agreement
     const agreementScore = Math.max(0, 100 - Math.sqrt(variance));
@@ -268,17 +258,14 @@ export class ShapleyService {
 
     // For CONSENSUS or MAJORITY verdicts, members who contributed
     // to the winning side get higher alignment
-    const coalitionResponses = deliberation.responses.filter((r) =>
-      coalition.includes(r.member)
-    );
+    const coalitionResponses = deliberation.responses.filter((r) => coalition.includes(r.member));
 
     if (coalitionResponses.length === 0) return 0;
 
     // Calculate average confidence - higher confidence members
     // aligned with CONSENSUS get more credit
     const avgConfidence =
-      coalitionResponses.reduce((sum, r) => sum + r.confidence, 0) /
-      coalitionResponses.length;
+      coalitionResponses.reduce((sum, r) => sum + r.confidence, 0) / coalitionResponses.length;
 
     switch (verdict) {
       case 'CONSENSUS':
@@ -323,9 +310,7 @@ export class ShapleyService {
   ): number {
     if (member !== CouncilMember.LOKI) {
       // For non-LOKI members, check if they were challenged
-      const challenges = deliberation.lokiChallenges.filter(
-        (c) => c.targetMember === member
-      );
+      const challenges = deliberation.lokiChallenges.filter((c) => c.targetMember === member);
 
       if (challenges.length === 0) return 100; // No challenges = good
 
@@ -358,9 +343,7 @@ export class ShapleyService {
     ).length;
 
     // LOKI gets credit for finding important issues
-    return challengeCount > 0
-      ? Math.min(100, 50 + criticalChallenges * 20)
-      : 50;
+    return challengeCount > 0 ? Math.min(100, 50 + criticalChallenges * 20) : 50;
   }
 
   /**
@@ -393,9 +376,7 @@ export class ShapleyService {
   /**
    * Extract participating members from a deliberation
    */
-  private extractParticipatingMembers(
-    deliberation: CouncilDeliberation
-  ): CouncilMember[] {
+  private extractParticipatingMembers(deliberation: CouncilDeliberation): CouncilMember[] {
     const members = new Set<CouncilMember>();
 
     for (const response of deliberation.responses) {

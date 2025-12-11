@@ -44,7 +44,7 @@ describe('DisinformationDetectorService', () => {
     it('should detect conspiracy theory content', () => {
       const url = 'https://example-site.com/article';
       const content =
-        'The deep state and the Illuminati are controlling everything. They don\'t want you to know the truth. Wake up sheeple!';
+        "The deep state and the Illuminati are controlling everything. They don't want you to know the truth. Wake up sheeple!";
 
       const result = service.analyze(url, content);
 

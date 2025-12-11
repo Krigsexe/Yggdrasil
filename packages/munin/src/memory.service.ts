@@ -213,7 +213,11 @@ export class MemoryService {
       );
       const queryVector = `[${queryResult.embedding.join(',')}]`;
 
-      results = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<MemoryWithSimilarity[]>(
+      results = await (
+        this.db as unknown as {
+          $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T>;
+        }
+      ).$queryRawUnsafe<MemoryWithSimilarity[]>(
         `
         SELECT id, user_id, session_id, type, content, tags, importance,
                access_count, last_accessed_at, created_at, updated_at,
@@ -235,7 +239,11 @@ export class MemoryService {
       }
     } else {
       // Regular query, order by creation date
-      results = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<MemoryRow[]>(
+      results = await (
+        this.db as unknown as {
+          $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T>;
+        }
+      ).$queryRawUnsafe<MemoryRow[]>(
         `
         SELECT id, user_id, session_id, type, content, tags, importance,
                access_count, last_accessed_at, created_at, updated_at,
@@ -250,7 +258,9 @@ export class MemoryService {
     }
 
     // Get total count
-    const countResult = await (this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }).$queryRawUnsafe<{ count: bigint }[]>(
+    const countResult = await (
+      this.db as unknown as { $queryRawUnsafe<T>(query: string, ...values: unknown[]): Promise<T> }
+    ).$queryRawUnsafe<{ count: bigint }[]>(
       `
       SELECT COUNT(*) as count
       FROM memories

@@ -378,7 +378,10 @@ export class KnowledgeLedgerService {
   /**
    * Get nodes due for scanning based on priority queue
    */
-  async getNodesDueForScan(priorityQueue: PriorityQueue, limit: number = 100): Promise<KnowledgeNode[]> {
+  async getNodesDueForScan(
+    priorityQueue: PriorityQueue,
+    limit: number = 100
+  ): Promise<KnowledgeNode[]> {
     const results = await this.db.$queryRaw<KnowledgeNodeRow[]>`
       SELECT id, statement, domain, tags, current_state, epistemic_branch,
              confidence_score, epistemic_velocity, shapley_attribution,

@@ -451,11 +451,7 @@ describe('Memory Persistence and Coherence', () => {
         .mockResolvedValueOnce([])
         .mockResolvedValueOnce([]);
 
-      const count = await memoryService.cascadeInvalidate(
-        'root',
-        'system',
-        'Root invalidation'
-      );
+      const count = await memoryService.cascadeInvalidate('root', 'system', 'Root invalidation');
 
       // Root + 2 children + 1 grandchild
       expect(count).toBe(4);
@@ -516,9 +512,7 @@ describe('Memory Persistence and Coherence', () => {
 
       mockDb.checkpoint.findUnique.mockResolvedValueOnce(null);
 
-      await expect(
-        checkpointService.rollback(invalidCheckpointId, 'user-1')
-      ).rejects.toThrow();
+      await expect(checkpointService.rollback(invalidCheckpointId, 'user-1')).rejects.toThrow();
     });
 
     it('should restore exact state from checkpoint', async () => {
