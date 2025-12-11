@@ -79,7 +79,10 @@ USER nextjs
 
 EXPOSE 3001
 
-HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
-  CMD curl -f http://localhost:3001 || exit 1
+# Next.js standalone must bind to 0.0.0.0 for Docker
+ENV HOSTNAME=0.0.0.0
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+  CMD curl -f http://0.0.0.0:3001 || exit 1
 
 CMD ["node", "packages/bifrost/server.js"]
