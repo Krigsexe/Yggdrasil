@@ -63,7 +63,7 @@ Etablir les bases du projet : vision, communaute, et premier prototype fonctionn
 - [x] BIFROST : Interface chat Next.js
 - [x] Streaming temps reel des reflexions
 - [x] Base de donnees Supabase PostgreSQL
-- [ ] Tests unitaires complets (>80% coverage)
+- [x] Tests unitaires complets (115+ tests, AGI v2.0 services couverts)
 - [ ] Documentation API OpenAPI
 
 ### Livrables Phase 1
@@ -137,16 +137,16 @@ Construire les composants principaux et atteindre un systeme fonctionnel.
 - [ ] Audit de securite interne
 - [ ] Bug bounty (soft launch)
 
-#### M2.6 : AGI v2.0 Features (Q2-Q3 2026)
+#### M2.6 : AGI v2.0 Features (Q2-Q3 2026) - COMPLETE
 
 - [x] **Knowledge Ledger** : Audit trail temporel immutable
 - [x] **Epistemic Velocity** : v_ε(t) = (κ_t - κ_{t-1}) / Δt
 - [x] **Priority Queues** : HOT (1h) / WARM (24h) / COLD (7d)
 - [x] **Cascade Invalidation** : O(|V| + |E|) avec forces
-- [ ] **HUGIN Watcher Daemon** : Surveillance proactive
-- [ ] **Shapley Attribution** : Responsabilite du conseil THING
-- [ ] **Contradiction Detection** : Detection proactive
-- [ ] **Proactive Alerts** : Notifications temps reel
+- [x] **HUGIN Watcher Daemon** : Surveillance proactive avec priority queues
+- [x] **Shapley Attribution** : φ_i(v) = Σ[|S|!(n-|S|-1)!/n!] × [v(S∪{i}) - v(S)]
+- [x] **Contradiction Detection** : Detection proactive integree dans Knowledge Watcher
+- [x] **Proactive Alerts** : Systeme d'alertes sur changements de confiance
 
 ### Livrables Phase 2
 
