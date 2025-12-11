@@ -4,15 +4,18 @@
  * Provides real health checks for database and services.
  */
 
-import { Controller, Get } from '@nestjs/common';
-import { HealthStatus, ComponentHealth, YGGDRASIL_VERSION } from '@yggdrasil/shared';
+import { Controller, Get, Optional } from '@nestjs/common';
+import { HealthStatus, ComponentHealth, YGGDRASIL_VERSION, RedisService } from '@yggdrasil/shared';
 import { DatabaseService } from '@yggdrasil/shared/database';
 
 @Controller('health')
 export class HealthController {
   private readonly startTime = Date.now();
 
-  constructor(private readonly db: DatabaseService) {}
+  constructor(
+    private readonly db: DatabaseService,
+    @Optional() private readonly redis?: RedisService
+  ) {}
 
   @Get()
   async check(): Promise<HealthStatus> {
@@ -57,13 +60,9 @@ export class HealthController {
     const dbHealth = await this.checkDatabase();
     components.push(dbHealth);
 
-    // Redis check (placeholder for now - would need Redis client injection)
-    components.push({
-      name: 'REDIS',
-      status: 'degraded',
-      latencyMs: 0,
-      message: 'Redis client not configured',
-    });
+    // Redis check
+    const redisHealth = await this.checkRedis();
+    components.push(redisHealth);
 
     return components;
   }
@@ -93,6 +92,35 @@ export class HealthController {
         message: `PostgreSQL error: ${errorMessage}`,
       };
     }
+  }
+
+  private async checkRedis(): Promise<ComponentHealth> {
+    if (!this.redis) {
+      return {
+        name: 'REDIS',
+        status: 'degraded',
+        latencyMs: 0,
+        message: 'Redis service not injected',
+      };
+    }
+
+    const pingResult = await this.redis.ping();
+
+    if (pingResult.ok) {
+      return {
+        name: 'REDIS',
+        status: 'healthy',
+        latencyMs: pingResult.latencyMs,
+        message: 'Redis connected',
+      };
+    }
+
+    return {
+      name: 'REDIS',
+      status: this.redis.isAvailable() ? 'degraded' : 'unhealthy',
+      latencyMs: pingResult.latencyMs,
+      message: 'Redis not available (REDIS_URL not configured or connection failed)',
+    };
   }
 
   private determineOverallStatus(

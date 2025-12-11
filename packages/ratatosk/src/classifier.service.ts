@@ -48,24 +48,41 @@ export interface QueryClassification {
 @Injectable()
 export class ClassifierService {
   private readonly factualPatterns = [
+    // English factual patterns
     /what is|what are|who is|who was|when did|where is|how many|how much/i,
     /define|explain|describe/i,
     /\d{4}.*happened|historical/i,
+    // French factual patterns
+    /qu.?est.ce que|quelle? est|quels? sont|qui est|qui .tait/i,
+    /combien|o. est|o. se trouve|quand|d.finir|d.finis|expliquer|d.crire/i,
+    /quelle est la vitesse|quelle est la valeur|quel est le/i,
   ];
 
   private readonly researchPatterns = [
+    // English research patterns
     /research|study|studies|paper|journal|publication/i,
     /according to|evidence|data shows/i,
+    // French research patterns
+    /recherche|.tude|.tudes|article|revue|publication/i,
+    /selon|d.apr.s|preuve|donn.es montrent/i,
   ];
 
   private readonly currentEventPatterns = [
+    // English current events patterns
     /latest|recent|today|yesterday|this week|this month|current/i,
     /news|update|happening|live/i,
+    // French current events patterns
+    /dernier|r.cent|aujourd.hui|hier|cette semaine|ce mois|actuel/i,
+    /actualit.|mise . jour|en cours|direct/i,
   ];
 
   private readonly creativePatterns = [
+    // English creative patterns
     /write|create|generate|compose|imagine|story|poem/i,
     /design|brainstorm|suggest ideas/i,
+    // French creative patterns
+    /.crire|.cris|cr.er|g.n.rer|composer|imaginer|histoire|po.me/i,
+    /concevoir|brainstorm|proposer des id.es/i,
   ];
 
   private readonly conversationalPatterns = [
@@ -143,10 +160,20 @@ export class ClassifierService {
     if (this.matchesPattern(query, this.factualPatterns)) {
       return 'factual';
     }
-    if (query.includes('theory') || query.includes('hypothesis')) {
+    if (
+      query.includes('theory') ||
+      query.includes('hypothesis') ||
+      query.includes('theorie') ||
+      query.includes('hypothese')
+    ) {
       return 'theoretical';
     }
-    if (query.includes('how to') || query.includes('steps to')) {
+    if (
+      query.includes('how to') ||
+      query.includes('steps to') ||
+      query.includes('comment faire') ||
+      query.includes('etapes pour')
+    ) {
       return 'procedural';
     }
 
@@ -155,15 +182,43 @@ export class ClassifierService {
 
   private classifyDomain(query: string): QueryDomain {
     const domainKeywords: Record<QueryDomain, string[]> = {
-      science: ['physics', 'chemistry', 'biology', 'science', 'scientific', 'experiment'],
-      mathematics: ['math', 'calculate', 'equation', 'formula', 'number', 'algebra', 'geometry'],
-      history: ['history', 'historical', 'century', 'ancient', 'war', 'civilization'],
-      technology: ['computer', 'software', 'programming', 'technology', 'digital', 'internet'],
-      medicine: ['medical', 'health', 'disease', 'treatment', 'doctor', 'symptom'],
-      law: ['legal', 'law', 'court', 'rights', 'regulation', 'contract'],
-      philosophy: ['philosophy', 'ethics', 'moral', 'meaning', 'existence'],
-      creative: ['art', 'music', 'literature', 'creative', 'design', 'writing'],
-      logic: ['logic', 'reasoning', 'proof', 'argument', 'fallacy'],
+      // Bilingual keywords (English + French)
+      science: [
+        'physics', 'chemistry', 'biology', 'science', 'scientific', 'experiment',
+        'physique', 'chimie', 'biologie', 'scientifique', 'lumiere', 'vitesse', 'vide',
+      ],
+      mathematics: [
+        'math', 'calculate', 'equation', 'formula', 'number', 'algebra', 'geometry',
+        'calcul', 'calculer', 'nombre', 'algebre', 'geometrie',
+      ],
+      history: [
+        'history', 'historical', 'century', 'ancient', 'war', 'civilization',
+        'histoire', 'historique', 'siecle', 'ancien', 'guerre', 'civilisation',
+      ],
+      technology: [
+        'computer', 'software', 'programming', 'technology', 'digital', 'internet',
+        'ordinateur', 'logiciel', 'programmation', 'technologie', 'numerique',
+      ],
+      medicine: [
+        'medical', 'health', 'disease', 'treatment', 'doctor', 'symptom',
+        'medical', 'sante', 'maladie', 'traitement', 'medecin', 'symptome',
+      ],
+      law: [
+        'legal', 'law', 'court', 'rights', 'regulation', 'contract',
+        'juridique', 'loi', 'tribunal', 'droits', 'reglement', 'contrat',
+      ],
+      philosophy: [
+        'philosophy', 'ethics', 'moral', 'meaning', 'existence',
+        'philosophie', 'ethique', 'morale', 'sens', 'existence',
+      ],
+      creative: [
+        'art', 'music', 'literature', 'creative', 'design', 'writing',
+        'musique', 'litterature', 'creatif', 'conception', 'ecriture',
+      ],
+      logic: [
+        'logic', 'reasoning', 'proof', 'argument', 'fallacy',
+        'logique', 'raisonnement', 'preuve', 'argumentation', 'sophisme',
+      ],
       general: [],
       unknown: [],
     };
