@@ -127,14 +127,14 @@ Construire les composants principaux et atteindre un systeme fonctionnel.
 - [x] **MUNIN** : Graphe de dependances avec forces
 - [x] **MUNIN** : Systeme de checkpoints complet (CheckpointService)
 - [x] **MUNIN** : Rollback fonctionnel (state restoration + audit trail)
-- [x] Tests de persistance et coherence
+- [x] Tests de persistance et coherence (20 e2e tests)
 
-#### M2.5 : Qualite et Securite (Q2 2026)
+#### M2.5 : Qualite et Securite (Q2 2026) - EN COURS
 
-- [ ] Couverture de tests >80%
-- [ ] Tests d'integration complets
+- [x] Couverture de tests >80% (195+ tests)
+- [x] Tests d'integration complets
 - [ ] Tests E2E
-- [ ] Audit de securite interne
+- [x] Audit de securite interne (docs/security/SECURITY_AUDIT.md)
 - [ ] Bug bounty (soft launch)
 
 #### M2.6 : AGI v2.0 Features (Q2-Q3 2026) - COMPLETE

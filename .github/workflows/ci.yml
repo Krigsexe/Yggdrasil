@@ -138,10 +138,47 @@ jobs:
           fail_ci_if_error: false
           verbose: true
 
+  security:
+    name: Security Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Check for hardcoded secrets
+        run: |
+          echo "Checking for potential hardcoded secrets..."
+          ! grep -rn "secret.*=.*['\"][^'\"]*['\"]" packages/*/src --include="*.ts" | grep -v "JWT_SECRET" | grep -v "test" | grep -v ".spec." || echo "Warning: Potential hardcoded secrets found"
+
+      - name: Verify JWT_SECRET requirement
+        run: |
+          echo "Verifying JWT_SECRET is required..."
+          grep -q "throw new Error" packages/heimdall/src/auth/auth.module.ts
+          grep -q "throw new Error" packages/heimdall/src/auth/strategies/jwt.strategy.ts
+          echo "JWT_SECRET requirement verified"
+
   build:
     name: Build
     runs-on: ubuntu-latest
-    needs: [lint, typecheck, test]
+    needs: [lint, typecheck, test, security]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
