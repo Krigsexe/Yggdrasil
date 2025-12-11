@@ -37,13 +37,6 @@ interface NodeSnapshot {
   auditTrailLength: number;
 }
 
-/**
- * Extended checkpoint with full state capture
- */
-interface CheckpointWithState extends Checkpoint {
-  nodeSnapshots: NodeSnapshot[];
-}
-
 interface CheckpointRow {
   id: string;
   user_id: string;
@@ -225,7 +218,7 @@ export class CheckpointService {
         await this.deprecateNodeForRollback(node.id, checkpointId, now);
         invalidatedCount++;
       } catch (error) {
-        errors.push(`Failed to deprecate node ${node.id}: ${error}`);
+        errors.push(`Failed to deprecate node ${node.id}: ${String(error)}`);
       }
     }
 
@@ -235,7 +228,7 @@ export class CheckpointService {
         await this.restoreNodeState(snapshot, checkpointId, now);
         restoredCount++;
       } catch (error) {
-        errors.push(`Failed to restore node ${snapshot.nodeId}: ${error}`);
+        errors.push(`Failed to restore node ${snapshot.nodeId}: ${String(error)}`);
       }
     }
 
