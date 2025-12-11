@@ -263,14 +263,15 @@
 
 ## 6. MATRICE DES TRANSITIONS
 
-| De \ Vers | HUGIN | VOLVA | MIMIR | AXIOM |
-|-----------|-------|-------|-------|-------|
-| **HUGIN** | Auto | Admin | ✗ | ✗ |
-| **VOLVA** | Admin | Auto | 2xAdmin | Creator |
-| **MIMIR** | ✗ | Creator | Auto | Creator |
-| **AXIOM** | ✗ | Creator | Creator | Auto |
+| De \ Vers | HUGIN | VOLVA   | MIMIR   | AXIOM   |
+| --------- | ----- | ------- | ------- | ------- |
+| **HUGIN** | Auto  | Admin   | ✗       | ✗       |
+| **VOLVA** | Admin | Auto    | 2xAdmin | Creator |
+| **MIMIR** | ✗     | Creator | Auto    | Creator |
+| **AXIOM** | ✗     | Creator | Creator | Auto    |
 
 **Légende :**
+
 - Auto : Mise à jour interne, pas de changement de branche
 - Admin : 1 approbation ADMIN minimum
 - 2xAdmin : 2 approbations ADMIN ou 1 CREATOR
@@ -281,27 +282,27 @@
 
 ## 7. TIMEOUTS ET ESCALADES
 
-| Action en attente | Timeout | Escalade |
-|-------------------|---------|----------|
-| Approbation ADMIN | 7 jours | → CREATOR |
-| Résolution contradiction | 72h | → CREATOR + alerte |
-| Review VOLVA planifiée | 30 jours | → Rétrogradation auto |
-| Promotion MIMIR | 14 jours | → Annulation |
+| Action en attente        | Timeout  | Escalade              |
+| ------------------------ | -------- | --------------------- |
+| Approbation ADMIN        | 7 jours  | → CREATOR             |
+| Résolution contradiction | 72h      | → CREATOR + alerte    |
+| Review VOLVA planifiée   | 30 jours | → Rétrogradation auto |
+| Promotion MIMIR          | 14 jours | → Annulation          |
 
 ---
 
 ## 8. CODES D'ERREUR WORKFLOW
 
-| Code | Signification | Action |
-|------|---------------|--------|
+| Code    | Signification                   | Action                      |
+| ------- | ------------------------------- | --------------------------- |
 | `WF001` | Critères promotion non atteints | Afficher critères manquants |
-| `WF002` | Approbation insuffisante | Escalader ou attendre |
-| `WF003` | Contradiction non résolue | Bloquer promotion |
-| `WF004` | Source invalidée | Réévaluer connaissance |
-| `WF005` | Timeout dépassé | Exécuter action par défaut |
-| `WF006` | Transition interdite | Rejeter avec explication |
+| `WF002` | Approbation insuffisante        | Escalader ou attendre       |
+| `WF003` | Contradiction non résolue       | Bloquer promotion           |
+| `WF004` | Source invalidée                | Réévaluer connaissance      |
+| `WF005` | Timeout dépassé                 | Exécuter action par défaut  |
+| `WF006` | Transition interdite            | Rejeter avec explication    |
 
 ---
 
-*Document généré pour compléter VISION.md*
-*Ces workflows sont implémentables dans le code YGGDRASIL*
+_Document généré pour compléter VISION.md_
+_Ces workflows sont implémentables dans le code YGGDRASIL_

@@ -52,7 +52,7 @@ Collez les logs pertinents ici
 - [ ] THING (Consortium)
 - [ ] ODIN (Maestro)
 - [ ] MUNIN (Memoire)
-- [ ] Autre : ___
+- [ ] Autre : \_\_\_
 
 ## Impact sur les Sept Piliers
 

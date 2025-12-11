@@ -15,6 +15,7 @@
 ## Issue Liee
 
 <!-- Lien vers l'issue que cette PR resout -->
+
 Fixes #
 
 ## Comment Tester
@@ -28,21 +29,25 @@ Fixes #
 ## Checklist
 
 ### Code
+
 - [ ] Mon code suit les standards du projet
 - [ ] J'ai commente le code complexe
 - [ ] J'ai fait une self-review de mon code
 - [ ] Mes changements ne generent pas de nouveaux warnings
 
 ### Tests
+
 - [ ] J'ai ajoute des tests pour mes changements
 - [ ] Les tests existants passent toujours
 - [ ] J'ai teste manuellement mes changements
 
 ### Documentation
+
 - [ ] J'ai mis a jour la documentation si necessaire
 - [ ] J'ai mis a jour le CHANGELOG si necessaire
 
 ### Commits
+
 - [ ] Mes commits suivent le format conventionnel (`type(scope): description`)
 - [ ] Mes commits sont atomiques et logiques
 

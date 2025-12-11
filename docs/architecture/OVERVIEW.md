@@ -1,6 +1,6 @@
 # Architecture YGGDRASIL
 
-> *"Yggdrasil, le frene toujours vert, se dresse au centre de l'univers, ses branches s'etendant sur tous les mondes."*
+> _"Yggdrasil, le frene toujours vert, se dresse au centre de l'univers, ses branches s'etendant sur tous les mondes."_
 
 ## Vue d'Ensemble
 
@@ -69,6 +69,7 @@ flowchart TB
 **Inspiration :** Le dieu qui garde le Bifrost, capable de voir a cent lieues et d'entendre l'herbe pousser.
 
 **Responsabilites :**
+
 - Authentification et autorisation
 - Rate limiting et protection DDoS
 - Chiffrement TLS/mTLS
@@ -76,6 +77,7 @@ flowchart TB
 - Validation des entrees
 
 **Stack technique :**
+
 - NestJS avec Passport
 - Redis pour le rate limiting
 - PostgreSQL pour l'audit log
@@ -99,6 +101,7 @@ flowchart LR
 **Inspiration :** L'ecureuil qui court le long d'Yggdrasil, portant les messages entre les mondes.
 
 **Responsabilites :**
+
 - Classification de la requete (factuelle, creative, analytique, etc.)
 - Extraction du contexte et des intentions
 - Routage vers la/les branches appropriees
@@ -127,6 +130,7 @@ flowchart TD
 **Inspiration :** Le puits garde par Mimir ou Odin sacrifia un oeil pour une gorgee de sagesse.
 
 **Responsabilites :**
+
 - Stocker les connaissances **100% verifiees**
 - Indexation semantique des sources
 - Verification de la validite temporelle
@@ -134,13 +138,13 @@ flowchart TD
 
 **Sources integrees :**
 
-| Source | Type | Domaine |
-|--------|------|---------|
-| arXiv | Preprints | Sciences |
-| PubMed | Peer-reviewed | Medical |
-| ISO | Standards | Technique |
-| RFC | Standards | Internet |
-| Wikidata | Structured | General |
+| Source   | Type          | Domaine   |
+| -------- | ------------- | --------- |
+| arXiv    | Preprints     | Sciences  |
+| PubMed   | Peer-reviewed | Medical   |
+| ISO      | Standards     | Technique |
+| RFC      | Standards     | Internet  |
+| Wikidata | Structured    | General   |
 
 **Architecture de donnees :**
 
@@ -183,6 +187,7 @@ erDiagram
 **Inspiration :** Les prophetesses nordiques qui exploraient l'inconnu et conseillaient les dieux.
 
 **Responsabilites :**
+
 - Stocker les hypotheses et theories
 - Tracker le niveau de preuve
 - Gerer la promotion vers MIMIR
@@ -209,6 +214,7 @@ stateDiagram-v2
 **Inspiration :** Un des deux corbeaux d'Odin qui parcourt le monde pour lui rapporter ce qu'il voit.
 
 **Responsabilites :**
+
 - Interface avec le web en temps reel
 - Filtrage anti-desinformation
 - Detection de sources douteuses
@@ -233,6 +239,7 @@ flowchart LR
 **Inspiration :** L'assemblee viking ou les decisions collectives etaient prises.
 
 **Responsabilites :**
+
 - Orchestrer les modeles specialises
 - Agreger les reponses
 - Gerer le consensus
@@ -240,14 +247,14 @@ flowchart LR
 
 **Membres du conseil :**
 
-| Membre | Modele | Specialite | Poids |
-|--------|--------|------------|-------|
-| KVASIR | Claude | Raisonnement | Variable |
-| BRAGI | Grok | Creativite | Variable |
-| NORNES | DeepSeek | Calcul | Variable |
-| SAGA | Llama | Connaissance | Variable |
-| LOKI | Adversarial | Critique | Veto power |
-| TYR | Voting | Arbitrage | Final |
+| Membre | Modele      | Specialite   | Poids      |
+| ------ | ----------- | ------------ | ---------- |
+| KVASIR | Claude      | Raisonnement | Variable   |
+| BRAGI  | Grok        | Creativite   | Variable   |
+| NORNES | DeepSeek    | Calcul       | Variable   |
+| SAGA   | Llama       | Connaissance | Variable   |
+| LOKI   | Adversarial | Critique     | Veto power |
+| TYR    | Voting      | Arbitrage    | Final      |
 
 **Processus de deliberation :**
 
@@ -285,6 +292,7 @@ sequenceDiagram
 **Inspiration :** Le Pere-de-Tout, qui a sacrifie un oeil pour la sagesse et s'est pendu a Yggdrasil pour la connaissance.
 
 **Responsabilites :**
+
 - Validation finale de chaque affirmation
 - Ancrage obligatoire a MIMIR
 - Verification de coherence avec MUNIN
@@ -308,7 +316,7 @@ flowchart TD
     REJ1 & REJ2 & REJ3 & REJ4 --> EXPLAIN[Rejet + Raison + Alternatives]
 ```
 
-**Regle d'or :** *"Je ne valide que ce que je peux prouver."*
+**Regle d'or :** _"Je ne valide que ce que je peux prouver."_
 
 ---
 
@@ -317,6 +325,7 @@ flowchart TD
 **Inspiration :** Le corbeau de la memoire, celui qu'Odin craignait de perdre plus que Hugin.
 
 **Responsabilites :**
+
 - Memoire chrono-semantique persistante
 - Graphe de dependances entre decisions
 - Systeme de checkpoints
@@ -363,6 +372,7 @@ erDiagram
 ```
 
 **Triple indexation :**
+
 - **Temporelle** : Quand ?
 - **Semantique** : A propos de quoi ? (PGVector)
 - **Causale** : A cause de quoi ?
@@ -423,6 +433,7 @@ sequenceDiagram
 ## Stack Technique
 
 ### Backend
+
 - **Framework** : NestJS (TypeScript)
 - **Base de donnees** : PostgreSQL + PGVector
 - **Cache** : Redis
@@ -430,18 +441,21 @@ sequenceDiagram
 - **ORM** : Prisma
 
 ### Infrastructure
+
 - **Conteneurs** : Docker
 - **Orchestration** : Kubernetes (optionnel)
 - **IaC** : Terraform
 - **CI/CD** : GitHub Actions
 
 ### Modeles IA
+
 - **Claude** : Via API Anthropic
 - **Llama** : Via Ollama (local) ou API
 - **DeepSeek** : Via API
 - **Grok** : Via API xAI
 
 ### Observabilite
+
 - **Logs** : Structured JSON (Pino)
 - **Metrics** : Prometheus
 - **Traces** : OpenTelemetry
@@ -452,16 +466,19 @@ sequenceDiagram
 ## Securite
 
 ### Chiffrement
+
 - TLS 1.3 pour toutes les communications
 - mTLS entre services internes
 - Chiffrement at-rest pour les donnees sensibles
 
 ### Authentification
+
 - JWT avec refresh tokens
 - Support OAuth2/OIDC
 - Rate limiting par utilisateur et IP
 
 ### Audit
+
 - Logging immutable de toutes les requetes
 - Tracabilite complete des decisions
 - Retention configurable
@@ -480,6 +497,6 @@ sequenceDiagram
 
 <div align="center">
 
-*"L'architecture est le squelette. Les principes sont l'ame."*
+_"L'architecture est le squelette. Les principes sont l'ame."_
 
 </div>

@@ -74,12 +74,12 @@ Tous les signalements seront traites avec confidentialite.
 
 Les maintainers peuvent prendre les actions suivantes :
 
-| Niveau | Action | Exemples |
-|--------|--------|----------|
-| 1 | **Avertissement prive** | Premier incident mineur |
-| 2 | **Avertissement public** | Incident recurrent ou modere |
-| 3 | **Suspension temporaire** | Incident grave |
-| 4 | **Exclusion permanente** | Incidents repetes ou tres graves |
+| Niveau | Action                    | Exemples                         |
+| ------ | ------------------------- | -------------------------------- |
+| 1      | **Avertissement prive**   | Premier incident mineur          |
+| 2      | **Avertissement public**  | Incident recurrent ou modere     |
+| 3      | **Suspension temporaire** | Incident grave                   |
+| 4      | **Exclusion permanente**  | Incidents repetes ou tres graves |
 
 ## Portee
 
@@ -105,6 +105,6 @@ Ce code de conduite est adapte du [Contributor Covenant](https://www.contributor
 
 <div align="center">
 
-*"Une communaute qui respecte ses membres peut construire quelque chose qui respecte l'humanite."*
+_"Une communaute qui respecte ses membres peut construire quelque chose qui respecte l'humanite."_
 
 </div>

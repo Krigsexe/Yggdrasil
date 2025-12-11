@@ -27,16 +27,16 @@ En participant a ce projet, vous acceptez de respecter notre [Code de Conduite](
 
 ### 1. Trouvez votre voie
 
-| Vous etes... | Vous pouvez... |
-|--------------|----------------|
-| **Developpeur** | Coder, reviewer, architecturer |
-| **Chercheur IA** | Proposer des algorithmes, valider des approches |
-| **Scientifique** | Alimenter MIMIR, verifier des sources |
-| **Ethicien/Juriste** | Guider la gouvernance, les limites |
-| **Designer** | Ameliorer l'UX, la documentation |
-| **Traducteur** | Internationaliser le projet |
-| **Testeur** | QA, red team, tests adversariaux |
-| **Communicant** | Documenter, expliquer, evangeliser |
+| Vous etes...         | Vous pouvez...                                  |
+| -------------------- | ----------------------------------------------- |
+| **Developpeur**      | Coder, reviewer, architecturer                  |
+| **Chercheur IA**     | Proposer des algorithmes, valider des approches |
+| **Scientifique**     | Alimenter MIMIR, verifier des sources           |
+| **Ethicien/Juriste** | Guider la gouvernance, les limites              |
+| **Designer**         | Ameliorer l'UX, la documentation                |
+| **Traducteur**       | Internationaliser le projet                     |
+| **Testeur**          | QA, red team, tests adversariaux                |
+| **Communicant**      | Documenter, expliquer, evangeliser              |
 
 ### 2. Premiers pas
 
@@ -177,10 +177,7 @@ interface ValidationResult {
   trace: DecisionTrace;
 }
 
-async function validateClaim(
-  claim: string,
-  context: QueryContext
-): Promise<ValidationResult> {
+async function validateClaim(claim: string, context: QueryContext): Promise<ValidationResult> {
   // Implementation
 }
 
@@ -233,6 +230,7 @@ Refs: #123
 ```
 
 **Types :**
+
 - `feat` — Nouvelle fonctionnalite
 - `fix` — Correction de bug
 - `docs` — Documentation
@@ -267,18 +265,22 @@ Votre PR doit :
 
 ```markdown
 ## Description
+
 Qu'est-ce que cette PR fait ?
 
 ## Motivation
+
 Pourquoi ce changement ?
 
 ## Type de changement
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
 - [ ] Documentation
 
 ## Checklist
+
 - [ ] J'ai lu le CONTRIBUTING.md
 - [ ] Mon code suit les standards du projet
 - [ ] J'ai ajoute des tests
@@ -286,6 +288,7 @@ Pourquoi ce changement ?
 - [ ] Mes commits suivent le format conventionnel
 
 ## Issue liee
+
 Fixes #(numero)
 ```
 
@@ -308,6 +311,7 @@ Fixes #(numero)
 - Approuvez quand c'est pret, meme si ce n'est pas "parfait"
 
 **Legende des commentaires :**
+
 - `[BLOCKER]` — Doit etre corrige avant merge
 - `[SUGGESTION]` — Amelioration optionnelle
 - `[QUESTION]` — Demande de clarification
@@ -326,11 +330,11 @@ Tous les contributeurs sont reconnus :
 
 ### Niveaux de contribution
 
-| Niveau | Criteres |
-|--------|----------|
-| **Pousse** | Premiere contribution acceptee |
-| **Branche** | 5+ contributions significatives |
-| **Tronc** | Contributeur regulier, reviewer |
+| Niveau      | Criteres                              |
+| ----------- | ------------------------------------- |
+| **Pousse**  | Premiere contribution acceptee        |
+| **Branche** | 5+ contributions significatives       |
+| **Tronc**   | Contributeur regulier, reviewer       |
 | **Gardien** | Maintainer, decisions architecturales |
 
 ---
@@ -347,6 +351,6 @@ Tous les contributeurs sont reconnus :
 
 **Merci de contribuer a YGGDRASIL !**
 
-*L'Arbre grandit avec ceux qui le nourrissent.*
+_L'Arbre grandit avec ceux qui le nourrissent._
 
 </div>

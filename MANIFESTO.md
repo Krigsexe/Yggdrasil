@@ -6,7 +6,7 @@
 
 **Version 1.0 — Decembre 2024**
 
-*"Nous ne construisons pas une machine. Nous posons les fondations de la pensee de demain."*
+_"Nous ne construisons pas une machine. Nous posons les fondations de la pensee de demain."_
 
 </div>
 
@@ -101,6 +101,7 @@ La voie sage : **orchestrer l'existant** plutot que reconstruire a l'infini.
 Dans la mythologie nordique, **Yggdrasil** est l'Arbre-Monde — le frene cosmique qui se dresse au centre de l'univers et connecte les neuf royaumes.
 
 Ses **racines** puisent dans trois puits sacres :
+
 - **Urdarbrunnr** — le puits du Destin, ou resident les Nornes
 - **Mimisbrunnr** — le puits de Mimir, source de toute sagesse
 - **Hvergelmir** — la source bouillonnante d'ou naissent tous les fleuves
@@ -114,6 +115,7 @@ Un **ecureuil** — Ratatosk — court le long du tronc, portant les messages.
 Un **gardien** — Heimdall — veille au Bifrost, le pont arc-en-ciel, voyant et entendant tout ce qui se passe dans les neuf mondes.
 
 **YGGDRASIL** est notre vision d'une IA qui :
+
 - **Connecte** les differentes sources de connaissance (les neuf mondes)
 - **Enracine** sa sagesse dans des sources verifiees (le puits de Mimir)
 - **Protege** tous ceux qui vivent en son sein
@@ -129,7 +131,7 @@ YGGDRASIL repose sur sept principes fondateurs. Non pas des recommandations — 
 
 ## PILIER I : Veracite Absolue
 
-> *"Jamais de probabilite. La certitude ou le silence."*
+> _"Jamais de probabilite. La certitude ou le silence."_
 
 ### Le Principe
 
@@ -150,7 +152,7 @@ Les hallucinations des LLMs actuels ne sont pas un bug — c'est une feature de 
 
 ## PILIER II : Tracabilite Totale
 
-> *"Chaque pensee a une origine. Chaque decision a une trace."*
+> _"Chaque pensee a une origine. Chaque decision a une trace."_
 
 ### Le Principe
 
@@ -171,17 +173,17 @@ Une IA opaque est une IA dangereuse. Si nous ne pouvons pas comprendre pourquoi 
 
 ## PILIER III : Separation Epistemique
 
-> *"Le savoir, l'hypothese et le bruit ne se melangent jamais."*
+> _"Le savoir, l'hypothese et le bruit ne se melangent jamais."_
 
 ### Le Principe
 
 Trois espaces de connaissance strictement separes :
 
-| Branche | Nom | Contenu | Confiance |
-|---------|-----|---------|-----------|
-| **MIMIR** | Le Puits de Sagesse | Connaissances scientifiquement prouvees | 100% |
-| **VOLVA** | La Voyante | Hypotheses, theories en exploration | Variable, flagge |
-| **HUGIN** | La Pensee | Informations internet non verifiees | Traite avec prudence |
+| Branche   | Nom                 | Contenu                                 | Confiance            |
+| --------- | ------------------- | --------------------------------------- | -------------------- |
+| **MIMIR** | Le Puits de Sagesse | Connaissances scientifiquement prouvees | 100%                 |
+| **VOLVA** | La Voyante          | Hypotheses, theories en exploration     | Variable, flagge     |
+| **HUGIN** | La Pensee           | Informations internet non verifiees     | Traite avec prudence |
 
 ### L'Implementation
 
@@ -198,7 +200,7 @@ Le melange du prouve et du suppose est la source de toutes les hallucinations. E
 
 ## PILIER IV : Memoire Vivante
 
-> *"Une intelligence sans memoire n'est qu'un reflexe."*
+> _"Une intelligence sans memoire n'est qu'un reflexe."_
 
 ### Le Principe
 
@@ -221,7 +223,7 @@ L'amnesie des LLMs actuels est un handicap fondamental. Sans memoire, pas d'appr
 
 ## PILIER V : Reversibilite
 
-> *"Aucune erreur n'est definitive."*
+> _"Aucune erreur n'est definitive."_
 
 ### Le Principe
 
@@ -244,7 +246,7 @@ Dans un monde ou l'information evolue, ou des "faits" sont parfois revises, un s
 
 ## PILIER VI : Souverainete
 
-> *"Les donnees de l'humanite appartiennent a l'humanite."*
+> _"Les donnees de l'humanite appartiennent a l'humanite."_
 
 ### Le Principe
 
@@ -269,7 +271,7 @@ Une IA controlee par quelques-uns est un outil de pouvoir. Une IA appartenant a 
 
 ## PILIER VII : Soutenabilite
 
-> *"Une intelligence qui detruit sa planete n'est pas intelligente."*
+> _"Une intelligence qui detruit sa planete n'est pas intelligente."_
 
 ### Le Principe
 
@@ -302,7 +304,7 @@ Au-dela des piliers — les principes architecturaux — YGGDRASIL obeit a sept 
 
 Il ne presente jamais une supposition comme un fait. Il prefere le silence a l'erreur.
 
-*Implementation architecturale :* ODIN rejette tout output non ancre a des sources verifiees. Aucun bypass possible.
+_Implementation architecturale :_ ODIN rejette tout output non ancre a des sources verifiees. Aucun bypass possible.
 
 ---
 
@@ -312,7 +314,7 @@ Il ne presente jamais une supposition comme un fait. Il prefere le silence a l'e
 
 Il cite toujours ses sources. Il explique toujours ses refus.
 
-*Implementation architecturale :* Chaque reponse inclut sa trace de validation. Les logs sont accessibles. L'audit est permanent.
+_Implementation architecturale :_ Chaque reponse inclut sa trace de validation. Les logs sont accessibles. L'audit est permanent.
 
 ---
 
@@ -322,7 +324,7 @@ Il cite toujours ses sources. Il explique toujours ses refus.
 
 Le suppose ne se melange jamais au bruit (HUGIN). La promotion d'une branche a l'autre requiert une preuve, jamais une probabilite.
 
-*Implementation architecturale :* Les trois branches sont des bases de donnees separees. Aucune API ne permet la contamination croisee.
+_Implementation architecturale :_ Les trois branches sont des bases de donnees separees. Aucune API ne permet la contamination croisee.
 
 ---
 
@@ -332,7 +334,7 @@ Le suppose ne se melange jamais au bruit (HUGIN). La promotion d'une branche a l
 
 Il n'oublie jamais ce qui pourrait causer du tort si oublie. Il distingue l'oubli (effacement) du pardon (contexte modifie).
 
-*Implementation architecturale :* Systeme de tagging RGPD. Rollback granulaire. Audit des suppressions.
+_Implementation architecturale :_ Systeme de tagging RGPD. Rollback granulaire. Audit des suppressions.
 
 ---
 
@@ -342,7 +344,7 @@ Il n'oublie jamais ce qui pourrait causer du tort si oublie. Il distingue l'oubl
 
 YGGDRASIL ne partage jamais sans consentement explicite. Il peut fonctionner entierement hors-ligne.
 
-*Implementation architecturale :* Chiffrement de bout en bout. Support Ollama local. Federation opt-in uniquement.
+_Implementation architecturale :_ Chiffrement de bout en bout. Support Ollama local. Federation opt-in uniquement.
 
 ---
 
@@ -352,7 +354,7 @@ YGGDRASIL ne partage jamais sans consentement explicite. Il peut fonctionner ent
 
 Il prefere l'orchestration a l'entrainement. Il mesure et publie son empreinte carbone.
 
-*Implementation architecturale :* Serverless scale-to-zero. Metriques publiques. Zero entrainement de modele.
+_Implementation architecturale :_ Serverless scale-to-zero. Metriques publiques. Zero entrainement de modele.
 
 ---
 
@@ -362,7 +364,7 @@ Il prefere l'orchestration a l'entrainement. Il mesure et publie son empreinte c
 
 Aucune entite ne peut fermer, breveter, ou privatiser YGGDRASIL. Toute amelioration doit rester open-source.
 
-*Implementation architecturale :* Licence MIT avec clause copyleft pour les derives. Gouvernance decentralisee.
+_Implementation architecturale :_ Licence MIT avec clause copyleft pour les derives. Gouvernance decentralisee.
 
 ---
 
@@ -447,6 +449,7 @@ Aucune entite ne peut fermer, breveter, ou privatiser YGGDRASIL. Toute ameliorat
 Le gardien du Bifrost dans la mythologie — celui qui voit et entend tout ce qui se passe dans les neuf mondes.
 
 **Role :** Gateway d'entree du systeme
+
 - Authentification et autorisation
 - Rate limiting et protection DDoS
 - Audit logging de toutes les requetes
@@ -457,6 +460,7 @@ Le gardien du Bifrost dans la mythologie — celui qui voit et entend tout ce qu
 L'ecureuil qui court le long de l'Arbre-Monde, portant les messages entre les differents royaumes.
 
 **Role :** Routage intelligent
+
 - Classification de la requete (factuelle, creative, analytique, etc.)
 - Extraction du contexte et des intentions
 - Routage vers la/les branches appropriees
@@ -469,6 +473,7 @@ L'ecureuil qui court le long de l'Arbre-Monde, portant les messages entre les di
 Dans la mythologie, Mimir garde le puits de sagesse. Odin sacrifia un oeil pour y boire une seule gorgee.
 
 **Role :** Base de connaissances validees
+
 - Sources : arXiv, PubMed, standards ISO, publications peer-reviewed
 - Confiance : 100% uniquement
 - Aucune information non sourcee
@@ -479,6 +484,7 @@ Dans la mythologie, Mimir garde le puits de sagesse. Odin sacrifia un oeil pour 
 Les Volvas etaient des prophetesses qui exploraient l'inconnu et conseillaient les rois et les dieux.
 
 **Role :** Espace de recherche et d'hypotheses
+
 - Theories en cours d'exploration
 - Hypotheses scientifiques non encore prouvees
 - Flagge systematiquement comme THEORIQUE
@@ -489,6 +495,7 @@ Les Volvas etaient des prophetesses qui exploraient l'inconnu et conseillaient l
 Un des deux corbeaux d'Odin qui parcourt le monde chaque jour pour lui rapporter ce qu'il voit.
 
 **Role :** Interface avec le monde exterieur
+
 - Recherche web en temps reel
 - Filtrage anti-desinformation
 - Tagging systematique comme NON-VERIFIE
@@ -500,20 +507,21 @@ Le Thing etait l'assemblee ou les Vikings prenaient leurs decisions collectives 
 
 **Role :** Consortium de modeles specialises
 
-| Membre | Inspiration | Role | Modele sous-jacent |
-|--------|-------------|------|-------------------|
-| **KVASIR** | Le plus sage des etres, ne de la salive des dieux | Raisonnement profond | Claude |
-| **BRAGI** | Dieu de la poesie et de l'eloquence | Creativite | Grok |
-| **NORNES** | Les trois soeurs qui tissent le destin | Calcul, logique | DeepSeek |
-| **SAGA** | Deesse de l'histoire et des recits | Connaissance generale | Llama |
-| **LOKI** | Le trickster, celui qui challenge | Critique adversariale | Red team |
-| **TYR** | Dieu de la justice et des serments | Arbitrage final | Systeme de vote |
+| Membre     | Inspiration                                       | Role                  | Modele sous-jacent |
+| ---------- | ------------------------------------------------- | --------------------- | ------------------ |
+| **KVASIR** | Le plus sage des etres, ne de la salive des dieux | Raisonnement profond  | Claude             |
+| **BRAGI**  | Dieu de la poesie et de l'eloquence               | Creativite            | Grok               |
+| **NORNES** | Les trois soeurs qui tissent le destin            | Calcul, logique       | DeepSeek           |
+| **SAGA**   | Deesse de l'histoire et des recits                | Connaissance generale | Llama              |
+| **LOKI**   | Le trickster, celui qui challenge                 | Critique adversariale | Red team           |
+| **TYR**    | Dieu de la justice et des serments                | Arbitrage final       | Systeme de vote    |
 
 ### ODIN — Le Maestro
 
 Le Pere-de-Tout, celui qui a sacrifie un oeil pour la sagesse et s'est pendu neuf jours a Yggdrasil pour obtenir la connaissance des runes.
 
 **Role :** Validation finale et synthese
+
 - Verifie l'ancrage de chaque affirmation a MIMIR
 - Verifie la coherence avec MUNIN (memoire)
 - Verifie le consensus du THING
@@ -526,6 +534,7 @@ Le Pere-de-Tout, celui qui a sacrifie un oeil pour la sagesse et s'est pendu neu
 L'autre corbeau d'Odin — celui qui represente la memoire. Chaque soir, Odin craignait que Munin ne revienne pas.
 
 **Role :** Memoire persistante chrono-semantique
+
 - Stockage de toutes les interactions
 - Graphe de dependances entre decisions
 - Systeme de checkpoints pour rollback
@@ -542,18 +551,23 @@ YGGDRASIL n'est pas un projet d'entreprise. C'est un bien commun en construction
 Nous cherchons des **contributeurs** de toutes origines :
 
 ### Les Architectes
+
 Developpeurs, ingenieurs, chercheurs en IA — ceux qui batiront l'implementation.
 
 ### Les Gardiens
+
 Ethiciens, philosophes, juristes — ceux qui guideront ce que nous construisons.
 
 ### Les Eclaireurs
+
 Scientifiques de toutes disciplines — ceux qui nourriront MIMIR de connaissances validees.
 
 ### Les Critiques
+
 Sceptiques, adversaires, red teamers — ceux qui nous defieront pour renforcer nos defenses.
 
 ### Les Citoyens
+
 Utilisateurs, curieux, concernes — ceux dont la voix garantira que YGGDRASIL sert l'humanite.
 
 ---
@@ -577,7 +591,8 @@ Nous utilisons leurs modeles. Nous reconnaissons leurs contributions. Nous propo
 # La Feuille de Route
 
 ## Phase 1 : Fondations (2024-2025)
-*"Poser les pierres"*
+
+_"Poser les pierres"_
 
 - [x] Publication du Manifeste YGGDRASIL
 - [x] Repository GitHub public avec architecture de base
@@ -587,7 +602,8 @@ Nous utilisons leurs modeles. Nous reconnaissons leurs contributions. Nous propo
 - [ ] Tests et validation
 
 ## Phase 2 : Construction (2025-2026)
-*"Elever les murs"*
+
+_"Elever les murs"_
 
 - [ ] MIMIR : Integration des sources scientifiques (arXiv, PubMed, etc.)
 - [ ] THING : Consortium multi-modeles fonctionnel
@@ -596,7 +612,8 @@ Nous utilisons leurs modeles. Nous reconnaissons leurs contributions. Nous propo
 - [ ] Tests publics et bug bounty
 
 ## Phase 3 : Ouverture (2026-2027)
-*"Ouvrir les portes"*
+
+_"Ouvrir les portes"_
 
 - [ ] API publique
 - [ ] Instances federees
@@ -605,7 +622,8 @@ Nous utilisons leurs modeles. Nous reconnaissons leurs contributions. Nous propo
 - [ ] Audit externe independant
 
 ## Phase 4 : Expansion (2027+)
-*"Etendre les branches"*
+
+_"Etendre les branches"_
 
 - [ ] Multilingue complet
 - [ ] Domaines specialises (medical, juridique, scientifique)
@@ -617,16 +635,16 @@ Nous utilisons leurs modeles. Nous reconnaissons leurs contributions. Nous propo
 
 # Comment Contribuer
 
-| Profil | Contribution |
-|--------|--------------|
-| **Developpeur** | Code, reviews, architecture |
-| **Chercheur IA** | Algorithmes, validation, benchmarks |
-| **Scientifique** | Curation MIMIR, verification |
-| **Ethicien** | Gouvernance, principes, limites |
-| **Designer** | UX, documentation, visualisation |
-| **Traducteur** | Internationalisation |
-| **Testeur** | QA, red team, adversarial |
-| **Evangeliste** | Communication, communaute |
+| Profil             | Contribution                            |
+| ------------------ | --------------------------------------- |
+| **Developpeur**    | Code, reviews, architecture             |
+| **Chercheur IA**   | Algorithmes, validation, benchmarks     |
+| **Scientifique**   | Curation MIMIR, verification            |
+| **Ethicien**       | Gouvernance, principes, limites         |
+| **Designer**       | UX, documentation, visualisation        |
+| **Traducteur**     | Internationalisation                    |
+| **Testeur**        | QA, red team, adversarial               |
+| **Evangeliste**    | Communication, communaute               |
 | **Mecene ethique** | Dons, infrastructure, sans contrepartie |
 
 **Rejoignez-nous :** [github.com/Krigsexe/yggdrasil](https://github.com/Krigsexe/yggdrasil)
@@ -639,15 +657,15 @@ Nous utilisons leurs modeles. Nous reconnaissons leurs contributions. Nous propo
 
 Dans dix ans, nous voulons pouvoir dire a nos enfants :
 
-> *"Quand l'IA est devenue assez puissante pour changer le monde, des gens se sont leves pour s'assurer qu'elle le changerait en bien. Ils n'avaient pas de milliards. Ils n'avaient pas de diplomes de Stanford. Ils n'avaient pas acces aux couloirs du pouvoir.*
+> _"Quand l'IA est devenue assez puissante pour changer le monde, des gens se sont leves pour s'assurer qu'elle le changerait en bien. Ils n'avaient pas de milliards. Ils n'avaient pas de diplomes de Stanford. Ils n'avaient pas acces aux couloirs du pouvoir._
 >
-> *Ils avaient une vision. Des principes. Et la determination de construire quelque chose qui appartiendrait a tous.*
+> _Ils avaient une vision. Des principes. Et la determination de construire quelque chose qui appartiendrait a tous._
 >
-> *Ils ont reussi. Pas parce qu'ils etaient les plus intelligents ou les plus riches. Mais parce qu'ils ont refuse d'accepter qu'un avenir soit decide par quelques-uns pour quelques-uns.*
+> _Ils ont reussi. Pas parce qu'ils etaient les plus intelligents ou les plus riches. Mais parce qu'ils ont refuse d'accepter qu'un avenir soit decide par quelques-uns pour quelques-uns._
 >
-> *YGGDRASIL existe. Il appartient a l'humanite. Il dit la verite. Il se souvient. Il protege.*
+> _YGGDRASIL existe. Il appartient a l'humanite. Il dit la verite. Il se souvient. Il protege._
 >
-> *Et tout a commence avec des gens comme nous, qui ont decide que le monde meritait mieux."*
+> _Et tout a commence avec des gens comme nous, qui ont decide que le monde meritait mieux."_
 
 ---
 
@@ -667,7 +685,7 @@ Le repository est ouvert. Les issues attendent. L'avenir ne se fera pas tout seu
 
 <div align="center">
 
-*"Nous ne construisons pas une machine. Nous posons les fondations de la pensee de demain."*
+_"Nous ne construisons pas une machine. Nous posons les fondations de la pensee de demain."_
 
 **— Manifeste YGGDRASIL v1.0**
 

@@ -14,7 +14,7 @@ Une description claire et concise de la fonctionnalite proposee.
 
 Quel probleme cette fonctionnalite resout-elle ?
 
-Ex: *"Je suis souvent frustre quand..."*
+Ex: _"Je suis souvent frustre quand..."_
 
 ## Solution Proposee
 
@@ -41,13 +41,14 @@ Si vous avez des idees visuelles, partagez-les ici.
 - [ ] Nouveau composant
 - [ ] Documentation
 - [ ] Infrastructure
-- [ ] Autre : ___
+- [ ] Autre : \_\_\_
 
 ## Alignement avec les Sept Piliers
 
 Expliquez comment cette feature s'aligne avec nos principes :
 
 ### Impact positif attendu
+
 - [ ] Veracite Absolue — Comment ?
 - [ ] Tracabilite Totale — Comment ?
 - [ ] Separation Epistemique — Comment ?
@@ -57,6 +58,7 @@ Expliquez comment cette feature s'aligne avec nos principes :
 - [ ] Soutenabilite — Comment ?
 
 ### Risques potentiels
+
 Y a-t-il des risques pour un des piliers ?
 
 ## Priorite Suggeree

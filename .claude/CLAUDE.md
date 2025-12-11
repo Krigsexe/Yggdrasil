@@ -13,6 +13,7 @@
 **Question fondatrice** : Une "societe de modeles specialises" avec separation epistemique stricte et memoire chrono-semantique peut-elle completer les approches comme JEPA (LeCun) pour une transition vers l'AGI ?
 
 **Gap identifie** : Aucun systeme existant ne combine :
+
 - Separation stricte prouve/probable/bruit
 - Refus de repondre si non verifiable
 - Memoire structuree et reversible
@@ -22,29 +23,29 @@
 
 ## LES 7 PILIERS
 
-| # | Pilier | Implementation |
-|---|--------|----------------|
-| 1 | **Veracite Absolue** | Source MIMIR ou REJET |
-| 2 | **Tracabilite Totale** | `ValidationTrace` sur chaque reponse |
-| 3 | **Separation Epistemique** | MIMIR/VOLVA/HUGIN strictement separes |
-| 4 | **Memoire Vivante** | Triple indexation : temporelle + semantique + causale |
-| 5 | **Reversibilite** | Checkpoints, rollback automatique |
-| 6 | **Souverainete** | MIT + copyleft, multi-provider |
-| 7 | **Soutenabilite** | Zero entrainement, serverless |
+| #   | Pilier                     | Implementation                                        |
+| --- | -------------------------- | ----------------------------------------------------- |
+| 1   | **Veracite Absolue**       | Source MIMIR ou REJET                                 |
+| 2   | **Tracabilite Totale**     | `ValidationTrace` sur chaque reponse                  |
+| 3   | **Separation Epistemique** | MIMIR/VOLVA/HUGIN strictement separes                 |
+| 4   | **Memoire Vivante**        | Triple indexation : temporelle + semantique + causale |
+| 5   | **Reversibilite**          | Checkpoints, rollback automatique                     |
+| 6   | **Souverainete**           | MIT + copyleft, multi-provider                        |
+| 7   | **Soutenabilite**          | Zero entrainement, serverless                         |
 
 ---
 
 ## LES 7 LOIS
 
-| Loi | Enonce |
-|-----|--------|
-| I | YGGDRASIL ne ment jamais |
-| II | Toujours montrer le raisonnement |
-| III | Prouve != Suppose != Bruit |
-| IV | Droit a l'oubli selectif |
-| V | Donnees appartiennent au createur |
-| VI | Consommer que le necessaire |
-| VII | Code appartient a l'humanite |
+| Loi | Enonce                            |
+| --- | --------------------------------- |
+| I   | YGGDRASIL ne ment jamais          |
+| II  | Toujours montrer le raisonnement  |
+| III | Prouve != Suppose != Bruit        |
+| IV  | Droit a l'oubli selectif          |
+| V   | Donnees appartiennent au createur |
+| VI  | Consommer que le necessaire       |
+| VII | Code appartient a l'humanite      |
 
 ---
 
@@ -63,27 +64,27 @@ UTILISATEUR
 
 ### Composants
 
-| Module | Role |
-|--------|------|
-| **HEIMDALL** | Gateway, auth, audit |
-| **RATATOSK** | Classification, routage |
-| **MIMIR** | Connaissances verifiees (100%) |
-| **VOLVA** | Hypotheses flaggees (50-99%) |
-| **HUGIN** | Web non-verifie (0-49%) |
-| **THING** | Conseil multi-LLMs |
-| **ODIN** | Validation, ancrage |
-| **MUNIN** | Memoire chrono-semantique |
+| Module       | Role                           |
+| ------------ | ------------------------------ |
+| **HEIMDALL** | Gateway, auth, audit           |
+| **RATATOSK** | Classification, routage        |
+| **MIMIR**    | Connaissances verifiees (100%) |
+| **VOLVA**    | Hypotheses flaggees (50-99%)   |
+| **HUGIN**    | Web non-verifie (0-49%)        |
+| **THING**    | Conseil multi-LLMs             |
+| **ODIN**     | Validation, ancrage            |
+| **MUNIN**    | Memoire chrono-semantique      |
 
 ### Conseil THING
 
-| Membre | LLM | Role |
-|--------|-----|------|
-| KVASIR | Claude | Raisonnement |
-| BRAGI | Grok | Creativite |
-| NORNES | DeepSeek | Calcul |
-| SAGA | Llama | Connaissance |
-| LOKI | Red team | Critique |
-| TYR | Voting | Arbitrage |
+| Membre | LLM      | Role         |
+| ------ | -------- | ------------ |
+| KVASIR | Claude   | Raisonnement |
+| BRAGI  | Grok     | Creativite   |
+| NORNES | DeepSeek | Calcul       |
+| SAGA   | Llama    | Connaissance |
+| LOKI   | Red team | Critique     |
+| TYR    | Voting   | Arbitrage    |
 
 ### Separation Epistemique
 
@@ -92,6 +93,7 @@ MIMIR (100%)     VOLVA (50-99%)    HUGIN (0-49%)
 VERIFIED         THEORY            UNVERIFIED
 arXiv, PubMed    Preprints         Web, News
 ```
+
 **AUCUNE CONTAMINATION** - Promotion uniquement sur PREUVE
 
 ---
@@ -129,16 +131,19 @@ packages/
 ## STANDARDS
 
 ### TypeScript
+
 - Types explicites, jamais `any`
 - Strict mode, null checks explicites
 
 ### Commits
+
 ```
 type(scope): description
 Types: feat, fix, docs, style, refactor, test, chore
 ```
 
 ### Securite
+
 - Jamais de secrets en dur
 - Validation entrees (Zod + class-validator)
 - Rate limiting + audit logging
@@ -169,7 +174,7 @@ pnpm lint             # Linting
 
 ## PHILOSOPHIE
 
-> *"Je ne valide que ce que je peux prouver."* — ODIN
+> _"Je ne valide que ce que je peux prouver."_ — ODIN
 
 Le code sert la vision. Un medecin, un etudiant, un enfant fera confiance aux reponses.
 L'humanite merite une IA qui ne ment pas.
