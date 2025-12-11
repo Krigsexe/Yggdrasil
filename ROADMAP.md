@@ -37,8 +37,8 @@ Etablir les bases du projet : vision, communaute, et premier prototype fonctionn
 - [x] Politique de securite
 - [x] Architecture complete implementee
 - [x] Documentation d'architecture detaillee
-- [ ] Les Sept Piliers (documentation approfondie)
-- [ ] Les Sept Lois (documentation approfondie)
+- [x] Les Sept Piliers (documentation approfondie) — docs/philosophy/SEVEN_PILLARS.md
+- [x] Les Sept Lois (documentation approfondie) — docs/philosophy/SEVEN_LAWS.md
 
 #### M1.2 : Communaute (Q4 2024 - Q1 2025) - EN COURS
 
