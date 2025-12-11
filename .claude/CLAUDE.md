@@ -4,6 +4,30 @@
 
 ---
 
+## SYSTÈME AUTONOME
+
+**Référence complète** : `docs/AUTONOMOUS_SYSTEM.md`
+
+### Résumé
+- Auto-pilotage : `.\scripts\yggdrasil-autopilot.ps1 -Mode full-cycle`
+- Concertation : ODIN consulte Claude si confiance < 70%
+- Sources : Officielles uniquement (whitelist dans `config/verified-sources.json`)
+- Docker MCP : `.\scripts\mcp-docker.ps1 -Action status`
+
+### Services Locaux
+| Service | Port |
+|---------|------|
+| Heimdall | 3000 |
+| Bifrost | 3001 |
+| PostgreSQL | 54322 |
+| Redis | 6379 |
+
+### Règle
+Claude + YGGDRASIL peuvent se concerter pour diagnostic et validation.
+ODIN escalade vers Claude en cas de doute. Claude valide contre CLAUDE.md + VISION.md.
+
+---
+
 ## CONTEXTE
 
 **Fondateur** : Julien Gelee (@Krigsexe), fondateur d'Alixia (SaaS suisse, marketing digital)
