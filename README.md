@@ -207,6 +207,43 @@ Ouvrir [http://localhost:3001](http://localhost:3001) dans votre navigateur.
 
 ---
 
+## Demarrage Rapide (Docker)
+
+La methode la plus simple pour demarrer YGGDRASIL :
+
+### Linux / macOS
+
+```bash
+git clone https://github.com/Krigsexe/yggdrasil.git
+cd yggdrasil
+./start.sh
+```
+
+### Windows (PowerShell)
+
+```powershell
+git clone https://github.com/Krigsexe/yggdrasil.git
+cd yggdrasil
+.\start.ps1
+```
+
+Ces scripts vont :
+1. Verifier Docker et Supabase
+2. Construire les images Docker (5-10 min la premiere fois)
+3. Demarrer tous les services (Heimdall, Bifrost, Redis)
+4. Ouvrir automatiquement http://localhost:3001
+
+### Services Docker
+
+| Service | Port | Description |
+|---------|------|-------------|
+| **Bifrost** | 3001 | Interface Web |
+| **Heimdall** | 3000 | API Gateway |
+| **Redis** | 6379 | Cache et sessions |
+| **PostgreSQL** | 54322 | Base de donnees (Supabase) |
+
+---
+
 ## Installation One-Click (Scripts)
 
 ### Linux / macOS
@@ -296,6 +333,38 @@ docker compose logs -f                      # Voir les logs
 
 ---
 
+## Daemon Cognitif (Ollama)
+
+YGGDRASIL inclut un daemon local pour le traitement autonome utilisant Ollama :
+
+### Configuration
+
+Ajouter dans `.env` :
+
+```env
+OLLAMA_URL=http://localhost:11434
+OLLAMA_MODEL=qwen2.5-coder:1.5b
+DAEMON_ENABLED=true
+DAEMON_SUPERADMIN_EMAIL=votre@email.com
+```
+
+### Installation Ollama
+
+```bash
+# Windows (winget)
+winget install Ollama.Ollama
+
+# Linux
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Telecharger le modele
+ollama pull qwen2.5-coder:1.5b
+```
+
+Le daemon est controlable depuis l'interface Admin ([http://localhost:3001/admin](http://localhost:3001/admin)).
+
+---
+
 ## Structure du Projet
 
 ```
@@ -312,7 +381,10 @@ yggdrasil/
 │   ├── bifrost/           # Frontend Chat (Next.js)
 │   └── shared/            # Types partages
 ├── prisma/                # Schema base de donnees
+├── docker/                # Dockerfiles
+├── scripts/               # Scripts d'installation
 ├── docker-compose.yml     # Services Docker
+├── start.sh / start.ps1   # Scripts de demarrage rapide
 ├── .env.example           # Template configuration
 └── CLAUDE.md              # Guide developpeur
 ```

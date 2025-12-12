@@ -32,8 +32,10 @@ async function bootstrap(): Promise<void> {
     })
   );
 
-  // CORS configuration
-  const allowedOrigins = process.env['CORS_ORIGINS']?.split(',') ?? ['http://localhost:3000'];
+  // CORS configuration - allow Bifrost (3001) and Heimdall (3000)
+  const defaultOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+  const envOrigins = process.env['CORS_ORIGINS']?.split(',').filter(Boolean) ?? [];
+  const allowedOrigins = [...new Set([...defaultOrigins, ...envOrigins])];
   app.enableCors({
     origin: allowedOrigins,
     credentials: true,

@@ -20,14 +20,20 @@ import {
   IconRefresh,
   IconAlertTriangle,
   IconCheck,
-  IconClock
+  IconClock,
+  IconLogin,
+  IconLogout,
+  IconUser
 } from "@tabler/icons-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { usePipelineHealth, useMuninMemory } from "@/lib/yggdrasil/hooks"
 import { MuninGraph, MuninStats, DaemonControl } from "@/components/yggdrasil"
 import { useContext } from "react"
 import { BifrostContext } from "@/context/context"
+import { createClient } from "@/lib/supabase/client"
+import { useRouter } from "next/navigation"
+import type { User, Session } from "@supabase/supabase-js"
 
 // Bifrost Components
 import { Button } from "@/components/ui/button"
@@ -170,9 +176,42 @@ export default function AdminDashboard() {
     refresh: refreshGraph
   } = useMuninMemory(userId, { limit: 100 })
 
-  // Get user context for daemon control
-  const { profile } = useContext(BifrostContext)
-  const userEmail = profile?.user_id // This would be the actual email in production
+  // Auth state
+  const [session, setSession] = useState<Session | null>(null)
+  const [authLoading, setAuthLoading] = useState(true)
+  const router = useRouter()
+  const supabase = createClient()
+
+  useEffect(() => {
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+      setAuthLoading(false)
+    })
+
+    // Listen for auth changes
+    const {
+      data: { subscription }
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [supabase.auth])
+
+  const handleLogin = () => {
+    router.push("/login")
+  }
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+    setSession(null)
+  }
+
+  // User info for daemon control
+  const user = session?.user
+  const userEmail = user?.email
+  const userToken = session?.access_token
 
   return (
     <div className="min-h-screen bg-background">
@@ -205,6 +244,7 @@ export default function AdminDashboard() {
                 }}
                 disabled={loading}
                 size="sm"
+                variant="outline"
               >
                 <IconRefresh
                   size={16}
@@ -212,6 +252,26 @@ export default function AdminDashboard() {
                 />
                 Refresh
               </Button>
+              {/* Auth buttons */}
+              {authLoading ? (
+                <Skeleton className="h-9 w-24" />
+              ) : user ? (
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" className="gap-1 py-1">
+                    <IconUser size={14} />
+                    {user.email}
+                  </Badge>
+                  <Button onClick={handleLogout} size="sm" variant="ghost">
+                    <IconLogout size={16} className="mr-1" />
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Button onClick={handleLogin} size="sm">
+                  <IconLogin size={16} className="mr-1" />
+                  Login
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -293,7 +353,7 @@ export default function AdminDashboard() {
         {/* Cognitive Daemon */}
         <div>
           <h2 className="text-lg font-semibold mb-4">Daemon Cognitif</h2>
-          <DaemonControl userEmail={userEmail} />
+          <DaemonControl userEmail={userEmail} userToken={userToken} />
         </div>
 
         <Separator />

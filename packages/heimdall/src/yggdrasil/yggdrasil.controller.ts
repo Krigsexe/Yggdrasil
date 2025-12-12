@@ -213,14 +213,26 @@ export class YggdrasilController {
   /**
    * Health check for the YGGDRASIL pipeline
    *
-   * POST /yggdrasil/health
+   * GET /yggdrasil/health (preferred)
+   * POST /yggdrasil/health (legacy)
    */
+  @Get('health')
+  @HttpCode(HttpStatus.OK)
+  healthGet(): { status: string; components: Record<string, string>; timestamp: string } {
+    return this.getHealthResponse();
+  }
+
   @Post('health')
   @HttpCode(HttpStatus.OK)
-  health(): { status: string; components: Record<string, string> } {
+  healthPost(): { status: string; components: Record<string, string>; timestamp: string } {
+    return this.getHealthResponse();
+  }
+
+  private getHealthResponse(): { status: string; components: Record<string, string>; timestamp: string } {
     return {
       status: 'healthy',
       components: {
+        heimdall: 'ok',
         ratatosk: 'ok',
         mimir: 'ok',
         volva: 'ok',
@@ -229,6 +241,7 @@ export class YggdrasilController {
         odin: 'ok',
         munin: 'ok',
       },
+      timestamp: new Date().toISOString(),
     };
   }
 

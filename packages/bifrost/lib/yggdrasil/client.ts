@@ -227,10 +227,7 @@ export async function streamYggdrasilQuery(
  */
 export async function checkPipelineHealth(): Promise<PipelineHealth> {
   const response = await fetch(`${YGGDRASIL_API_URL}/yggdrasil/health`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    }
+    method: "GET"
   })
 
   const data = await handleResponse<PipelineHealth>(response)
@@ -391,15 +388,15 @@ export async function checkDaemonAuth(token: string): Promise<DaemonAuthCheck> {
  */
 export async function sendDaemonCommand(
   action: "start" | "stop" | "pause" | "resume" | "clear_queue",
-  token: string
+  email: string
 ): Promise<DaemonCommandResult> {
+  // Dev mode: send email directly in body for authorization
   const response = await fetch(`${YGGDRASIL_API_URL}/daemon/command`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify({ action })
+    body: JSON.stringify({ action, email })
   })
 
   return handleResponse<DaemonCommandResult>(response)

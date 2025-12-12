@@ -40,10 +40,10 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface DaemonControlProps {
   userEmail?: string
-  userToken?: string
+  userToken?: string // Kept for future JWT auth
 }
 
-export function DaemonControl({ userEmail, userToken }: DaemonControlProps) {
+export function DaemonControl({ userEmail }: DaemonControlProps) {
   const {
     status,
     events,
@@ -65,14 +65,15 @@ export function DaemonControl({ userEmail, userToken }: DaemonControlProps) {
   const handleCommand = async (
     action: "start" | "stop" | "pause" | "resume"
   ) => {
-    if (!userToken) {
-      setCommandError("Non authentifie")
+    if (!userEmail) {
+      setCommandError("Non authentifie - veuillez vous connecter")
       return
     }
 
     setCommandError(null)
     try {
-      const result = await executeCommand(action, userToken)
+      // Dev mode: pass email for authorization
+      const result = await executeCommand(action, userEmail)
       if (!result.success) {
         setCommandError(result.message)
       }

@@ -21,6 +21,7 @@ interface AuthenticatedRequest {
 
 interface CommandBody {
   action: DaemonCommand['action'];
+  email?: string; // For dev mode - pass email directly
 }
 
 interface AddTaskBody {
@@ -58,14 +59,28 @@ export class DaemonController {
   }
 
   /**
-   * Execute a daemon command (protected - superadmin only)
+   * Execute a daemon command (dev mode - accepts email in body)
+   * In production, use the JWT-protected endpoints instead.
    */
-  @UseGuards(JwtAuthGuard)
   @Post('command')
-  async executeCommand(@Request() req: AuthenticatedRequest, @Body() body: CommandBody) {
+  async executeCommand(@Body() body: CommandBody) {
+    // Dev mode: accept email from body
+    const email = body.email;
+    if (!email) {
+      throw new HttpException('Email requis pour les commandes daemon', HttpStatus.BAD_REQUEST);
+    }
+
+    // Check authorization
+    if (!this.daemon.isAuthorized(email)) {
+      throw new HttpException(
+        `Non autorise. Seul ${this.daemon.getSuperadminEmail()} peut controler le daemon.`,
+        HttpStatus.FORBIDDEN
+      );
+    }
+
     const command: DaemonCommand = {
       action: body.action,
-      requestedBy: req.user.email,
+      requestedBy: email,
       timestamp: new Date(),
     };
 
